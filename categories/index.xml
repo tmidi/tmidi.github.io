@@ -10,5 +10,32 @@
 	<atom:link href="http://tmidi.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
+    <item>
+      <title>Logrotate</title>
+      <link>http://tmidi.github.io/categories/logrotate/</link>
+      <pubDate>Tue, 12 Sep 2017 22:47:18 -0400</pubDate>
+      
+      <guid>http://tmidi.github.io/categories/logrotate/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>OSSEC</title>
+      <link>http://tmidi.github.io/categories/ossec/</link>
+      <pubDate>Tue, 12 Sep 2017 22:47:18 -0400</pubDate>
+      
+      <guid>http://tmidi.github.io/categories/ossec/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SELinux</title>
+      <link>http://tmidi.github.io/categories/selinux/</link>
+      <pubDate>Tue, 12 Sep 2017 22:47:18 -0400</pubDate>
+      
+      <guid>http://tmidi.github.io/categories/selinux/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>

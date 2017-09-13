@@ -3,12 +3,42 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://tmidi.github.io/post/first-post/</loc>
+    <lastmod>2017-09-12T22:47:18-04:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://tmidi.github.io/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
+    <loc>http://tmidi.github.io/categories/logrotate/</loc>
+    <lastmod>2017-09-12T22:47:18-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://tmidi.github.io/categories/ossec/</loc>
+    <lastmod>2017-09-12T22:47:18-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://tmidi.github.io/post/</loc>
+    <lastmod>2017-09-12T22:47:18-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://tmidi.github.io/categories/selinux/</loc>
+    <lastmod>2017-09-12T22:47:18-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://tmidi.github.io/</loc>
+    <lastmod>2017-09-12T22:47:18-04:00</lastmod>
     <priority>0</priority>
   </url>
   
