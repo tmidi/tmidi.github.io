@@ -1,3 +1,70 @@
-baseURL = "http://example.org/"
-languageCode = "en-us"
-title = "My New Hugo Site"
+baseURL = "http://tmidi.github.io"
+title = "T. Midi"
+copyright = "© All rights reserved."
+
+theme = "minimo"
+
+disqusShortname = ""
+googleAnalytics = ""
+Paginate = 5
+
+preserveTaxonomyNames = true
+
+[params]
+  description = "T. Midi static site"
+  dateFormat = "2006, Jan 2"
+  copyrightOwner = "T.Midi"
+  copyrightStartYear = "2017"
+  favicon = "favicon.ico"
+  hideEntryNavigation = false
+  customCSS = ["css/prism.css"]
+  customJS = ["js/prism.js"]
+  hideSocialMenu = false
+  showReadTime = true
+
+[params.seo]
+  # Title Separator: - – — · • * ⋆ | ~ « » < >
+  titleSeparator = "•"
+
+[params.opengraph]
+  [params.opengraph.facebook]
+    admins = ""
+    appid = ""
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+
+[social]
+  facebook = ""
+
+[author]
+  name = "Minimo"
+
+[author.social]
+  codepen = ""
+  email = ""
+  facebook = ""
+  github = "http://tmidi.github.io"
+  instagram = ""
+  twitter = "midi_onze"
+  linkedin = ""
+
+[permalinks]
+  page = "/:slug/"
+
+[[menu.main]]
+  name = "Blog"
+  weight = -70
+  identifier = "tmidi"
+  url = "https://tmidi.guthub.io"
+
+# Language Configuration
+defaultContentLanguage = "en"
+
+[languages]
+  # edit this block for your own language
+  [languages.en]
+    lang = "en"
+    languageName = "English"
+    weight = 1
