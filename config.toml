@@ -1,4 +1,4 @@
-baseURL = "http://tmidi.github.io"
+baseURL = "https://midiroot.com/"
 title = "T. Midi"
 copyright = "© All rights reserved."
 
@@ -45,7 +45,7 @@ preserveTaxonomyNames = true
   codepen = ""
   email = ""
   facebook = ""
-  github = "http://tmidi.github.io"
+  github = "https://github.com/tmidi/"
   instagram = ""
   twitter = "midi_onze"
   linkedin = ""

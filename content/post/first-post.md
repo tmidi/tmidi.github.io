@@ -5,7 +5,7 @@ categories:
   - Logrotate
 title: "OSSEC - log rotation"
 date: "2017-09-12T22:47:18-04:00"
-draft: true
+draft: false
 ---
 <pre>
   <code class="language-css">
@@ -22,7 +22,7 @@ draft: true
   </code>
 </pre>
 
-When SELinux enabled, some OSSEC packages will fail to rotate logs under _/var/ossec/logs_, which will result in crontab errors and in some cases faillure to write to logs.
+When SELinux enabled, some OSSEC packages will fail to rotate logs under _/var/ossec/logs_, which will result in crontab errors and in some cases failure to write to logs.
 
 One way to fix this is to change context type, for this let's first check the current context:
 
