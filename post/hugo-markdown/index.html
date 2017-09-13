@@ -4,20 +4,18 @@
 <head>
   <meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
-<meta name='description' content='body { font-family: &#34;Noto Sans&#34;, sans-serif; }     from pygments.styles import get_all_styles  styles = list(get_all_styles())  print styles   When SELinux enabled, some OSSEC packages will fail to rotate logs under /var/ossec/logs, which will result in crontab errors and in some cases failure to write to logs.
-One way to fix this is to change context type, for this let&rsquo;s first check the current context:'>
+<meta name='description' content='This is an index of all markdown language for Hugo static website'>
 
-<meta property='og:title' content='OSSEC - log rotation • Minimo'>
-<meta property='og:description' content='body { font-family: &#34;Noto Sans&#34;, sans-serif; }     from pygments.styles import get_all_styles  styles = list(get_all_styles())  print styles   When SELinux enabled, some OSSEC packages will fail to rotate logs under /var/ossec/logs, which will result in crontab errors and in some cases failure to write to logs.
-One way to fix this is to change context type, for this let&rsquo;s first check the current context:'>
-<meta property='og:url' content='https://midiroot.com/post/first-post/'>
+<meta property='og:title' content='Hugo Markdown language • Minimo'>
+<meta property='og:description' content='This is an index of all markdown language for Hugo static website'>
+<meta property='og:url' content='https://midiroot.com/post/hugo-markdown/'>
 <meta property='og:site_name' content='T. Midi'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post'><meta property='article:published_time' content='2017-09-12T22:47:18-04:00'/><meta property='article:modified_time' content='2017-09-12T22:47:18-04:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post'><meta property='article:published_time' content='2017-09-13T00:16:19-04:00'/><meta property='article:modified_time' content='2017-09-13T00:16:19-04:00'/>
 
 <meta name="generator" content="Hugo 0.27" />
 
-  <title>OSSEC - log rotation • Minimo</title>
-  <link rel='canonical' href='https://midiroot.com/post/first-post/'>
+  <title>Hugo Markdown language • Minimo</title>
+  <link rel='canonical' href='https://midiroot.com/post/hugo-markdown/'>
   <link rel='icon' href='/favicon.ico'>
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Ubuntu:400,400i,700&subset=latin'>
 <link rel='stylesheet' href='/css/main.67a788c9.css'>
@@ -59,7 +57,11 @@ One way to fix this is to change context type, for this let&rsquo;s first check 
   <article lang='en' class='entry'>
     <header class='entry-header'>
   <div class='entry-info'>
-    <h1 class='entry-title title'>OSSEC - log rotation</h1>
+    <h1 class='entry-title title'>Hugo Markdown language</h1>
+    
+    <p class='entry-subtitle'>
+      This is an index of all markdown language for Hugo static website
+    </p>
     
   </div>
   
@@ -75,7 +77,7 @@ One way to fix this is to change context type, for this let&rsquo;s first check 
 </svg>
 
     <span class='screen-reader'>Posted on </span>
-    <time class='date' datetime='2017-09-12T22:47:18-04:00'>2017, Sep 12</time>
+    <time class='date' datetime='2017-09-13T00:16:19-04:00'>2017, Sep 13</time>
   </span>
   
   <span class='byline'>
@@ -108,27 +110,52 @@ One way to fix this is to change context type, for this let&rsquo;s first check 
 </header>
 
     <div class='entry-content'>
-  <pre>
-  <code class="language-css">
-  body {
-    font-family: "Noto Sans", sans-serif;
-  }
-  </code>
-</pre>
-<pre>
-  <code class="language-python">
-  >>> from pygments.styles import get_all_styles
-  >>> styles = list(get_all_styles())
-  >>> print styles
-  </code>
-</pre>
+  
 
-<p>When SELinux enabled, some OSSEC packages will fail to rotate logs under <em>/var/ossec/logs</em>, which will result in crontab errors and in some cases failure to write to logs.</p>
+<h2 id="css-syntax-highlight">CSS syntax highlight</h2>
 
-<p>One way to fix this is to change context type, for this let&rsquo;s first check the current context:</p>
+<h1 id="github-flavored-markdown-editor">(GitHub-Flavored) Markdown Editor</h1>
 
-<p>I&rsquo;m very <strong>happy</strong> to introduce my new website!
-It&rsquo;s a static website that I have done in less than 3 hours with this <a href="https://fillmem.com/post/self-hosted-fast-secured-and-free-static-site/">Hugo tutorial</a></p>
+<p>Basic useful feature list:</p>
+
+<ul>
+<li>Ctrl+S / Cmd+S to save the file</li>
+<li>Ctrl+Shift+S / Cmd+Shift+S to choose to save as Markdown or HTML</li>
+<li>Drag and drop a file into here to load it</li>
+<li>File contents are saved in the URL so you can share files</li>
+</ul>
+
+<p>I&rsquo;m no good at writing sample / filler text, so go write something yourself.</p>
+
+<p>Look, a list!</p>
+
+<ul>
+<li>foo</li>
+<li>bar</li>
+<li>baz</li>
+</ul>
+
+<p>And here&rsquo;s some code! :+1:</p>
+
+<pre><code class="language-javascript">$(function(){
+  $('div').html('I am a div.');
+});
+</code></pre>
+
+<p>This is <a href="https://github.com/jbt/markdown-editor">on GitHub</a> so let me know if I&rsquo;ve b0rked it somewhere.</p>
+
+<p>Props to Mr. Doob and his <a href="http://mrdoob.com/projects/code-editor/">code editor</a>, from which
+the inspiration to this, and some handy implementation hints, came.</p>
+
+<h3 id="stuff-used-to-make-this">Stuff used to make this:</h3>
+
+<ul>
+<li><a href="https://github.com/markdown-it/markdown-it">markdown-it</a> for Markdown parsing</li>
+<li><a href="http://codemirror.net/">CodeMirror</a> for the awesome syntax-highlighted editor</li>
+<li><a href="http://softwaremaniacs.org/soft/highlight/en/">highlight.js</a> for syntax highlighting in output code blocks</li>
+<li><a href="https://github.com/dankogai/js-deflate">js-deflate</a> for gzipping of data to make it fit in URLs</li>
+<li><a href="https://jbt.github.io/markdown-editor/">markdown-editor</a>  Markdown Editor.</li>
+</ul>
 
 </div>
 
@@ -146,7 +173,7 @@ It&rsquo;s a static website that I have done in less than 3 hours with this <a h
 </svg>
 
   </span>
-  <span class='screen-reader'>Categories: </span><a class='category' href='/categories/selinux'>SELinux</a>, <a class='category' href='/categories/ossec'>OSSEC</a>, <a class='category' href='/categories/logrotate'>Logrotate</a></div>
+  <span class='screen-reader'>Categories: </span><a class='category' href='/categories/others'>Others</a></div>
 
     
   
@@ -160,16 +187,16 @@ It&rsquo;s a static website that I have done in less than 3 hours with this <a h
   
     
 <nav class='entry-nav'>
-  <div class='entry-nav-links'><div class='next-entry'>
-      <a href='https://midiroot.com/post/hugo-markdown/'>
-        <span class='screen-reader'>Next post: </span>Hugo Markdown language<span aria-hidden='true'>Next <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  <div class='entry-nav-links'><div class='prev-entry'>
+      <a href='https://midiroot.com/post/first-post/'>
+        <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
   
-  <line x1="4" y1="12" x2="20" y2="12"/>
-  <polyline points="14 6 20 12 14 18"/>
+  <line x1="20" y1="12" x2="4" y2="12"/>
+  <polyline points="10 18 4 12 10 6"/>
   
 </svg>
-</span>
-      </a>
+ Previous</span>
+        <span class='screen-reader'>Previous post: </span>OSSEC - log rotation</a>
     </div></div>
 </nav>
 
