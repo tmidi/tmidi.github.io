@@ -3,47 +3,47 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://tmidi.github.io/post/first-post/</loc>
+    <loc>https://midiroot.com/post/first-post/</loc>
     <lastmod>2017-09-12T22:47:18-04:00</lastmod>
   </url>
   
   <url>
-    <loc>http://tmidi.github.io/categories/</loc>
+    <loc>https://midiroot.com/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://tmidi.github.io/categories/logrotate/</loc>
-    <lastmod>2017-09-12T22:47:18-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://tmidi.github.io/categories/ossec/</loc>
+    <loc>https://midiroot.com/categories/logrotate/</loc>
     <lastmod>2017-09-12T22:47:18-04:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://tmidi.github.io/post/</loc>
+    <loc>https://midiroot.com/categories/ossec/</loc>
     <lastmod>2017-09-12T22:47:18-04:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://tmidi.github.io/categories/selinux/</loc>
+    <loc>https://midiroot.com/post/</loc>
     <lastmod>2017-09-12T22:47:18-04:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://tmidi.github.io/</loc>
+    <loc>https://midiroot.com/categories/selinux/</loc>
     <lastmod>2017-09-12T22:47:18-04:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://tmidi.github.io/tags/</loc>
+    <loc>https://midiroot.com/</loc>
+    <lastmod>2017-09-12T22:47:18-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://midiroot.com/tags/</loc>
     <priority>0</priority>
   </url>
   

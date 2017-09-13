@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>T. Midi</title>
-    <link>http://tmidi.github.io/</link>
+    <link>https://midiroot.com/</link>
     <description>Recent content on T. Midi</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>© All rights reserved.</copyright>
     <lastBuildDate>Tue, 12 Sep 2017 22:47:18 -0400</lastBuildDate>
     
-	<atom:link href="http://tmidi.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://midiroot.com/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>OSSEC - log rotation</title>
-      <link>http://tmidi.github.io/post/first-post/</link>
+      <link>https://midiroot.com/post/first-post/</link>
       <pubDate>Tue, 12 Sep 2017 22:47:18 -0400</pubDate>
       
-      <guid>http://tmidi.github.io/post/first-post/</guid>
-      <description>body { font-family: &#34;Noto Sans&#34;, sans-serif; }     from pygments.styles import get_all_styles  styles = list(get_all_styles())  print styles   When SELinux enabled, some OSSEC packages will fail to rotate logs under /var/ossec/logs, which will result in crontab errors and in some cases faillure to write to logs.
+      <guid>https://midiroot.com/post/first-post/</guid>
+      <description>body { font-family: &#34;Noto Sans&#34;, sans-serif; }     from pygments.styles import get_all_styles  styles = list(get_all_styles())  print styles   When SELinux enabled, some OSSEC packages will fail to rotate logs under /var/ossec/logs, which will result in crontab errors and in some cases failure to write to logs.
 One way to fix this is to change context type, for this let&amp;rsquo;s first check the current context:</description>
     </item>
     

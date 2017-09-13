@@ -2,38 +2,38 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on T. Midi</title>
-    <link>http://tmidi.github.io/categories/</link>
+    <link>https://midiroot.com/categories/</link>
     <description>Recent content in Categories on T. Midi</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>© All rights reserved.</copyright>
     
-	<atom:link href="http://tmidi.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://midiroot.com/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Logrotate</title>
-      <link>http://tmidi.github.io/categories/logrotate/</link>
+      <link>https://midiroot.com/categories/logrotate/</link>
       <pubDate>Tue, 12 Sep 2017 22:47:18 -0400</pubDate>
       
-      <guid>http://tmidi.github.io/categories/logrotate/</guid>
+      <guid>https://midiroot.com/categories/logrotate/</guid>
       <description></description>
     </item>
     
     <item>
       <title>OSSEC</title>
-      <link>http://tmidi.github.io/categories/ossec/</link>
+      <link>https://midiroot.com/categories/ossec/</link>
       <pubDate>Tue, 12 Sep 2017 22:47:18 -0400</pubDate>
       
-      <guid>http://tmidi.github.io/categories/ossec/</guid>
+      <guid>https://midiroot.com/categories/ossec/</guid>
       <description></description>
     </item>
     
     <item>
       <title>SELinux</title>
-      <link>http://tmidi.github.io/categories/selinux/</link>
+      <link>https://midiroot.com/categories/selinux/</link>
       <pubDate>Tue, 12 Sep 2017 22:47:18 -0400</pubDate>
       
-      <guid>http://tmidi.github.io/categories/selinux/</guid>
+      <guid>https://midiroot.com/categories/selinux/</guid>
       <description></description>
     </item>
     
