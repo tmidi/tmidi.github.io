@@ -13,12 +13,13 @@
     
     <item>
       <title>OSSEC - log rotation</title>
-      <link>https://midiroot.com/post/first-post/</link>
+      <link>https://midiroot.com/post/ossec-log-rotation/</link>
       <pubDate>Tue, 12 Sep 2017 22:47:18 -0400</pubDate>
       
-      <guid>https://midiroot.com/post/first-post/</guid>
-      <description>body { font-family: &#34;Noto Sans&#34;, sans-serif; }     from pygments.styles import get_all_styles  styles = list(get_all_styles())  print styles   When SELinux enabled, some OSSEC packages will fail to rotate logs under /var/ossec/logs, which will result in crontab errors and in some cases failure to write to logs.
-One way to fix this is to change context type, for this let&amp;rsquo;s first check the current context:</description>
+      <guid>https://midiroot.com/post/ossec-log-rotation/</guid>
+      <description>When SELinux enabled, some OSSEC packages will fail to rotate logs under /var/ossec/logs, which will result in crontab errors and in some cases failure to write to logs.
+One way to fix this is to change context type, for this let&amp;rsquo;s first check the current context:
+ # Check the current SELinux context: ls -aZ /var/ossec/logs # Change SELinux context: semanage fcontext -a -t var_log_t &#34;/var/ossec/logs(/.*)?&#34; # Apply the previous context change: restorecon -R -v /var/ossec/logs # Check/confirm the context change: ls -aZ /var/ossec/logs   Command explanation:  semanage fcontext : Used to change SELinux context of files.</description>
     </item>
     
   </channel>

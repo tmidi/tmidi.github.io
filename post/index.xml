@@ -12,7 +12,7 @@
     
     
     <item>
-      <title>Hugo Markdown language</title>
+      <title>Hugo Markdown language reference</title>
       <link>https://midiroot.com/post/hugo-markdown/</link>
       <pubDate>Wed, 13 Sep 2017 00:16:19 -0400</pubDate>
       
@@ -23,13 +23,23 @@ Look, a list!</description>
     </item>
     
     <item>
-      <title>OSSEC - log rotation</title>
-      <link>https://midiroot.com/post/first-post/</link>
+      <title>Clear content of multiple files at once</title>
+      <link>https://midiroot.com/post/clear-content-of-multiple-files-at-once/</link>
       <pubDate>Tue, 12 Sep 2017 22:47:18 -0400</pubDate>
       
-      <guid>https://midiroot.com/post/first-post/</guid>
-      <description>body { font-family: &#34;Noto Sans&#34;, sans-serif; }     from pygments.styles import get_all_styles  styles = list(get_all_styles())  print styles   When SELinux enabled, some OSSEC packages will fail to rotate logs under /var/ossec/logs, which will result in crontab errors and in some cases failure to write to logs.
-One way to fix this is to change context type, for this let&amp;rsquo;s first check the current context:</description>
+      <guid>https://midiroot.com/post/clear-content-of-multiple-files-at-once/</guid>
+      <description>When I am updating my linux template, I sometimes like to delete all old logs, as first step I delete old rotated logs, check how are your log rotated and create a find like this one:  # Assuming my rotates logs format is : messages.2017-09-15.log find /var/log/ -name &amp;lsquo;.20.log&amp;rsquo; -delete   The command above will delete all file that match the rule, you can limit how deep you want to find files using maxdepth.</description>
+    </item>
+    
+    <item>
+      <title>OSSEC - log rotation</title>
+      <link>https://midiroot.com/post/ossec-log-rotation/</link>
+      <pubDate>Tue, 12 Sep 2017 22:47:18 -0400</pubDate>
+      
+      <guid>https://midiroot.com/post/ossec-log-rotation/</guid>
+      <description>When SELinux enabled, some OSSEC packages will fail to rotate logs under /var/ossec/logs, which will result in crontab errors and in some cases failure to write to logs.
+One way to fix this is to change context type, for this let&amp;rsquo;s first check the current context:
+ # Check the current SELinux context: ls -aZ /var/ossec/logs # Change SELinux context: semanage fcontext -a -t var_log_t &#34;/var/ossec/logs(/.*)?&#34; # Apply the previous context change: restorecon -R -v /var/ossec/logs # Check/confirm the context change: ls -aZ /var/ossec/logs   Command explanation:  semanage fcontext : Used to change SELinux context of files.</description>
     </item>
     
   </channel>

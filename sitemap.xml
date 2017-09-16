@@ -8,12 +8,23 @@
   </url>
   
   <url>
-    <loc>https://midiroot.com/post/first-post/</loc>
+    <loc>https://midiroot.com/post/clear-content-of-multiple-files-at-once/</loc>
+    <lastmod>2017-09-12T22:47:18-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://midiroot.com/post/ossec-log-rotation/</loc>
     <lastmod>2017-09-12T22:47:18-04:00</lastmod>
   </url>
   
   <url>
     <loc>https://midiroot.com/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://midiroot.com/categories/linux/</loc>
+    <lastmod>2017-09-12T22:47:18-04:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -43,6 +54,12 @@
   
   <url>
     <loc>https://midiroot.com/categories/selinux/</loc>
+    <lastmod>2017-09-12T22:47:18-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://midiroot.com/categories/snuppets/</loc>
     <lastmod>2017-09-12T22:47:18-04:00</lastmod>
     <priority>0</priority>
   </url>
