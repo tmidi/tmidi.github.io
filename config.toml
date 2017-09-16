@@ -39,11 +39,11 @@ preserveTaxonomyNames = true
   facebook = ""
 
 [author]
-  name = "Minimo"
+  name = "Taleeb"
 
 [author.social]
   codepen = ""
-  email = ""
+  email = "taleebmidi@gmail.com"
   facebook = ""
   github = "https://github.com/tmidi/"
   instagram = ""
@@ -57,7 +57,7 @@ preserveTaxonomyNames = true
   name = "Blog"
   weight = -70
   identifier = "tmidi"
-  url = "https://tmidi.guthub.io"
+  url = "https://midiroot.com/"
 
 # Language Configuration
 defaultContentLanguage = "en"

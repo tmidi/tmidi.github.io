@@ -1,9 +1,9 @@
 ---
 categories:
   - Others
-title: "Hugo Markdown language"
+title: "Hugo Markdown language reference"
 date: "2017-09-13T00:16:19-04:00"
-draft: true
+draft: false
 description: "This is an index of all markdown language for Hugo static website"
 ---
 ## CSS syntax highlight
