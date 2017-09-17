@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Snippets on T. Midi</title>
+    <link>https://midiroot.com/categories/snippets/</link>
+    <description>Recent content in Snippets on T. Midi</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>© All rights reserved.</copyright>
+    <lastBuildDate>Tue, 12 Sep 2017 22:47:18 -0400</lastBuildDate>
+    
+	<atom:link href="https://midiroot.com/categories/snippets/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Clear content of multiple files at once</title>
+      <link>https://midiroot.com/post/clear-content-of-multiple-files-at-once/</link>
+      <pubDate>Tue, 12 Sep 2017 22:47:18 -0400</pubDate>
+      
+      <guid>https://midiroot.com/post/clear-content-of-multiple-files-at-once/</guid>
+      <description>When I am updating my Linux template, I like to delete all old logs, as a first step, I delete old rotated logs. First check how your logs are rotated and create a find command the one below to delete old rotated logs:  # Assuming my rotates logs format is : messages.2017-09-15.log find /var/log/ -name &amp;lsquo;.20.log&amp;rsquo; -delete   The command above will delete all file that match the rule, you can limit how deep you want to find files using maxdepth.</description>
+    </item>
+    
+  </channel>
+</rss>

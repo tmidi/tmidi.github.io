@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta name='description' content='Journald address one major issue with Linux applications logging, it provides a centralized management logging for the Kernel and the userland processes regardless where the logs are coming from. you can also use journald as an alternative looging driver inside Docker containers, this feature is available since Docker version 1.7.
+To view logs written by journald you may use journalctl, it will show the full content of the journal when it&rsquo;s called without parameters:  # journalctl'>
+
+<meta property='og:title' content='Journalctl examples • Taleeb'>
+<meta property='og:description' content='Journald address one major issue with Linux applications logging, it provides a centralized management logging for the Kernel and the userland processes regardless where the logs are coming from. you can also use journald as an alternative looging driver inside Docker containers, this feature is available since Docker version 1.7.
+To view logs written by journald you may use journalctl, it will show the full content of the journal when it&rsquo;s called without parameters:  # journalctl'>
+<meta property='og:url' content='https://midiroot.com/post/journalctl-examples/'>
+<meta property='og:site_name' content='T. Midi'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post'><meta property='article:published_time' content='2017-09-16T22:47:18-04:00'/><meta property='article:modified_time' content='2017-09-16T22:47:18-04:00'/>
+
+<meta name="generator" content="Hugo 0.27" />
+
+  <title>Journalctl examples • Taleeb</title>
+  <link rel='canonical' href='https://midiroot.com/post/journalctl-examples/'>
+  <link rel='icon' href='/favicon.ico'>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Ubuntu:400,400i,700&subset=latin'>
+<link rel='stylesheet' href='/css/main.67a788c9.css'>
+
+  <link rel='stylesheet' href='/css/prism.css'>
+
+
+
+</head>
+
+
+<body class='page'>
+  <div class='site'>
+    <header id='header' class='header-container'>
+      <div class='site-header'>
+        <nav id='navmenu' aria-label='Main Menu'>
+  <ul class='main-menu'>
+    
+    <li>
+      <a href='https://midiroot.com/' 
+        
+      >Blog</a>
+    </li>
+    
+  </ul>
+</nav>
+
+        <div class='site-info'>
+          
+          <p class='site-title title'>T. Midi</p>
+          
+          <p class='site-description'>Personal references</p>
+        </div>
+      </div>
+    </header>
+
+
+<main class='main'>
+  <article lang='en' class='entry'>
+    <header class='entry-header'>
+  <div class='entry-info'>
+    <h1 class='entry-title title'>Journalctl examples</h1>
+    
+  </div>
+  
+<div class='meta'>
+  <span class='posted-on'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+  <line x1="16" y1="2" x2="16" y2="6"/>
+  <line x1="8" y1="2" x2="8" y2="6"/>
+  <line x1="3" y1="10" x2="21" y2="10"/>
+  
+</svg>
+
+    <span class='screen-reader'>Posted on </span>
+    <time class='date' datetime='2017-09-16T22:47:18-04:00'>2017, Sep 16</time>
+  </span>
+  
+  <span class='byline'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M21,21V20c0-2.76-4-5-9-5s-9,2.24-9,5v1"/>
+  <path d="M16,6.37A4,4,0,1,1,12.63,3,4,4,0,0,1,16,6.37Z"/>
+  
+</svg>
+
+    <span class='screen-reader'> by </span>
+    Taleeb
+  </span>
+  
+  
+  <span class='reading-time'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <circle cx="12" cy="12" r="10"/>
+  <polyline points="12 6 12 12 15 15"/> 
+  
+</svg>
+
+    4 mins read
+  </span>
+  
+</div>
+
+
+</header>
+
+    <div class='entry-content'>
+  
+
+<p><strong>Journald</strong> address one major issue with Linux applications logging, it provides a centralized management logging for the Kernel and the userland processes regardless where the logs are coming from. you can also use journald as an alternative looging driver inside Docker containers, this feature is available since Docker version 1.7.</p>
+
+<p>To view logs written by journald you may use <strong>journalctl</strong>, it will show the full content of the journal when it&rsquo;s called without parameters:
+<pre>
+  <code class="language-bash">
+  # journalctl</p>
+
+<p>&ndash; Logs begin at Sat 2017-09-16 09:35:23 EDT, end at Sun 2017-09-17 00:22:30 EDT. &ndash;
+    Sep 16 09:35:23 Desktop-VM kernel: Linux version 4.12.0-13-generic (buildd@lgw01-14) (gcc version 7.2.0 (Ubuntu 7.2
+    Sep 16 09:35:23 Desktop-VM kernel: Command line: BOOT_IMAGE=/vmlinuz-4.12.0-13-generic root=/dev/mapper/cl-root ro
+    Sep 16 09:35:23 Desktop-VM kernel: KERNEL supported cpus:
+    Sep 16 09:35:23 Desktop-VM kernel:   Intel GenuineIntel
+    Sep 16 09:35:23 Desktop-VM kernel:   AMD AuthenticAMD
+    Sep 16 09:35:23 Desktop-VM kernel:   Centaur CentaurHauls
+    Sep 16 09:35:23 Desktop-VM kernel: x86/fpu: Supporting XSAVE feature 0x001: &lsquo;x87 floating point registers&rsquo;
+    Sep 16 09:35:23 Desktop-VM kernel: x86/fpu: Supporting XSAVE feature 0x002: &lsquo;SSE registers&rsquo;
+    Sep 16 09:35:23 Desktop-VM kernel: x86/fpu: Supporting XSAVE feature 0x004: &lsquo;AVX registers&rsquo;
+    Sep 16 09:35:23 Desktop-VM kernel: x86/fpu: xstate_offset[2]:  576, xstate_sizes[2]:  256
+    Sep 16 09:35:23 Desktop-VM kernel: x86/fpu: Enabled xstate features 0x7, context size is 832 bytes, using &lsquo;standard
+    Sep 16 09:35:23 Desktop-VM kernel: e820: BIOS-provided physical RAM map:
+    &hellip;.
+  </code>
+</pre></p>
+
+<p>To show all fields in full when the lines are very longs:
+<pre>
+  <code class="language-bash">
+  # journalctl -a
+  Sep 17 00:14:18 Desktop-VM sudo[28209]: pam_unix(sudo:session): session closed for user root
+    Sep 17 00:14:22 Desktop-VM gnome-software[2043]: running get-distro-updates with refine-flags=require-version,require-setup-action,require-update-details,require-upgrade-
+    Sep 17 00:14:22 Desktop-VM gnome-software[2043]: running get-updates with refine-flags=require-update-details,require-update-severity with timeout=60 on plugin=fwupd took
+    Sep 17 00:14:22 Desktop-VM gnome-software[2043]: running get-updates with refine-flags=require-version,require-update-details,require-provenance,require-icon with failure
+    Sep 17 00:14:22 Desktop-VM gnome-software[2043]: running refine with refine-flags=require-version,require-update-details,require-provenance,require-icon with failure-flag
+    &hellip;
+  </code>
+</pre></p>
+
+<p>Use -r or &ndash;reverse to show newest entries first:
+<pre>
+  <code class="language-bash">
+  # journalctl -r
+  &ndash; Logs begin at Sat 2017-09-16 09:35:23 EDT, end at Sun 2017-09-17 00:22:30 EDT. &ndash;
+    Sep 17 00:22:30 Desktop-VM systemd-timesyncd[862]: Synchronized to time server 91.189.89.199:123 (ntp.ubuntu.com).
+    Sep 17 00:18:41 Desktop-VM gnome-software[2043]: running search with refine-flags=require-icon with timeout=60 with max-results=20 with search=sub on plugin=snap on apps
+    Sep 17 00:18:41 Desktop-VM PackageKit[1476]: resolve transaction /123_ccbdbbce from uid 1000 finished with success after 381ms
+    Sep 17 00:18:40 Desktop-VM nautilus[29287]: Could not establish a connection to Tracker: Failed to load SPARQL backend: Key file does not have group “DomainOntology”
+    Sep 17 00:18:40 Desktop-VM nautilus[29287]: g_key_file_load_from_file: assertion &lsquo;file != NULL&rsquo; failed
+    Sep 17 00:18:40 Desktop-VM systemd[1644]: Started GNOME Terminal Server.
+    &hellip;
+  </code>
+</pre></p>
+
+<p>You can also use -n N or &ndash;lines=N to show the last N numbers, -e or &ndash;pager-end to view the end of the logs and -f or &ndash;follow to stream continuously journal entries.
+One of may favorite options to run journalctl is -u or &ndash;unit, this will show messages for the specific systemd unit entered or a matching pattern
+<pre>
+  <code class="language-bash">
+  # journalctl -u cron
+  &ndash; Logs begin at Sat 2017-09-16 09:35:23 EDT, end at Sun 2017-09-17 01:00:31 EDT. &ndash;
+    Sep 16 09:35:25 Desktop-VM systemd[1]: Started Regular background program processing daemon.
+    Sep 16 09:35:25 Desktop-VM cron[1002]: (CRON) INFO (pidfile fd = 3)
+    Sep 16 09:35:25 Desktop-VM cron[1002]: (CRON) INFO (Running @reboot jobs)
+    Sep 16 10:17:01 Desktop-VM CRON[3345]: pam_unix(cron:session): session opened for user root by (uid=0)
+    Sep 16 10:17:01 Desktop-VM CRON[3346]: (root) CMD (   cd / &amp;&amp; run-parts &ndash;report /etc/cron.hourly)
+    Sep 16 10:17:01 Desktop-VM CRON[3345]: pam_unix(cron:session): session closed for user root
+    &hellip;
+  </code>
+</pre></p>
+
+<p>You can use -p, &ndash;priority to filter messages by priority, Takes either a single numeric or textual log level (i.e. between 0/&ldquo;emerg&rdquo; and 7/&ldquo;debug&rdquo;). Accepted priorities are : &ldquo;emerg&rdquo; (0), &ldquo;alert&rdquo; (1), &ldquo;crit&rdquo; (2), &ldquo;err&rdquo; (3), &ldquo;warning&rdquo; (4), &ldquo;notice&rdquo; (5), &ldquo;info&rdquo; (6), &ldquo;debug&rdquo; (7).
+<pre>
+  <code class="language-bash">
+  # journalctl -p err
+  &ndash; Logs begin at Sat 2017-09-16 09:35:23 EDT, end at Sun 2017-09-17 01:00:31 EDT. &ndash;
+    Sep 16 09:35:26 Desktop-VM NetworkManager[1017]: ((src/devices/nm-device.c:1452)): assertion &lsquo;<dropped>&rsquo; failed
+    Sep 16 09:35:26 Desktop-VM gnome-session-binary[1202]: CRITICAL: Unable to create a DBus proxy for GnomeScreensaver: Error calling StartServiceByName for org.gnome.Screen
+    Sep 16 09:35:26 Desktop-VM gnome-session-binary[1202]: Unrecoverable failure in required component org.gnome.Shell.Desktop-VM
+    Sep 16 09:35:29 Desktop-VM systemd[1]: Failed to start systemd-resolved-update-resolvconf.service.
+    Sep 16 09:35:29 Desktop-VM systemd[1]: Failed to start systemd-resolved-update-resolvconf.service.
+    &hellip;
+  </code>
+</pre></p>
+
+<p>When it is supported, you can use -x, &ndash;catalog to show explanation texts from the message catalog, this will supply you with explanation of the message and a possible solution or point you to external resources to resolve an issue:</p>
+
+<pre>
+  <code class="language-bash">
+  # journalctl -p 3 -x
+  Sep 16 09:35:29 tal-Desktop-VM systemd[1]: Failed to start systemd-resolved-update-resolvconf.service.
+    -- Subject: Unit systemd-resolved-update-resolvconf.service has failed
+    -- Defined-By: systemd
+    -- Support: http://www.ubuntu.com/support
+    --
+    -- Unit systemd-resolved-update-resolvconf.service has failed.
+    --
+    -- The result is failed.
+  </code>
+</pre>
+
+<p>journalctl in my opinion is a significant tool to use for debugging system and application issue, take the time to read the man page and practice using the above examples or from the man page.</p>
+
+<h3 id="references">References:</h3>
+
+<ul>
+<li><a href="https://www.freeDesktop-VM.org/software/systemd/man/journalctl.html">journalctl</a> man page.</li>
+</ul>
+
+</div>
+
+    
+<footer class='entry-footer'>
+  
+    
+      
+      <div class='categories'>
+  <span class='category-icon'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M22,19a2,2,0,0,1-2,2H4a2,2,0,0,1-2-2V5A2,2,0,0,1,4,3H9l2,3h9a2,2,0,0,1,2,2Z"/>
+  
+</svg>
+
+  </span>
+  <span class='screen-reader'>Categories: </span><a class='category' href='/categories/linux'>Linux</a>, <a class='category' href='/categories/snuppets'>Snuppets</a></div>
+
+    
+  
+    
+  
+</footer>
+
+
+  </article>
+
+  
+    
+<nav class='entry-nav'>
+  <div class='entry-nav-links'><div class='prev-entry'>
+      <a href='https://midiroot.com/post/hugo-markdown/'>
+        <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="20" y1="12" x2="4" y2="12"/>
+  <polyline points="10 18 4 12 10 6"/>
+  
+</svg>
+ Previous</span>
+        <span class='screen-reader'>Previous post: </span>Hugo Markdown language reference</a>
+    </div></div>
+</nav>
+
+
+  
+
+  
+    <div class='comments-container'>
+  
+</div>
+
+  
+</main>
+
+    <footer id='footer' class='footer-container'>
+      <div class='footer'>
+        <div class='social'>
+  <nav aria-label='Social Menu'>
+    <ul class='social-menu'><li>
+        <a href='mailto:taleebmidi@gmail.com' target='_blank' rel='noopener'>
+          <span class='screen-reader'>Open Email account in new tab</span>
+          <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+  <polyline points="22,6 12,13 2,6"/>
+  
+</svg>
+
+        </a>
+      </li><li>
+        <a href='https://github.com/tmidi' target='_blank' rel='noopener'>
+          <span class='screen-reader'>Open Github account in new tab</span>
+          <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+  
+</svg>
+
+        </a>
+      </li><li>
+        <a href='https://twitter.com/midi_onze' target='_blank' rel='noopener'>
+          <span class='screen-reader'>Open Twitter account in new tab</span>
+          <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+  
+</svg>
+
+        </a>
+      </li></ul>
+  </nav>
+</div>
+
+        <div class='copyright'>
+          <p>© All rights reserved.</p>
+
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src='/js/main.af838dd5.js'></script>
+  
+    <script src='/js/prism.js'></script>
+  
+
+</body>
+
+</html>
+
