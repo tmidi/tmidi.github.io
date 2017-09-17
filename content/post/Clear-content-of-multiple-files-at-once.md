@@ -1,12 +1,12 @@
 ---
 categories:
   - Linux
-  - Snuppets
+  - Snippets
 title: "Clear content of multiple files at once"
 date: "2017-09-12T22:47:18-04:00"
 draft: false
 ---
-When I am updating my linux template, I sometimes like to delete all old logs, as first step I delete old rotated logs, check how are your log rotated and create a find like this one:
+When I am updating my Linux template, I like to delete all old logs, as a first step, I delete old rotated logs. First check how your logs are rotated and create a find command the one below to delete old rotated logs:
 <pre>
   <code class="language-bash">
   # Assuming my rotates logs format is : messages.2017-09-15.log
@@ -15,7 +15,7 @@ When I am updating my linux template, I sometimes like to delete all old logs, a
 </pre>
 The command above will delete all file that match the rule, you can limit how deep you want to find files using __maxdepth__. you can also use __mtime +n__ to find files older than n days and delete them.
 
-Now it's the time to empty the content of file, this helpfull if your find rules did not catch some files, or you don't want to delete active log file.
+Now it's the time to empty the content of file, this helpful if your find rules did not catch some files, or you don't want to delete active log file.
 
 <pre>
   <code class="language-bash">
@@ -24,7 +24,7 @@ Now it's the time to empty the content of file, this helpfull if your find rules
   </code>
 </pre>
 ##### Explanation:
-This will empty the content of all files in /var/log/, concatenate /dev/null (/dev/null is a special filesystem object that hides the output) to each item.
+This will empty the content of all files in /var/log/, concatenate /dev/null (/dev/null is a special file system object that hides the output) to each item.
 
 ### References:
 
