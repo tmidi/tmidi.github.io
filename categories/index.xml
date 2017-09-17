@@ -11,6 +11,24 @@
     
     
     <item>
+      <title>Journalctl</title>
+      <link>https://midiroot.com/categories/journalctl/</link>
+      <pubDate>Sat, 16 Sep 2017 22:47:18 -0400</pubDate>
+      
+      <guid>https://midiroot.com/categories/journalctl/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Journald</title>
+      <link>https://midiroot.com/categories/journald/</link>
+      <pubDate>Sat, 16 Sep 2017 22:47:18 -0400</pubDate>
+      
+      <guid>https://midiroot.com/categories/journald/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Linux</title>
       <link>https://midiroot.com/categories/linux/</link>
       <pubDate>Sat, 16 Sep 2017 22:47:18 -0400</pubDate>
@@ -61,15 +79,6 @@
       <pubDate>Tue, 12 Sep 2017 22:47:18 -0400</pubDate>
       
       <guid>https://midiroot.com/categories/snippets/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Snuppets</title>
-      <link>https://midiroot.com/categories/snuppets/</link>
-      <pubDate>Sat, 16 Sep 2017 22:47:18 -0400</pubDate>
-      
-      <guid>https://midiroot.com/categories/snuppets/</guid>
       <description></description>
     </item>
     
