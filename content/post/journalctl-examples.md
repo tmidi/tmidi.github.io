@@ -1,7 +1,8 @@
 ---
 categories:
   - Linux
-  - Snuppets
+  - journald
+  - journalctl
 title: "Journalctl examples"
 date: "2017-09-16T22:47:18-04:00"
 draft: false
