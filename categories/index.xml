@@ -11,6 +11,15 @@
     
     
     <item>
+      <title>Cryptsetup</title>
+      <link>https://midiroot.com/categories/cryptsetup/</link>
+      <pubDate>Thu, 28 Sep 2017 23:17:17 -0400</pubDate>
+      
+      <guid>https://midiroot.com/categories/cryptsetup/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Journalctl</title>
       <link>https://midiroot.com/categories/journalctl/</link>
       <pubDate>Sat, 16 Sep 2017 22:47:18 -0400</pubDate>
@@ -29,9 +38,18 @@
     </item>
     
     <item>
+      <title>LUKS</title>
+      <link>https://midiroot.com/categories/luks/</link>
+      <pubDate>Thu, 28 Sep 2017 23:17:17 -0400</pubDate>
+      
+      <guid>https://midiroot.com/categories/luks/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Linux</title>
       <link>https://midiroot.com/categories/linux/</link>
-      <pubDate>Sat, 16 Sep 2017 22:47:18 -0400</pubDate>
+      <pubDate>Thu, 28 Sep 2017 23:17:17 -0400</pubDate>
       
       <guid>https://midiroot.com/categories/linux/</guid>
       <description></description>

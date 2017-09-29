@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://midiroot.com/post/cryptsetup-create-linux-encrypted-volume/</loc>
+    <lastmod>2017-09-28T23:17:17-04:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://midiroot.com/post/journalctl-examples/</loc>
     <lastmod>2017-09-16T22:47:18-04:00</lastmod>
   </url>
@@ -28,6 +33,12 @@
   </url>
   
   <url>
+    <loc>https://midiroot.com/categories/cryptsetup/</loc>
+    <lastmod>2017-09-28T23:17:17-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://midiroot.com/categories/journalctl/</loc>
     <lastmod>2017-09-16T22:47:18-04:00</lastmod>
     <priority>0</priority>
@@ -40,8 +51,14 @@
   </url>
   
   <url>
+    <loc>https://midiroot.com/categories/luks/</loc>
+    <lastmod>2017-09-28T23:17:17-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://midiroot.com/categories/linux/</loc>
-    <lastmod>2017-09-16T22:47:18-04:00</lastmod>
+    <lastmod>2017-09-28T23:17:17-04:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -65,7 +82,7 @@
   
   <url>
     <loc>https://midiroot.com/post/</loc>
-    <lastmod>2017-09-16T22:47:18-04:00</lastmod>
+    <lastmod>2017-09-28T23:17:17-04:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -83,7 +100,7 @@
   
   <url>
     <loc>https://midiroot.com/</loc>
-    <lastmod>2017-09-16T22:47:18-04:00</lastmod>
+    <lastmod>2017-09-28T23:17:17-04:00</lastmod>
     <priority>0</priority>
   </url>
   
