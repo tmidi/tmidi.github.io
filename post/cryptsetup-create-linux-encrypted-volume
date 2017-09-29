@@ -2,6 +2,10 @@
 title: "Cryptsetup - Create Linux Encrypted Volumes"
 date: 2017-09-28T23:17:17-04:00
 draft: false
+categories:
+  - Linux
+  - Cryptsetup
+  - LUKS
 ---
 
 # What's Cryptsetup?
@@ -45,10 +49,8 @@ Format the new created file:
 <pre>
   <code class="language-bash">
     # cryptsetup luksFormat /home/myname/safe
-
         WARNING!
         This will overwrite data on safe irrevocably.
-
         Are you sure? (Type uppercase yes): YES
         Enter passphrase:
         Verify passphrase:
@@ -102,7 +104,8 @@ Mount LUKS partition:
   </code>
 </pre>
 
-if you issue "df -h" or "mount | grep safe-encrypt" you should be able to see newly mounted partition:
+if you issue "df -h" or "mount \| grep safe-encrypt" you should be able to see newly mounted partition:
+
 <pre>
   <code class="language-bash">
    # /dev/mapper/safe-encrypt     1019M   34M  986M   4% /mnt/encrypted
