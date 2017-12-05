@@ -1,7 +1,7 @@
 ---
 title: "Cryptsetup Create Linux Encrypted Volumes"
 date: 2017-09-28T23:17:17-04:00
-draft: true
+draft: false
 categories:
   - Linux
   - Cryptsetup
