@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Others on T. Midi</title>
+    <link>https://midiroot.com/categories/others/</link>
+    <description>Recent content in Others on T. Midi</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>© All rights reserved.</copyright>
+    <lastBuildDate>Wed, 13 Sep 2017 00:16:19 -0400</lastBuildDate>
+    
+	<atom:link href="https://midiroot.com/categories/others/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Hugo Markdown language reference</title>
+      <link>https://midiroot.com/post/hugo-markdown/</link>
+      <pubDate>Wed, 13 Sep 2017 00:16:19 -0400</pubDate>
+      
+      <guid>https://midiroot.com/post/hugo-markdown/</guid>
+      <description>CSS syntax highlight (GitHub-Flavored) Markdown Editor Basic useful feature list:
+ Ctrl+S / Cmd+S to save the file Ctrl+Shift+S / Cmd+Shift+S to choose to save as Markdown or HTML Drag and drop a file into here to load it File contents are saved in the URL so you can share files  I&amp;rsquo;m no good at writing sample / filler text, so go write something yourself.
+Look, a list!</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>T. Midi</title>
+    <link>https://midiroot.com/</link>
+    <description>Recent content on T. Midi</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>© All rights reserved.</copyright>
+    <lastBuildDate>Tue, 06 Feb 2018 22:10:18 -0400</lastBuildDate>
+    
+	<atom:link href="https://midiroot.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Bash - Paths and file names manipulation</title>
+      <link>https://midiroot.com/post/bash---paths-and-file-names-manipulation/</link>
+      <pubDate>Tue, 06 Feb 2018 22:10:18 -0400</pubDate>
+      
+      <guid>https://midiroot.com/post/bash---paths-and-file-names-manipulation/</guid>
+      <description>In this post, we look dive into some of the interesting way we can use Bash to work with file names and paths, this usually helpful when you want to put a quick Bash script to copy or move/rename file. I recently had to deal with hundreds of log files generataed by the dozens of containers, the issue was each container writes logs inside a folder, but the logs files are basically have the same name inside each folder.</description>
+    </item>
+    
+    <item>
+      <title>Cryptsetup Create Linux Encrypted Volumes</title>
+      <link>https://midiroot.com/post/cryptsetup-create-linux-encrypted-volume/</link>
+      <pubDate>Thu, 28 Sep 2017 23:17:17 -0400</pubDate>
+      
+      <guid>https://midiroot.com/post/cryptsetup-create-linux-encrypted-volume/</guid>
+      <description>What&amp;rsquo;s Cryptsetup? According to Cryptsetup&amp;rsquo;s Gitlab project page; Cryptsetup is utility used to conveniently setup disk encryption based on DMCrypt kernel module.
+These include plain dm-crypt volumes, LUKS volumes, loop-AES and TrueCrypt (including VeraCrypt extension) format.
+Project also includes veritysetup utility used to conveniently setup DMVerity block integrity checking kernel module.
+To install LUKS:  # yum install -y cryptsetup  
+Activate Dmcrypt:  # modprobe dm_crypt</description>
+    </item>
+    
+    <item>
+      <title>Journalctl examples</title>
+      <link>https://midiroot.com/post/journalctl-examples/</link>
+      <pubDate>Sat, 16 Sep 2017 22:47:18 -0400</pubDate>
+      
+      <guid>https://midiroot.com/post/journalctl-examples/</guid>
+      <description>Journald address one major issue with Linux applications logging, it provides a centralized management logging for the Kernel and the userland processes regardless where the logs are coming from. you can also use journald as an alternative looging driver inside Docker containers, this feature is available since Docker version 1.7.
+To view logs written by journald you may use journalctl, it will show the full content of the journal when it&amp;rsquo;s called without parameters:  # journalctl</description>
+    </item>
+    
+    <item>
+      <title>Hugo Markdown language reference</title>
+      <link>https://midiroot.com/post/hugo-markdown/</link>
+      <pubDate>Wed, 13 Sep 2017 00:16:19 -0400</pubDate>
+      
+      <guid>https://midiroot.com/post/hugo-markdown/</guid>
+      <description>CSS syntax highlight (GitHub-Flavored) Markdown Editor Basic useful feature list:
+ Ctrl+S / Cmd+S to save the file Ctrl+Shift+S / Cmd+Shift+S to choose to save as Markdown or HTML Drag and drop a file into here to load it File contents are saved in the URL so you can share files  I&amp;rsquo;m no good at writing sample / filler text, so go write something yourself.
+Look, a list!</description>
+    </item>
+    
+    <item>
+      <title>Clear content of multiple files at once</title>
+      <link>https://midiroot.com/post/clear-content-of-multiple-files-at-once/</link>
+      <pubDate>Tue, 12 Sep 2017 22:47:18 -0400</pubDate>
+      
+      <guid>https://midiroot.com/post/clear-content-of-multiple-files-at-once/</guid>
+      <description>When I am updating my Linux template, I like to delete all old logs, as a first step, I delete old rotated logs. First check how your logs are rotated and create a find command the one below to delete old rotated logs:  # Assuming my rotates logs format is : messages.2017-09-15.log find /var/log/ -name &amp;lsquo;.20.log&amp;rsquo; -delete   The command above will delete all file that match the rule, you can limit how deep you want to find files using maxdepth.</description>
+    </item>
+    
+    <item>
+      <title>How to clear content of multiple files at once</title>
+      <link>https://midiroot.com/post/how-to-clear-content-of-multiple-files-at-once/</link>
+      <pubDate>Tue, 12 Sep 2017 22:47:18 -0400</pubDate>
+      
+      <guid>https://midiroot.com/post/how-to-clear-content-of-multiple-files-at-once/</guid>
+      <description>When I am updating my Linux template, I like to delete all old logs, as a first step, I delete old rotated logs. First check how your logs are rotated and create a find command the one below to delete old rotated logs:  # Assuming my rotates logs format is : messages.2017-09-15.log find /var/log/ -name &amp;lsquo;.20.log&amp;rsquo; -delete   The command above will delete all file that match the rule, you can limit how deep you want to find files using maxdepth.</description>
+    </item>
+    
+    <item>
+      <title>OSSEC - log rotation</title>
+      <link>https://midiroot.com/post/first-post/</link>
+      <pubDate>Tue, 12 Sep 2017 22:47:18 -0400</pubDate>
+      
+      <guid>https://midiroot.com/post/first-post/</guid>
+      <description>body { font-family: &#34;Noto Sans&#34;, sans-serif; }     from pygments.styles import get_all_styles  styles = list(get_all_styles())  print styles   When SELinux enabled, some OSSEC packages will fail to rotate logs under /var/ossec/logs, which will result in crontab errors and in some cases failure to write to logs.
+One way to fix this is to change context type, for this let&amp;rsquo;s first check the current context:</description>
+    </item>
+    
+    <item>
+      <title>OSSEC - log rotation</title>
+      <link>https://midiroot.com/post/ossec-log-rotation/</link>
+      <pubDate>Tue, 12 Sep 2017 22:47:18 -0400</pubDate>
+      
+      <guid>https://midiroot.com/post/ossec-log-rotation/</guid>
+      <description>When SELinux enabled, some OSSEC packages will fail to rotate logs under /var/ossec/logs, which will result in crontab errors and in some cases failure to write to logs.
+One way to fix this is to change context type, for this let&amp;rsquo;s first check the current context:
+ # Check the current SELinux context: ls -aZ /var/ossec/logs # Change SELinux context: semanage fcontext -a -t var_log_t &#34;/var/ossec/logs(/.*)?&#34; # Apply the previous context change: restorecon -R -v /var/ossec/logs # Check/confirm the context change: ls -aZ /var/ossec/logs   Command explanation:  semanage fcontext : Used to change SELinux context of files.</description>
+    </item>
+    
+  </channel>
+</rss>
