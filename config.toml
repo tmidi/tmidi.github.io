@@ -54,6 +54,10 @@ defaultContentLanguage = "en"
   homepage = ["recent_posts"]
   sidebar = ["about","taxonomy_cloud"]
 
+# [params.widgets]
+# homepage = ["recent_posts","social_menu"]
+# sidebar = ["about","taxonomy_cloud"]
+
 [params.opengraph.facebook]
   admins = [] # array of Facebook IDs
   appID = ""
@@ -80,10 +84,6 @@ defaultContentLanguage = "en"
 
 [params.social.config]
   platforms = ["linkedin","github","twitter"]
-
-[params.widgets]
-homepage = ["recent_posts","social_menu"]
-sidebar = ["about","taxonomy_cloud"]
 
 [taxonomies]
   author = "authors"
