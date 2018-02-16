@@ -20,7 +20,7 @@ pygmentsCodefences = true
 defaultContentLanguage = "en"
 
 [params.info]
-  description = "Just some of the interesting Dev/Ops, Linux and technology related findings. I am using these posts as reference, a writing experience and a place to share what I find interesting. Let's connect"
+  description = "Just some of the interesting Dev/Ops, Linux and technology related findings. I am using these posts as a reference, a writing experience and a place to share what I find worthy. I hope you will enjoy your time here."
 
   title404 = "I see you come to a lost page, now you can blame me or blame yourself... yourself alone!"
 
