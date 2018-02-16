@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bash on Taleeb Midi</title>
+    <link>https://midiroot.com/categories/bash/</link>
+    <description>Recent content in Bash on Taleeb Midi</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 06 Feb 2018 22:10:18 -0400</lastBuildDate>
+    
+	<atom:link href="https://midiroot.com/categories/bash/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Bash - Paths and file names manipulation</title>
+      <link>https://midiroot.com/post/bash---paths-and-file-names-manipulation/</link>
+      <pubDate>Tue, 06 Feb 2018 22:10:18 -0400</pubDate>
+      
+      <guid>https://midiroot.com/post/bash---paths-and-file-names-manipulation/</guid>
+      <description>In this post, we look dive into some of the interesting way we can use Bash to work with file names and paths, this usually helpful when you want to put a quick Bash script to copy or move/rename file. I recently had to deal with hundreds of log files generataed by the dozens of containers, the issue was each container writes logs inside a folder, but the logs files are basically have the same name inside each folder.</description>
+    </item>
+    
+  </channel>
+</rss>
