@@ -5,10 +5,28 @@
     <link>https://midiroot.com/categories/</link>
     <description>Recent content in Categories on Taleeb Midi</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 06 Feb 2018 22:10:18 -0400</lastBuildDate>
+    <lastBuildDate>Thu, 15 Feb 2018 23:48:26 -0500</lastBuildDate>
     
 	<atom:link href="https://midiroot.com/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Ansible</title>
+      <link>https://midiroot.com/categories/ansible/</link>
+      <pubDate>Thu, 15 Feb 2018 23:48:26 -0500</pubDate>
+      
+      <guid>https://midiroot.com/categories/ansible/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Basg</title>
+      <link>https://midiroot.com/categories/basg/</link>
+      <pubDate>Thu, 15 Feb 2018 23:48:26 -0500</pubDate>
+      
+      <guid>https://midiroot.com/categories/basg/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Bash</title>
@@ -16,6 +34,15 @@
       <pubDate>Tue, 06 Feb 2018 22:10:18 -0400</pubDate>
       
       <guid>https://midiroot.com/categories/bash/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Best Practices</title>
+      <link>https://midiroot.com/categories/best-practices/</link>
+      <pubDate>Thu, 15 Feb 2018 23:48:26 -0500</pubDate>
+      
+      <guid>https://midiroot.com/categories/best-practices/</guid>
       <description></description>
     </item>
     

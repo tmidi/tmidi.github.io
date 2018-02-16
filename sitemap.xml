@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://midiroot.com/post/ansible-directory-layout/</loc>
+    <lastmod>2018-02-15T23:48:26-05:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://midiroot.com/post/bash---paths-and-file-names-manipulation/</loc>
     <lastmod>2018-02-06T22:10:18-04:00</lastmod>
   </url>
@@ -38,7 +43,19 @@
   </url>
   
   <url>
+    <loc>https://midiroot.com/categories/ansible/</loc>
+    <lastmod>2018-02-15T23:48:26-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://midiroot.com/authors/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://midiroot.com/categories/basg/</loc>
+    <lastmod>2018-02-15T23:48:26-05:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -49,8 +66,14 @@
   </url>
   
   <url>
+    <loc>https://midiroot.com/categories/best-practices/</loc>
+    <lastmod>2018-02-15T23:48:26-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://midiroot.com/categories/</loc>
-    <lastmod>2018-02-06T22:10:18-04:00</lastmod>
+    <lastmod>2018-02-15T23:48:26-05:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -104,7 +127,7 @@
   
   <url>
     <loc>https://midiroot.com/post/</loc>
-    <lastmod>2018-02-06T22:10:18-04:00</lastmod>
+    <lastmod>2018-02-15T23:48:26-05:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -127,7 +150,7 @@
   
   <url>
     <loc>https://midiroot.com/</loc>
-    <lastmod>2018-02-06T22:10:18-04:00</lastmod>
+    <lastmod>2018-02-15T23:48:26-05:00</lastmod>
     <priority>0</priority>
   </url>
   
