@@ -92,5 +92,15 @@ One way to fix this is to change context type, for this let&amp;rsquo;s first ch
  # Check the current SELinux context: ls -aZ /var/ossec/logs # Change SELinux context: semanage fcontext -a -t var_log_t &#34;/var/ossec/logs(/.*)?&#34; # Apply the previous context change: restorecon -R -v /var/ossec/logs # Check/confirm the context change: ls -aZ /var/ossec/logs   Command explanation:  semanage fcontext : Used to change SELinux context of files.</description>
     </item>
     
+    <item>
+      <title></title>
+      <link>https://midiroot.com/post/cd-up-faster-with-backup-command/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://midiroot.com/post/cd-up-faster-with-backup-command/</guid>
+      <description>Donovan Brown wrote a good article showcasing how you can use a custom PowerShell function to navigate up directories without the need to type multiple cd .. . I find his idea interesting and could be of important time saver if you spend a lot of time on PowerShell.
+Unfortunately (or fortunately) I don&amp;rsquo;t use PowerShell a lot, and when I do my usage is limited to few PowerCLI commands, but I do spend a considerable time interacting with Linux Shell.</description>
+    </item>
+    
   </channel>
 </rss>
