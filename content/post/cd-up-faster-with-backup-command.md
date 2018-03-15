@@ -2,7 +2,7 @@
 categories:
   - Bash
   - Shell
-title: "Cd-Up-Faster-With-Backup-Command2"
+title: "Cd Up Faster With Backup Command"
 date: "2018-03-15T00:56:24-04:00"
 draft: false
 ---
