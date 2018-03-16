@@ -44,11 +44,12 @@ Now that our help function is out of the way we can start building the backup fu
         fi
     }
 **How this works?** the functions starts first by making sure the argument is a valid integer, if not it will call the help function we created earlier. Then using a sequence of numbers from 1 to the argument, we will append `../` string to `STRARGMNT` with each iteration. When the for loop is complete we run `cd` command with all the final appended up directories. This will give us:
+
 |argument|command  |
-|--|--|
-|1  |cd ..  |
-|2|cd ../..|
-|3|cd ../../..|
+|--------|---------|
+|1       |cd ..    |
+|2       |cd ../.. |
+|3       |cd ../../..|
 
 
 ## How to use this?
