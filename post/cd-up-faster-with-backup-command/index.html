@@ -209,12 +209,33 @@ ga('send', 'pageview');
 }
 </code></pre>
 
-<p><strong>How this works?</strong> the functions starts first by making sure the argument is a valid integer, if not it will call the help function we created earlier. Then using a sequence of numbers from 1 to the argument, we will append <code>../</code> string to <code>STRARGMNT</code> with each iteration. When the for loop is complete we run <code>cd</code> command with all the final appended up directories. This will give us:
-|argument|command  |
-|&ndash;|&ndash;|
-|1  |cd ..  |
-|2|cd ../..|
-|3|cd ../../..|</p>
+<p><strong>How this works?</strong> the functions starts first by making sure the argument is a valid integer, if not it will call the help function we created earlier. Then using a sequence of numbers from 1 to the argument, we will append <code>../</code> string to <code>STRARGMNT</code> with each iteration. When the for loop is complete we run <code>cd</code> command with all the final appended up directories. This will give us:</p>
+
+<table>
+<thead>
+<tr>
+<th>argument</th>
+<th>command</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>1</td>
+<td>cd ..</td>
+</tr>
+
+<tr>
+<td>2</td>
+<td>cd ../..</td>
+</tr>
+
+<tr>
+<td>3</td>
+<td>cd ../../..</td>
+</tr>
+</tbody>
+</table>
 
 <h2 id="how-to-use-this">How to use this?</h2>
 
