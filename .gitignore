@@ -31,7 +31,7 @@ hugo.exe
 Session.vim
 # temporary
 .netrwhist
-*~
 # auto-generated tag files
 tags
 
+/content/post/haproxy-configuration.md
