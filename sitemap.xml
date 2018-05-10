@@ -89,6 +89,20 @@
   </url>
   
   <url>
+    <loc>https://midiroot.com/post/haproxy-getting-started/</loc>
+  </url>
+  
+  <url>
+    <loc>https://midiroot.com/categories/haproxy/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://midiroot.com/categories/install/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://midiroot.com/categories/journalctl/</loc>
     <lastmod>2017-09-16T22:47:18-04:00</lastmod>
     <priority>0</priority>
@@ -139,6 +153,11 @@
   <url>
     <loc>https://midiroot.com/categories/selinux/</loc>
     <lastmod>2017-09-12T22:47:18-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://midiroot.com/categories/setup/</loc>
     <priority>0</priority>
   </url>
   

@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta name='description' content='intro In this post, I will demonstrate how we can install HAProxy from source code. According to Wikipedia, HAProxy was written and still maintained by Willy Tarreau since 2000. HAProxy is free open source software (FOSS), that provides a high availability load balancer and proxy server for TCP (Transmission Control Protocol) and HTTP (Hypertext Transfer Protocol) based applications that spreads requests across multiple servers. It is written in C language and thus the reputation for being fast and efficient.'>
+
+<meta property='og:title' content='Getting started with HAProxy: Install from code source • Taleeb Midi'>
+<meta property='og:description' content='intro In this post, I will demonstrate how we can install HAProxy from source code. According to Wikipedia, HAProxy was written and still maintained by Willy Tarreau since 2000. HAProxy is free open source software (FOSS), that provides a high availability load balancer and proxy server for TCP (Transmission Control Protocol) and HTTP (Hypertext Transfer Protocol) based applications that spreads requests across multiple servers. It is written in C language and thus the reputation for being fast and efficient.'>
+<meta property='og:url' content='https://midiroot.com/post/haproxy-getting-started/'>
+<meta property='og:site_name' content='Taleeb Midi'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post'><meta name='twitter:card' content='summary'><meta name='twitter:site' content='@midi_onze'>
+
+<meta name="generator" content="Hugo 0.40.3" />
+
+  <title>Getting started with HAProxy: Install from code source • Taleeb Midi</title>
+  <link rel='canonical' href='https://midiroot.com/post/haproxy-getting-started/'>
+  
+  
+  <link rel='icon' href='/favicon.ico'>
+<link rel='stylesheet' href='/assets/css/main.22d77285.css'><link rel='stylesheet' href='/css/prism.css'>
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-106773326-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+</head>
+
+
+<body class='page type-post has-sidebar sidebar-sticky'>
+
+  <div class='site'>
+
+    <a class='screen-reader-text' href='#main-menu'>Skip to Main Menu</a>
+
+<div id='sidebar' class='sidebar'>
+  <div class='container'><section class='widget widget-about sep-after'>
+  <header>
+    
+    <div class='logo'>
+      <a href='/'>
+        <img src='/images/logo.png'>
+      </a>
+    </div>
+    
+    <h2 class='title site-title '>
+    Taleeb Midi
+    </h2>
+    <div class='desc'>
+    Python - Linux - Dev/Ops
+    </div>
+  </header>
+
+</section>
+<section class='widget widget-taxonomy_cloud sep-after'>
+  <header>
+    <h4 class='title widget-title'>Tags</h4>
+  </header>
+
+  <div class='container list-container'>
+  <ul class='list taxonomy-cloud'><li>
+        <a href='/categories/ansible' style='font-size:1em'>Ansible</a>
+      </li><li>
+        <a href='/categories/basg' style='font-size:1em'>Basg</a>
+      </li><li>
+        <a href='/categories/bash' style='font-size:1.25em'>Bash</a>
+      </li><li>
+        <a href='/categories/best-practices' style='font-size:1em'>Best Practices</a>
+      </li><li>
+        <a href='/categories/cryptsetup' style='font-size:1em'>Cryptsetup</a>
+      </li><li>
+        <a href='/categories/haproxy' style='font-size:1em'>HAProxy</a>
+      </li><li>
+        <a href='/categories/install' style='font-size:1em'>Install</a>
+      </li><li>
+        <a href='/categories/luks' style='font-size:1em'>LUKS</a>
+      </li><li>
+        <a href='/categories/linux' style='font-size:2em'>Linux</a>
+      </li><li>
+        <a href='/categories/logrotate' style='font-size:1em'>Logrotate</a>
+      </li><li>
+        <a href='/categories/ossec' style='font-size:1em'>OSSEC</a>
+      </li><li>
+        <a href='/categories/others' style='font-size:1em'>Others</a>
+      </li><li>
+        <a href='/categories/selinux' style='font-size:1em'>SELinux</a>
+      </li><li>
+        <a href='/categories/setup' style='font-size:1em'>Setup</a>
+      </li><li>
+        <a href='/categories/shell' style='font-size:1em'>Shell</a>
+      </li><li>
+        <a href='/categories/snippets' style='font-size:1.25em'>Snippets</a>
+      </li><li>
+        <a href='/categories/journalctl' style='font-size:1em'>Journalctl</a>
+      </li><li>
+        <a href='/categories/journald' style='font-size:1em'>Journald</a>
+      </li></ul>
+</div>
+
+
+</section>
+</div>
+</div>
+
+    <div class='main'>
+
+      <nav id='main-menu' class='main-menu' aria-label='Main Menu'>
+  <div class='container'>
+    <a class='screen-reader-text' href='#content'>Skip to Content</a>
+
+<button id='sidebar-toggler' class='hamburger hamburger--arrow sidebar-toggler' type='button' aria-controls='sidebar' aria-expanded='false'>
+  <span class='screen-reader-text'>Toggle Sidebar</span>
+  <span class="hamburger-box">
+    <span class="hamburger-inner"></span>
+  </span>
+</button>
+    <ul><li class='item'>
+        <a href='https://midiroot.com/'>Home</a>
+      </li></ul>
+  </div>
+</nav>
+
+
+      <header id='header' class='header site-header'>
+        <div class='container sep-after'>
+          <div class='header-info'><p class='site-title title'>Taleeb Midi</p><p class='desc site-desc'>Just some of the interesting Dev/Ops, Linux and technology related findings. I am using these posts as a reference, a writing experience and a place to share what I find worthy. I hope you will enjoy your time here.</p>
+          </div>
+        </div>
+      </header>
+
+      <main id='content'>
+
+
+<article lang='en' class='entry'>
+  <header class='header entry-header'>
+  <div class='container sep-after'>
+    <div class='header-info'>
+      <h1 class='title'>Getting started with HAProxy: Install from code source</h1>
+      
+
+    </div>
+    
+<div class='entry-meta'>
+  <span class='posted-on'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+  <line x1="16" y1="2" x2="16" y2="6"/>
+  <line x1="8" y1="2" x2="8" y2="6"/>
+  <line x1="3" y1="10" x2="21" y2="10"/>
+  
+</svg>
+<span class='screen-reader-text'>Posted on </span>
+  <time class='entry-date' datetime='0001-01-01T00:00:00Z'>0001, Jan 01</time>
+</span>
+
+  
+  
+
+</div>
+
+
+  </div>
+</header>
+
+  
+  
+
+  <div class='container entry-content'>
+  
+
+<h2 id="intro">intro</h2>
+
+<p>In this post, I will demonstrate how we can install HAProxy from source code. According to <a href="https://en.wikipedia.org/wiki/HAProxy" target="_blank">Wikipedia</a>, HAProxy was written and still maintained by <a href="http://1wt.eu/#wami" target="_blank">Willy Tarreau</a> since 2000. HAProxy is free open source software (FOSS), that provides a high availability load balancer and proxy server for TCP (Transmission Control Protocol) and HTTP (Hypertext Transfer Protocol) based applications that spreads requests across multiple servers. It is written in <strong>C</strong> language and thus the reputation for being fast and efficient.</p>
+
+<p>If you are curious, this <a href="http://www.haproxy.org/#feat" target="_blank">HAProxy Page</a> offers more details about its features.</p>
+
+<h2 id="installation">Installation</h2>
+
+<p>In this guide , we will be installing the latest stable version of 1.8 (as of May 09, 2018). the current HAProxy available under RHEL is <code>1.5.18</code> and <code>1.8.8</code> on Debian/Ubuntu. before taking the next step, make sure you have <code>gcc</code>, <code>pcre-static</code> and <code>pcre-devel</code> installed:</p>
+
+<pre><code># CentOS RHEL:
+sudo yum -y install make gcc perl pcre-devel zlib-devel
+
+# Debian/Ubuntu:
+sudo apt install make gcc perl pcre-devel zlib-devel
+</code></pre>
+
+<p>Enable IP forwarding and binding to non-local IP addresses:</p>
+
+<pre><code># echo &quot;net.ipv4.ip_forward = 1&quot; &gt;&gt; /etc/sysctl.conf
+# echo &quot;net.ipv4.ip_nonlocal_bind = 1&quot; &gt;&gt; /etc/sysctl.conf
+# sysctl -p
+net.ipv4.ip_forward = 1
+net.ipv4.ip_nonlocal_bind = 1
+</code></pre>
+
+<p>Download the source code:</p>
+
+<pre><code>wget https://www.haproxy.org/download/1.8/src/haproxy-1.8.8.tar.gz
+</code></pre>
+
+<p>Extract the file and change directory:</p>
+
+<pre><code>tar xvzf haproxy-1.8.8.tar.gz &amp;&amp; cd haproxy-1.8.8
+</code></pre>
+
+<p>Compile the program:</p>
+
+<pre><code>make TARGET=linux2628 USE_PCRE=1 USE_OPENSSL=1 USE_ZLIB=1
+</code></pre>
+
+<p>This is the list of TARGETs:</p>
+
+<ul>
+<li>linux22     for Linux 2.2</li>
+<li>linux24     for Linux 2.4 and above (default)</li>
+<li>linux24e    for Linux 2.4 with support for a working epoll (&gt; 0.21)</li>
+<li>linux26     for Linux 2.6 and above</li>
+<li>linux2628   for Linux 2.6.28, 3.x, and above (enables splice and tproxy)</li>
+<li>solaris     for Solaris 8 or 10 (others untested)</li>
+<li>freebsd     for FreeBSD 5 to 10 (others untested)</li>
+<li>netbsd      for NetBSD</li>
+<li>osx         for Mac OS/X</li>
+<li>openbsd     for OpenBSD 5.7 and above</li>
+<li>aix51       for AIX 5.1</li>
+<li>aix52       for AIX 5.2</li>
+<li>cygwin      for Cygwin</li>
+<li>haiku       for Haiku</li>
+<li>generic     for any other OS or version.</li>
+<li>custom      to manually adjust every setting</li>
+</ul>
+
+<p>You can also compile the program with following options:
+USE_PCRE=1 to use libpcre, in whatever form is available on your system (shared or static).
+USE_ZLIP=1 to use zlib compression Library.
+USE_OPENSSL=1 to add native support for SSL using the GNU makefile.</p>
+
+<p>Install HAProxy:</p>
+
+<pre><code>sudo make install
+</code></pre>
+
+<p>With that, we should now have the chosen HAProxy version installed. now we need to setup HAProxy.</p>
+
+<h2 id="setup">Setup:</h2>
+
+<p>Adding HAProxy user:</p>
+
+<pre><code>id -u haproxy &amp;&gt; /dev/null || useradd -s /usr/sbin/nologin -r haproxy
+</code></pre>
+
+<p>Copy HAProxy binary located in the extracted HAProxy directory to <code>/usr/sbin/</code>:</p>
+
+<pre><code>cp haproxy /usr/sbin/
+</code></pre>
+
+<p>Create Manual page:</p>
+
+<pre><code>wget -qO - https://raw.githubusercontent.com/horms/haproxy/master/doc/configuration.txt | gzip -c &gt; /usr/share/doc/haproxy/configuration.txt.gz
+</code></pre>
+
+<p>Create Systemd service script to manage HAProxy, use the following at your discretion:</p>
+
+<pre><code>sudo wget https://gist.githubusercontent.com/tmidi/1699a358533ae876513e2887fec6fbe2/raw/6c07ce39adc56c731d2bbeb88b90d8bbc636f3ea/haproxy.service -O /lib/systemd/system/haproxy.service
+</code></pre>
+
+<p>or create <code>/lib/systemd/system/haproxy.service</code> with the following content:</p>
+
+<pre><code>[Unit]
+Description=HAProxy Load Balancer
+Documentation=man:haproxy(1)
+Documentation=file:/usr/share/doc/haproxy/configuration.txt.gz
+# allows us to do millisecond level restarts without triggering alert in Systemd
+StartLimitInterval=0
+StartLimitBurst=0
+After=network.target syslog.service
+Wants=syslog.service
+
+[Service]
+Environment=&quot;CONFIG=/etc/haproxy/haproxy.cfg&quot; &quot;PIDFILE=/run/haproxy.pid&quot;
+# EXTRAOPTS and RELOADOPS come from this default file
+EnvironmentFile=-/etc/default/haproxy
+ExecStartPre=/usr/sbin/haproxy -f $CONFIG -c -q
+ExecStart=/usr/sbin/haproxy -W -f $CONFIG -p $PIDFILE $EXTRAOPTS
+ExecReload=/usr/sbin/haproxy -f $CONFIG -c -q $EXTRAOPTS $RELOADOPTS
+ExecReload=/bin/kill -USR2 $MAINPID
+KillMode=mixed
+Restart=always
+Type=forking
+
+[Install]
+WantedBy=multi-user.target
+</code></pre>
+
+<p>Enable and start <code>haproxy.service</code>:</p>
+
+<pre><code>systemctl enablle haproxy.service
+systemctl start haproxy.service
+</code></pre>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>This conclude conclude HAProxy installation steps.This guide however covers only the installation steps, in future post I will demonstrate how to configure HAProxy to load balance three backend web servers while using sticky session and SSL Pass-through.</p>
+
+<p>If you find this guide helpful, please share it with your friends and colleagues. I am on <a href="https://twitter.com/taleeb_midi" target="_blank">Twitter</a> and <a href="https://www.linkedin.com/in/taleebmidi/" target="_blank">LinkedIn</a>, let&rsquo;s connect or let me know if you have any question or any suggestions.</p>
+
+</div>
+
+  
+<footer class='entry-footer'>
+  <div class='container sep-before'>
+  <div class='categories'>
+  <span class='taxonomy-icon'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M22,19a2,2,0,0,1-2,2H4a2,2,0,0,1-2-2V5A2,2,0,0,1,4,3H9l2,3h9a2,2,0,0,1,2,2Z"/>
+  
+</svg>
+</span>
+  <span class='screen-reader-text'>Categories: </span><a class='category' href='/categories/haproxy'>HAProxy</a>, <a class='category' href='/categories/setup'>Setup</a>, <a class='category' href='/categories/install'>Install</a></div>
+
+  </div>
+</footer>
+
+
+</article>
+
+<nav class='entry-nav'>
+  <div class='container'><div class='next-entry sep-before'>
+      <a href='/post/ossec-log-rotation/'>
+        <span class='screen-reader-text'>Next post: </span>OSSEC - log rotation<span aria-hidden='true'>Next <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="4" y1="12" x2="20" y2="12"/>
+  <polyline points="14 6 20 12 14 18"/>
+  
+</svg>
+</span>
+      </a>
+    </div></div>
+</nav>
+
+
+
+      </main>
+
+      <footer id='footer' class='footer'>
+        <div class='container sep-before'>
+          <section class='widget widget-social_menu sep-after'><header>
+    <h4 class='title widget-title'>Social Menu</h4>
+  </header><nav aria-label='Social Menu'>
+    <ul><li>
+        <a href='https://github.com/tmidi' target='_blank' rel='noopener'>
+          <span class='screen-reader-text'>Open Github account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+  
+</svg>
+</a>
+      </li><li>
+        <a href='https://twitter.com/midi_onze' target='_blank' rel='noopener'>
+          <span class='screen-reader-text'>Open Twitter account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+  
+</svg>
+</a>
+      </li><li>
+        <a href='https://linkedin.com/in/taleebmidi' target='_blank' rel='noopener'>
+          <span class='screen-reader-text'>Open Linkedin account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+  <rect x="2" y="9" width="4" height="12"/>
+  <circle cx="4" cy="4" r="2"/>
+  
+</svg>
+</a>
+      </li></ul>
+  </nav>
+</section>
+
+          <div class='copyright'>
+  <p>All rights reserved &copy; 2017-2018 Taleeb Midi </p>
+</div>
+
+        </div>
+      </footer>
+
+    </div>
+  </div><div class='sidebar-overlay'></div><script src='/assets/js/main.89545a27.js'></script><script src='/js/prism.js'></script></body>
+
+</html>
+
