@@ -5,6 +5,7 @@
     <link>https://midiroot.com/categories/haproxy/</link>
     <description>Recent content in HAProxy on Taleeb Midi</description>
     <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 09 May 2018 20:51:00 -0500</lastBuildDate>
     
 	<atom:link href="https://midiroot.com/categories/haproxy/index.xml" rel="self" type="application/rss+xml" />
     
@@ -12,7 +13,7 @@
     <item>
       <title>Getting started with HAProxy: Install from code source</title>
       <link>https://midiroot.com/post/haproxy-getting-started/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 09 May 2018 20:51:00 -0500</pubDate>
       
       <guid>https://midiroot.com/post/haproxy-getting-started/</guid>
       <description>intro In this post, I will demonstrate how we can install HAProxy from source code. According to Wikipedia, HAProxy was written and still maintained by Willy Tarreau since 2000. HAProxy is free open source software (FOSS), that provides a high availability load balancer and proxy server for TCP (Transmission Control Protocol) and HTTP (Hypertext Transfer Protocol) based applications that spreads requests across multiple servers. It is written in C language and thus the reputation for being fast and efficient.</description>
