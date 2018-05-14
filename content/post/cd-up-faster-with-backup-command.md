@@ -7,6 +7,8 @@ date: "2018-03-15T00:56:24-04:00"
 draft: false
 ---
 
+![Bash Shell photo](/static/img/beach-beachlife-salt-water-21859.jpg)
+
 [Donovan Brown](http://donovanbrown.com) wrote a good [article](http://donovanbrown.com/post/Why-cd-when-you-can-just-backup) showcasing how you can use a custom PowerShell function to navigate up directories without the need to type multiple `cd ..` . I find his idea interesting and could be of important time saver if you spend a lot of time working with PowerShell.
 
 Unfortunately (or fortunately depends how you see it) nowadays I don't use PowerShell a lot, and when I do my usage is limited to few PowerCLI commands, but I do spend a considerable time interacting with Linux Shell, so the natural thing to do is to port Donovan's idea into a Bash script. The Bash script is going to be different from the PowerShell one, but the concept remains the same.
