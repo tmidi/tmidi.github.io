@@ -18,21 +18,24 @@ What we need?
 ## The help function:
 I like to keep this as simple as possible, since our function will take only one line for the argument and the second line to indicate that this a help menu:
 
-```bash
+<pre>
+  <code class="language-bash">
 function bu_usage () {
    cat <<-EOF
     Usage: bu [N]
             N        Where N is the number of level to move back to. this argument must be an integer.
             h help   displays this basic help menu.
     EOF
-}
-```
+
+</code>
+</pre>
 I used `-EOF` to allow indentation, this work better with tabs than with spaces.
 
 ## The back up function
 Now that our help function is out of the way we can start building the backup function. we know the function will take one argument, and this argument must be an integer:
 
-```bash
+<pre>
+  <code class="language-bash">
 function bu () {
     FUNCTIONARG=$1
     # Make sure the provided argument is a positive integer:
@@ -46,7 +49,8 @@ function bu () {
         bu_usage
     fi
 }
-```
+</code>
+</pre>
 **How this works?** the functions starts first by making sure the argument is a valid integer, if not it will call the help function we created earlier. Then using a sequence of numbers from 1 to the argument, we will append `../` string to `STRARGMNT` with each iteration. When the for loop is complete we run `cd` command with all the final appended up directories. This will give us:
 
 |argument|command  |
@@ -60,15 +64,18 @@ function bu () {
 I usually add functions like these to a `.functions` file under my home directory, the function file get sources by `.bash_profile`.
 To source `.functions` or other dotfiles add this for loop to your `.bash_profile`, files must be comma separated:
 
-```bash
+<pre>
+  <code class="language-bash">
 for file in ~/.{functions}; do
     [ -r "$file" \] && \[ -f "$file" \] && source "$file";
 done;
 unset file;
-```
+</code>
+</pre>
 
 Create `.functions` and add this content to it:
-```bash
+<pre>
+  <code class="language-bash">
  function bu () {
     function bu_usage () {
        cat <<-EOF
@@ -93,7 +100,8 @@ Create `.functions` and add this content to it:
         bu_usage
     fi
 }
-```
+</code>
+</pre>
 This is slightly different from the previous functions we created. The help menu is a nested function inside the main `bu` function. we also created empty `STRARGMNT` to unset the variable each time the function runs.
 
 When you are done `source .bash_profile` or close and reopen your terminal for the change to take effect
