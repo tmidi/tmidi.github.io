@@ -20,15 +20,15 @@ I like to keep this as simple as possible, since our function will take only one
 
 <pre>
   <code class="language-bash">
-function bu_usage () {
-   cat <<-EOF
-    Usage: bu [N]
-            N        Where N is the number of level to move back to. this argument must be an integer.
-            h help   displays this basic help menu.
-    EOF
-
-</code>
+    function bu_usage () {
+       cat <<-EOF
+        Usage: bu [N]
+                N        Where N is the number of level to move back to. this argument must be an integer.
+                h help   displays this basic help menu.
+        EOF
+  </code>
 </pre>
+
 I used `-EOF` to allow indentation, this work better with tabs than with spaces.
 
 ## The back up function
@@ -36,27 +36,29 @@ Now that our help function is out of the way we can start building the backup fu
 
 <pre>
   <code class="language-bash">
-function bu () {
-    FUNCTIONARG=$1
-    # Make sure the provided argument is a positive integer:
-    if [[ ! -z "${FUNCTIONARG##*[!0-9]*}" ]]; then
-        for i in $(seq 1 $FUNCTIONARG); do
-            STRARGMNT+="../"
-        done
-        CMD="cd ${STRARGMNT}"
-        eval $CMD
-    else
-        bu_usage
-    fi
-}
-</code>
+    function bu () {
+        FUNCTIONARG=$1
+        # Make sure the provided argument is a positive integer:
+        if [[ ! -z "${FUNCTIONARG##*[!0-9]*}" ]]; then
+            for i in $(seq 1 $FUNCTIONARG); do
+                STRARGMNT+="../"
+            done
+            CMD="cd ${STRARGMNT}"
+            eval $CMD
+        else
+            bu_usage
+        fi
+    }
+  </code>
 </pre>
+
 **How this works?** the functions starts first by making sure the argument is a valid integer, if not it will call the help function we created earlier. Then using a sequence of numbers from 1 to the argument, we will append `../` string to `STRARGMNT` with each iteration. When the for loop is complete we run `cd` command with all the final appended up directories. This will give us:
 
-|argument|command  |
-|--------|---------|
-|1       |cd ..    |
-|2       |cd ../.. |
+
+|argument|command    |
+|--------|-----------|
+|1       |cd ..      |
+|2       |cd ../..   |
 |3       |cd ../../..|
 
 
@@ -66,42 +68,43 @@ To source `.functions` or other dotfiles add this for loop to your `.bash_profil
 
 <pre>
   <code class="language-bash">
-for file in ~/.{functions}; do
-    [ -r "$file" \] && \[ -f "$file" \] && source "$file";
-done;
-unset file;
-</code>
+    for file in ~/.{functions}; do
+        [ -r "$file" \] && \[ -f "$file" \] && source "$file";
+    done;
+    unset file;
+  </code>
 </pre>
 
 Create `.functions` and add this content to it:
 <pre>
   <code class="language-bash">
- function bu () {
-    function bu_usage () {
-       cat <<-EOF
-        Usage: bu [N]
-                N        Where N is the number of level to move back to. this argument must be an integer.
-                h help   displays this basic help menu.
-        EOF
+     function bu () {
+        function bu_usage () {
+           cat <<-EOF
+            Usage: bu [N]
+                    N        Where N is the number of level to move back to. this argument must be an integer.
+                    h help   displays this basic help menu.
+            EOF
+        }
+    
+        # unset variables
+        STRARGMNT=""
+        FUNCTIONARG=$1
+    
+        # Make sure the provided argument is a positive integer:
+        if [[ ! -z "${FUNCTIONARG##*[!0-9]*}" ]]; then
+            for i in $(seq 1 $FUNCTIONARG); do
+                STRARGMNT+="../"
+            done
+            CMD="cd ${STRARGMNT}"
+            eval $CMD
+        else
+            bu_usage
+        fi
     }
-
-    # unset variables
-    STRARGMNT=""
-    FUNCTIONARG=$1
-
-    # Make sure the provided argument is a positive integer:
-    if [[ ! -z "${FUNCTIONARG##*[!0-9]*}" ]]; then
-        for i in $(seq 1 $FUNCTIONARG); do
-            STRARGMNT+="../"
-        done
-        CMD="cd ${STRARGMNT}"
-        eval $CMD
-    else
-        bu_usage
-    fi
-}
-</code>
+  </code>
 </pre>
+
 This is slightly different from the previous functions we created. The help menu is a nested function inside the main `bu` function. we also created empty `STRARGMNT` to unset the variable each time the function runs.
 
 When you are done `source .bash_profile` or close and reopen your terminal for the change to take effect
