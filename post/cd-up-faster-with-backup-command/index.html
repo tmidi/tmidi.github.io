@@ -187,91 +187,114 @@ ga('send', 'pageview');
 
 <pre>
   <code class="language-bash">
-function bu_usage () {
-   cat <<-EOF
-    Usage: bu [N]
-            N        Where N is the number of level to move back to. this argument must be an integer.
-            h help   displays this basic help menu.
-    EOF
-
-</code>
+    function bu_usage () {
+       cat <<-EOF
+        Usage: bu [N]
+                N        Where N is the number of level to move back to. this argument must be an integer.
+                h help   displays this basic help menu.
+        EOF
+  </code>
 </pre>
-I used `-EOF` to allow indentation, this work better with tabs than with spaces.
 
-## The back up function
-Now that our help function is out of the way we can start building the backup function. we know the function will take one argument, and this argument must be an integer:
+<p>I used <code>-EOF</code> to allow indentation, this work better with tabs than with spaces.</p>
+
+<h2 id="the-back-up-function">The back up function</h2>
+
+<p>Now that our help function is out of the way we can start building the backup function. we know the function will take one argument, and this argument must be an integer:</p>
 
 <pre>
   <code class="language-bash">
-function bu () {
-    FUNCTIONARG=$1
-    # Make sure the provided argument is a positive integer:
-    if [[ ! -z "${FUNCTIONARG##*[!0-9]*}" ]]; then
-        for i in $(seq 1 $FUNCTIONARG); do
-            STRARGMNT+="../"
-        done
-        CMD="cd ${STRARGMNT}"
-        eval $CMD
-    else
-        bu_usage
-    fi
-}
-</code>
+    function bu () {
+        FUNCTIONARG=$1
+        # Make sure the provided argument is a positive integer:
+        if [[ ! -z "${FUNCTIONARG##*[!0-9]*}" ]]; then
+            for i in $(seq 1 $FUNCTIONARG); do
+                STRARGMNT+="../"
+            done
+            CMD="cd ${STRARGMNT}"
+            eval $CMD
+        else
+            bu_usage
+        fi
+    }
+  </code>
 </pre>
-**How this works?** the functions starts first by making sure the argument is a valid integer, if not it will call the help function we created earlier. Then using a sequence of numbers from 1 to the argument, we will append `../` string to `STRARGMNT` with each iteration. When the for loop is complete we run `cd` command with all the final appended up directories. This will give us:
 
-|argument|command  |
-|--------|---------|
-|1       |cd ..    |
-|2       |cd ../.. |
-|3       |cd ../../..|
+<p><strong>How this works?</strong> the functions starts first by making sure the argument is a valid integer, if not it will call the help function we created earlier. Then using a sequence of numbers from 1 to the argument, we will append <code>../</code> string to <code>STRARGMNT</code> with each iteration. When the for loop is complete we run <code>cd</code> command with all the final appended up directories. This will give us:</p>
 
+<table>
+<thead>
+<tr>
+<th>argument</th>
+<th>command</th>
+</tr>
+</thead>
 
-## How to use this?
-I usually add functions like these to a `.functions` file under my home directory, the function file get sources by `.bash_profile`.
-To source `.functions` or other dotfiles add this for loop to your `.bash_profile`, files must be comma separated:
+<tbody>
+<tr>
+<td>1</td>
+<td>cd ..</td>
+</tr>
+
+<tr>
+<td>2</td>
+<td>cd ../..</td>
+</tr>
+
+<tr>
+<td>3</td>
+<td>cd ../../..</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="how-to-use-this">How to use this?</h2>
+
+<p>I usually add functions like these to a <code>.functions</code> file under my home directory, the function file get sources by <code>.bash_profile</code>.
+To source <code>.functions</code> or other dotfiles add this for loop to your <code>.bash_profile</code>, files must be comma separated:</p>
 
 <pre>
   <code class="language-bash">
-for file in ~/.{functions}; do
-    [ -r "$file" \] && \[ -f "$file" \] && source "$file";
-done;
-unset file;
-</code>
+    for file in ~/.{functions}; do
+        [ -r "$file" \] && \[ -f "$file" \] && source "$file";
+    done;
+    unset file;
+  </code>
 </pre>
 
 <p>Create <code>.functions</code> and add this content to it:
 <pre>
   <code class="language-bash">
- function bu () {
-    function bu_usage () {
-       cat &lt;&lt;-EOF
-        Usage: bu [N]
-                N        Where N is the number of level to move back to. this argument must be an integer.
-                h help   displays this basic help menu.
-        EOF
-    }</p>
+     function bu () {
+        function bu_usage () {
+           cat &lt;&lt;-EOF
+            Usage: bu [N]
+                    N        Where N is the number of level to move back to. this argument must be an integer.
+                    h help   displays this basic help menu.
+            EOF
+        }</p>
 
-<pre><code># unset variables
-STRARGMNT=&quot;&quot;
-FUNCTIONARG=$1
+<pre><code>    # unset variables
+    STRARGMNT=&quot;&quot;
+    FUNCTIONARG=$1
 
-# Make sure the provided argument is a positive integer:
-if [[ ! -z &quot;${FUNCTIONARG##*[!0-9]*}&quot; ]]; then
-    for i in $(seq 1 $FUNCTIONARG); do
-        STRARGMNT+=&quot;../&quot;
-    done
-    CMD=&quot;cd ${STRARGMNT}&quot;
-    eval $CMD
-else
-    bu_usage
-fi
+    # Make sure the provided argument is a positive integer:
+    if [[ ! -z &quot;${FUNCTIONARG##*[!0-9]*}&quot; ]]; then
+        for i in $(seq 1 $FUNCTIONARG); do
+            STRARGMNT+=&quot;../&quot;
+        done
+        CMD=&quot;cd ${STRARGMNT}&quot;
+        eval $CMD
+    else
+        bu_usage
+    fi
+}
 </code></pre>
 
-<p>}
-</code>
-</pre>
-This is slightly different from the previous functions we created. The help menu is a nested function inside the main <code>bu</code> function. we also created empty <code>STRARGMNT</code> to unset the variable each time the function runs.</p>
+<p></code>
+</pre></p>
+
+<p>This is slightly different from the previous functions we created. The help menu is a nested function inside the main <code>bu</code> function. we also created empty <code>STRARGMNT</code> to unset the variable each time the function runs.</p>
 
 <p>When you are done <code>source .bash_profile</code> or close and reopen your terminal for the change to take effect</p>
 
