@@ -184,37 +184,31 @@ ga('send', 'pageview');
 <h2 id="the-help-function">The help function:</h2>
 
 <p>I like to keep this as simple as possible, since our function will take only one line for the argument and the second line to indicate that this a help menu:</p>
-
-<pre><code>function bu_usage () {
-   cat &lt;&lt;-EOF
-    Usage: bu [N]
-            N        Where N is the number of level to move back to. this argument must be an integer.
-            h help   displays this basic help menu.
-    EOF
-}
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#66d9ef">function</span> bu_usage <span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+   cat <span style="color:#e6db74">&lt;&lt;-EOF
+</span><span style="color:#e6db74">    Usage: bu [N]
+</span><span style="color:#e6db74">            N        Where N is the number of level to move back to. this argument must be an integer.
+</span><span style="color:#e6db74">            h help   displays this basic help menu.
+</span><span style="color:#e6db74">    EOF</span>
+<span style="color:#f92672">}</span></code></pre></div>
 <p>I used <code>-EOF</code> to allow indentation, this work better with tabs than with spaces.</p>
 
 <h2 id="the-back-up-function">The back up function</h2>
 
 <p>Now that our help function is out of the way we can start building the backup function. we know the function will take one argument, and this argument must be an integer:</p>
-
-<pre><code>function bu () {
-    FUNCTIONARG=$1
-    # Make sure the provided argument is a positive integer:
-    if [[ ! -z &quot;${FUNCTIONARG##*[!0-9]*}&quot; ]]; then
-        for i in $(seq 1 $FUNCTIONARG); do
-            STRARGMNT+=&quot;../&quot;
-        done
-        CMD=&quot;cd ${STRARGMNT}&quot;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#66d9ef">function</span> bu <span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+    FUNCTIONARG<span style="color:#f92672">=</span>$1
+    <span style="color:#75715e"># Make sure the provided argument is a positive integer:
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">[[</span> ! -z <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>FUNCTIONARG##*[!0-9]*<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">]]</span>; <span style="color:#66d9ef">then</span>
+        <span style="color:#66d9ef">for</span> i in <span style="color:#66d9ef">$(</span>seq <span style="color:#ae81ff">1</span> $FUNCTIONARG<span style="color:#66d9ef">)</span>; <span style="color:#66d9ef">do</span>
+            STRARGMNT<span style="color:#f92672">+=</span><span style="color:#e6db74">&#34;../&#34;</span>
+        <span style="color:#66d9ef">done</span>
+        CMD<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;cd </span><span style="color:#e6db74">${</span>STRARGMNT<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
         eval $CMD
-    else
+    <span style="color:#66d9ef">else</span>
         bu_usage
-    fi
-}
-</code></pre>
-
+    <span style="color:#66d9ef">fi</span>
+<span style="color:#f92672">}</span></code></pre></div>
 <p><strong>How this works?</strong> the functions starts first by making sure the argument is a valid integer, if not it will call the help function we created earlier. Then using a sequence of numbers from 1 to the argument, we will append <code>../</code> string to <code>STRARGMNT</code> with each iteration. When the for loop is complete we run <code>cd</code> command with all the final appended up directories. This will give us:</p>
 
 <table>
@@ -247,42 +241,35 @@ ga('send', 'pageview');
 
 <p>I usually add functions like these to a <code>.functions</code> file under my home directory, the function file get sources by <code>.bash_profile</code>.
 To source <code>.functions</code> or other dotfiles add this for loop to your <code>.bash_profile</code>, files must be comma separated:</p>
-
-<pre><code>for file in ~/.{functions}; do
-    [ -r &quot;$file&quot; \] &amp;&amp; \[ -f &quot;$file&quot; \] &amp;&amp; source &quot;$file&quot;;
-done;
-unset file;
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#66d9ef">for</span> file in ~/.<span style="color:#f92672">{</span>functions<span style="color:#f92672">}</span>; <span style="color:#66d9ef">do</span>
+    <span style="color:#f92672">[</span> -r <span style="color:#e6db74">&#34;</span>$file<span style="color:#e6db74">&#34;</span> <span style="color:#ae81ff">\]</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\[</span> -f <span style="color:#e6db74">&#34;</span>$file<span style="color:#e6db74">&#34;</span> <span style="color:#ae81ff">\]</span> <span style="color:#f92672">&amp;&amp;</span> source <span style="color:#e6db74">&#34;</span>$file<span style="color:#e6db74">&#34;</span>;
+<span style="color:#66d9ef">done</span>;
+unset file;</code></pre></div>
 <p>Create <code>.functions</code> and add this content to it:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"> <span style="color:#66d9ef">function</span> bu <span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">function</span> bu_usage <span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+       cat <span style="color:#e6db74">&lt;&lt;-EOF
+</span><span style="color:#e6db74">        Usage: bu [N]
+</span><span style="color:#e6db74">                N        Where N is the number of level to move back to. this argument must be an integer.
+</span><span style="color:#e6db74">                h help   displays this basic help menu.
+</span><span style="color:#e6db74">        EOF</span>
+    <span style="color:#f92672">}</span>
 
-<pre><code> function bu () {
-    function bu_usage () {
-       cat &lt;&lt;-EOF
-        Usage: bu [N]
-                N        Where N is the number of level to move back to. this argument must be an integer.
-                h help   displays this basic help menu.
-        EOF
-    }
+    <span style="color:#75715e"># unset variables
+</span><span style="color:#75715e"></span>    STRARGMNT<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span>
+    FUNCTIONARG<span style="color:#f92672">=</span>$1
 
-
-    # unset variables
-    STRARGMNT=&quot;&quot;
-    FUNCTIONARG=$1
-
-    # Make sure the provided argument is a positive integer:
-    if [[ ! -z &quot;${FUNCTIONARG##*[!0-9]*}&quot; ]]; then
-        for i in $(seq 1 $FUNCTIONARG); do
-            STRARGMNT+=&quot;../&quot;
-        done
-        CMD=&quot;cd ${STRARGMNT}&quot;
+    <span style="color:#75715e"># Make sure the provided argument is a positive integer:
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">[[</span> ! -z <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>FUNCTIONARG##*[!0-9]*<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">]]</span>; <span style="color:#66d9ef">then</span>
+        <span style="color:#66d9ef">for</span> i in <span style="color:#66d9ef">$(</span>seq <span style="color:#ae81ff">1</span> $FUNCTIONARG<span style="color:#66d9ef">)</span>; <span style="color:#66d9ef">do</span>
+            STRARGMNT<span style="color:#f92672">+=</span><span style="color:#e6db74">&#34;../&#34;</span>
+        <span style="color:#66d9ef">done</span>
+        CMD<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;cd </span><span style="color:#e6db74">${</span>STRARGMNT<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
         eval $CMD
-    else
+    <span style="color:#66d9ef">else</span>
         bu_usage
-    fi
-}
-</code></pre>
-
+    <span style="color:#66d9ef">fi</span>
+<span style="color:#f92672">}</span></code></pre></div>
 <p>This is slightly different from the previous functions we created. The help menu is a nested function inside the main <code>bu</code> function. we also created empty <code>STRARGMNT</code> to unset the variable each time the function runs.</p>
 
 <p>When you are done <code>source .bash_profile</code> or close and reopen your terminal for the change to take effect</p>
