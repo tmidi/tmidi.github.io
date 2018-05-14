@@ -7,7 +7,7 @@ date: "2018-03-15T00:56:24-04:00"
 draft: false
 ---
 
-![Bash Shell photo](/static/img/beach-beachlife-salt-water-21859.jpg)
+![Bash Shell photo](/img/beach-beachlife-salt-water-21859.jpg)
 
 [Donovan Brown](http://donovanbrown.com) wrote a good [article](http://donovanbrown.com/post/Why-cd-when-you-can-just-backup) showcasing how you can use a custom PowerShell function to navigate up directories without the need to type multiple `cd ..` . I find his idea interesting and could be of important time saver if you spend a lot of time working with PowerShell.
 
