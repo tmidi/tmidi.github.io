@@ -64,7 +64,7 @@ defaultContentLanguage = "en"
   pageID = ""
 
 [params.opengraph.twitter]
-  page = "midi_onze" # Twitter page username
+  page = "taleeb_midi" # Twitter page username
 
 [params.seo]
   # Title Separator: - – — · • * ⋆ | ~ « » < >
@@ -73,7 +73,7 @@ defaultContentLanguage = "en"
 [params.social]
   linkedin = "taleebmidi"
   github = "tmidi"
-  twitter = "midi_onze"
+  twitter = "taleeb_midi"
   # codepen = ""
   # email = ""
   # facebook = ""
@@ -108,3 +108,13 @@ hrefTargetBlank = true
   lang = "en"
   languageName = "English"
   weight = 1
+
+[params.comments.staticman]
+enable = true
+apiEndpoint = "https://api.staticman.net/v2/entry"
+maxDepth = 2
+
+[params.comments.staticman.github]
+username = "tmidi"
+repository = "tmidi.github.io"
+branch = "master"
