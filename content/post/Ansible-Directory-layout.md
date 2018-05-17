@@ -6,6 +6,7 @@ categories:
 title: "Ansible: Directory Layout"
 date: "2018-02-15T23:48:26-05:00"
 draft: false
+comments: true
 ---
 According to Ansible's [Best Practices](http://docs.ansible.com/ansible/latest/playbooks_best_practices.html "Ansible best practices"), There are many possible ways to organize playbook content, and that the usage of such layout should fit your needs. The only thing I highly recommend is using *roles* instead of tasks, this will give your flexibility and better organization of your code.
 
