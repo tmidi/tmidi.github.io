@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta name='description' content='In this post, we look dive into some of the interesting way we can use Bash to work with file names and paths, this usually helpful when you want to put a quick Bash script to copy or move/rename file. I recently had to deal with hundreds of log files generataed by the dozens of containers, the issue was each container writes logs inside a folder, but the logs files are basically have the same name inside each folder.'>
+
+<meta property='og:title' content='Bash - Paths and file names manipulation • Taleeb Midi'>
+<meta property='og:description' content='In this post, we look dive into some of the interesting way we can use Bash to work with file names and paths, this usually helpful when you want to put a quick Bash script to copy or move/rename file. I recently had to deal with hundreds of log files generataed by the dozens of containers, the issue was each container writes logs inside a folder, but the logs files are basically have the same name inside each folder.'>
+<meta property='og:url' content='https://midiroot.com/post/bash---paths-and-file-names-manipulation/'>
+<meta property='og:site_name' content='Taleeb Midi'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post'><meta property='article:published_time' content='2018-02-06T22:10:18-04:00'/><meta property='article:modified_time' content='2018-02-06T22:10:18-04:00'/><meta name='twitter:card' content='summary'><meta name='twitter:site' content='@midi_onze'>
+
+<meta name="generator" content="Hugo 0.40.3" />
+
+  <title>Bash - Paths and file names manipulation • Taleeb Midi</title>
+  <link rel='canonical' href='https://midiroot.com/post/bash---paths-and-file-names-manipulation/'>
+  
+  
+  <link rel='icon' href='/favicon.ico'>
+<link rel='stylesheet' href='/assets/css/main.22d77285.css'><link rel='stylesheet' href='/css/prism.css'>
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-106773326-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+</head>
+
+
+<body class='page type-post has-sidebar sidebar-sticky'>
+
+  <div class='site'>
+
+    <a class='screen-reader-text' href='#main-menu'>Skip to Main Menu</a>
+
+<div id='sidebar' class='sidebar'>
+  <div class='container'><section class='widget widget-about sep-after'>
+  <header>
+    
+    <div class='logo'>
+      <a href='/'>
+        <img src='/images/logo.png'>
+      </a>
+    </div>
+    
+    <h2 class='title site-title '>
+    Taleeb Midi
+    </h2>
+    <div class='desc'>
+    Python - Linux - Dev/Ops
+    </div>
+  </header>
+
+</section>
+<section class='widget widget-taxonomy_cloud sep-after'>
+  <header>
+    <h4 class='title widget-title'>Tags</h4>
+  </header>
+
+  <div class='container list-container'>
+  <ul class='list taxonomy-cloud'><li>
+        <a href='/categories/ansible' style='font-size:1em'>Ansible</a>
+      </li><li>
+        <a href='/categories/basg' style='font-size:1em'>Basg</a>
+      </li><li>
+        <a href='/categories/bash' style='font-size:1.25em'>Bash</a>
+      </li><li>
+        <a href='/categories/best-practices' style='font-size:1em'>Best Practices</a>
+      </li><li>
+        <a href='/categories/cryptsetup' style='font-size:1em'>Cryptsetup</a>
+      </li><li>
+        <a href='/categories/haproxy' style='font-size:1em'>HAProxy</a>
+      </li><li>
+        <a href='/categories/install' style='font-size:1em'>Install</a>
+      </li><li>
+        <a href='/categories/luks' style='font-size:1em'>LUKS</a>
+      </li><li>
+        <a href='/categories/linux' style='font-size:2em'>Linux</a>
+      </li><li>
+        <a href='/categories/logrotate' style='font-size:1em'>Logrotate</a>
+      </li><li>
+        <a href='/categories/ossec' style='font-size:1em'>OSSEC</a>
+      </li><li>
+        <a href='/categories/others' style='font-size:1em'>Others</a>
+      </li><li>
+        <a href='/categories/selinux' style='font-size:1em'>SELinux</a>
+      </li><li>
+        <a href='/categories/setup' style='font-size:1em'>Setup</a>
+      </li><li>
+        <a href='/categories/shell' style='font-size:1em'>Shell</a>
+      </li><li>
+        <a href='/categories/snippets' style='font-size:1.25em'>Snippets</a>
+      </li><li>
+        <a href='/categories/journalctl' style='font-size:1em'>Journalctl</a>
+      </li><li>
+        <a href='/categories/journald' style='font-size:1em'>Journald</a>
+      </li></ul>
+</div>
+
+
+</section>
+</div>
+</div>
+
+    <div class='main'>
+
+      <nav id='main-menu' class='main-menu' aria-label='Main Menu'>
+  <div class='container'>
+    <a class='screen-reader-text' href='#content'>Skip to Content</a>
+
+<button id='sidebar-toggler' class='hamburger hamburger--arrow sidebar-toggler' type='button' aria-controls='sidebar' aria-expanded='false'>
+  <span class='screen-reader-text'>Toggle Sidebar</span>
+  <span class="hamburger-box">
+    <span class="hamburger-inner"></span>
+  </span>
+</button>
+    <ul><li class='item'>
+        <a href='https://midiroot.com/'>Home</a>
+      </li></ul>
+  </div>
+</nav>
+
+
+      <header id='header' class='header site-header'>
+        <div class='container sep-after'>
+          <div class='header-info'><p class='site-title title'>Taleeb Midi</p><p class='desc site-desc'>Just some of the interesting Dev/Ops, Linux and technology related findings. I am using these posts as a reference, a writing experience and a place to share what I find worthy. I hope you will enjoy your time here.</p>
+          </div>
+        </div>
+      </header>
+
+      <main id='content'>
+
+
+<article lang='en' class='entry'>
+  <header class='header entry-header'>
+  <div class='container sep-after'>
+    <div class='header-info'>
+      <h1 class='title'>Bash - Paths and file names manipulation</h1>
+      
+
+    </div>
+    
+<div class='entry-meta'>
+  <span class='posted-on'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+  <line x1="16" y1="2" x2="16" y2="6"/>
+  <line x1="8" y1="2" x2="8" y2="6"/>
+  <line x1="3" y1="10" x2="21" y2="10"/>
+  
+</svg>
+<span class='screen-reader-text'>Posted on </span>
+  <time class='entry-date' datetime='2018-02-06T22:10:18-04:00'>2018, Feb 06</time>
+</span>
+
+  
+  
+
+</div>
+
+
+  </div>
+</header>
+
+  
+  
+
+  <div class='container entry-content'>
+  <p>In this post, we look dive into some of the interesting way we can use Bash to work with file names and paths, this usually helpful when you want to put a quick Bash script to copy or move/rename file. I recently had to deal with hundreds of log files generataed by the dozens of containers, the issue was each container writes logs inside a folder, but the logs files are basically have the same name inside each folder.</p>
+
+<pre>
+  <code class="language-bash">
+    # tree /var/log/containers
+    ├── Container_01
+    │   ├── java.log
+    │   ├── access.log
+    │   ├── security.log
+    │   └── application.log
+    ├── Container_02
+    │   ├── java.log
+    │   ├── access.log
+    │   ├── security.log
+    │   └── application.log
+  </code>
+</pre>
+
+<p>As you can see from the example above, if I want to backup the log files, and move them all to a remote server, I have two options:
+* For each directory, I will create a mirror Directory and then move the log files there.
+* Rename each file, in a way to show which directory it belongs to; ex <em>Container_01-java.log</em> or <em>java-Container_01.log</em></p>
+
+<p>For me, the second option works the best, this was I don&rsquo;t have to worry about multiple directory in the remote backup host, and have all the logs file under the same location. to achieve this, I had to do some path manipulation.</p>
+
+<ol>
+<li><p>I need to get the directory name, assuming our path is &ldquo;/var/log/:
+<pre>
+<code class="language-bash">
+for D in /var/log/containers/<em>; do
+    BASE=${D##</em>/} # This is the same as &ldquo;dirname $D&rdquo;
+    echo $BASE
+done
+</code>
+</pre>
+This will get the name of each directory inside the path we provided, and then save the value using variable BASE, which we can use at later point. the echo statement is not necessary, and it&rsquo;s there just for debugging. Note that the result of the loop is a full path, using <code>##*/</code> will give us the last</p></li>
+
+<li><p>Now for each directory we gathered from the previous run, we need to get the list of file inside each one, to achieve this:
+<pre>
+<code class="language-bash">
+for F in $D; do
+    echo $F
+done
+</code>
+</pre></p></li>
+</ol>
+
+<p>Again with this we will get the full path, to manipulate this, we need to slice the full path, in one part we need the full path minus the filename (and the extension) and assign that to a variable, in the second part we need the short file name (nd the extension) and assign that a different variables.
+To get the Path - file name =&gt; <code>%/*</code>
+To get the the file name =&gt; <code>##*/</code>  # This is similar to what we used to get BASE:</p>
+
+<pre>
+  <code class="language-bash">
+    for F in $D/*; do
+        FULLPATH=${C%/*}
+        FILENAME=${C##*/}
+    done
+  </code>
+</pre>
+
+<ol>
+<li>Rename/move files:
+All we have to do at this point is to combine the variables to move the files:</li>
+</ol>
+
+<pre>
+  <code class="language-bash">
+    mv $F $FULLPATH/$BASE-$FILENAME
+    # This is the full command if we to run it from a terminal:
+    # mv /var/log/containers/Container_01/java.log /var/log/containers/Container_01/Container_01-java.log
+  </code>
+</pre>
+
+<p>if we put all together, we will have the following snippet of code:</p>
+
+<pre>
+  <code class="language-bash">
+    for D in /var/log/containers/*; do
+        BASE=${D##*/}
+        for F in $D/*; do
+            FULLPATH=${C%/*}
+            FILENAME=${C##*/}
+            mv $F $FULLPATH/$BASE-$FILENAME
+        done
+    done
+  </code>
+</pre>
+
+<p>Some other methods to manipulate files:</p>
+
+<pre>
+  <code class="language-bash">
+    FILE=/path/to/file.txt
+
+    # To get file name without extension:
+    echo ${FILE%.*}
+
+    # To get file's directory name:
+    echo ${FILE##*/}
+    or:
+    dirname $FILE
+
+    # To Get filename and extension:
+    basename $FILE
+  </code>
+</pre>
+
+</div>
+
+  
+<footer class='entry-footer'>
+  <div class='container sep-before'>
+  <div class='categories'>
+  <span class='taxonomy-icon'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M22,19a2,2,0,0,1-2,2H4a2,2,0,0,1-2-2V5A2,2,0,0,1,4,3H9l2,3h9a2,2,0,0,1,2,2Z"/>
+  
+</svg>
+</span>
+  <span class='screen-reader-text'>Categories: </span><a class='category' href='/categories/linux'>Linux</a>, <a class='category' href='/categories/bash'>Bash</a></div>
+
+  </div>
+</footer>
+
+
+</article>
+
+<nav class='entry-nav'>
+  <div class='container'><div class='prev-entry sep-before'>
+      <a href='/post/cryptsetup-create-linux-encrypted-volume/'>
+        <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="20" y1="12" x2="4" y2="12"/>
+  <polyline points="10 18 4 12 10 6"/>
+  
+</svg>
+ Previous</span>
+        <span class='screen-reader-text'>Previous post: </span>Cryptsetup Create Linux Encrypted Volumes</a>
+    </div><div class='next-entry sep-before'>
+      <a href='/post/ansible-directory-layout/'>
+        <span class='screen-reader-text'>Next post: </span>Ansible: Directory Layout<span aria-hidden='true'>Next <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="4" y1="12" x2="20" y2="12"/>
+  <polyline points="14 6 20 12 14 18"/>
+  
+</svg>
+</span>
+      </a>
+    </div></div>
+</nav>
+
+
+
+      </main>
+
+      <footer id='footer' class='footer'>
+        <div class='container sep-before'>
+          <section class='widget widget-social_menu sep-after'><header>
+    <h4 class='title widget-title'>Social Menu</h4>
+  </header><nav aria-label='Social Menu'>
+    <ul><li>
+        <a href='https://github.com/tmidi' target='_blank' rel='noopener'>
+          <span class='screen-reader-text'>Open Github account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+  
+</svg>
+</a>
+      </li><li>
+        <a href='https://twitter.com/midi_onze' target='_blank' rel='noopener'>
+          <span class='screen-reader-text'>Open Twitter account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+  
+</svg>
+</a>
+      </li><li>
+        <a href='https://linkedin.com/in/taleebmidi' target='_blank' rel='noopener'>
+          <span class='screen-reader-text'>Open Linkedin account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+  <rect x="2" y="9" width="4" height="12"/>
+  <circle cx="4" cy="4" r="2"/>
+  
+</svg>
+</a>
+      </li></ul>
+  </nav>
+</section>
+
+          <div class='copyright'>
+  <p>All rights reserved &copy; 2017-2018 Taleeb Midi </p>
+</div>
+
+        </div>
+      </footer>
+
+    </div>
+  </div><div class='sidebar-overlay'></div><script src='/assets/js/main.89545a27.js'></script><script src='/js/prism.js'></script></body>
+
+</html>
+
