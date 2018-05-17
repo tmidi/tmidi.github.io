@@ -5,6 +5,7 @@ categories:
 title: "Change Directory Up Faster With Back up Command"
 date: "2018-03-15T00:56:24-04:00"
 draft: false
+images: ['/img/beach-beachlife-salt-water-21859.jpg']
 ---
 
 ![Bash Shell photo](/img/beach-beachlife-salt-water-21859.jpg)
