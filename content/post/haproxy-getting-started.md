@@ -3,7 +3,7 @@ categories:
   - HAProxy
   - Setup
   - Install
-title: "Getting started with HAProxy: Install from code source"
+title: "Getting started with HAProxy: Install from source code"
 date: "2018-05-09T20:51:00-05:00"
 draft: false
 ---
