@@ -6,7 +6,6 @@ categories:
 title: "Logging: Working with Rsyslog server"
 date: "2019-12-25T21:30:26-05:00"
 draft: false
-comments: true
 ---
 
 <!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
