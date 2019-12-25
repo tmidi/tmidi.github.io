@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang='en'><head>
+  <meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta name='description' content='What&#39;s Cryptsetup? According to Cryptsetup&#39;s Gitlab project page; Cryptsetup is utility used to conveniently setup disk encryption based on DMCrypt kernel module.
+These include plain dm-crypt volumes, LUKS volumes, loop-AES and TrueCrypt (including VeraCrypt extension) format.
+Project also includes veritysetup utility used to conveniently setup DMVerity block integrity checking kernel module.
+To install LUKS:
+Activate Dmcrypt:
+Create the file to encrypt:
+Technically we are converting and coping a file. if: input file, we are using /dev/zero to fill the file with null characters (ASCII NUL, 0x00).'>
+<meta name='theme-color' content='#ffcd00'>
+
+<meta property='og:title' content='Cryptsetup Create Linux Encrypted Volumes • Taleeb Midi'>
+<meta property='og:description' content='What&#39;s Cryptsetup? According to Cryptsetup&#39;s Gitlab project page; Cryptsetup is utility used to conveniently setup disk encryption based on DMCrypt kernel module.
+These include plain dm-crypt volumes, LUKS volumes, loop-AES and TrueCrypt (including VeraCrypt extension) format.
+Project also includes veritysetup utility used to conveniently setup DMVerity block integrity checking kernel module.
+To install LUKS:
+Activate Dmcrypt:
+Create the file to encrypt:
+Technically we are converting and coping a file. if: input file, we are using /dev/zero to fill the file with null characters (ASCII NUL, 0x00).'>
+<meta property='og:url' content='https://midiroot.com/post/cryptsetup-create-linux-encrypted-volume/'>
+<meta property='og:site_name' content='Taleeb Midi'>
+<meta property='og:type' content='article'><meta property='article:section' content='post'><meta property='article:published_time' content='2017-09-28T23:17:17-04:00'/><meta property='article:modified_time' content='2017-09-28T23:17:17-04:00'/><meta name='twitter:card' content='summary'><meta name='twitter:site' content='@taleeb_midi'>
+
+<meta name="generator" content="Hugo 0.62.0" />
+
+  <title>Cryptsetup Create Linux Encrypted Volumes • Taleeb Midi</title>
+  <link rel='canonical' href='https://midiroot.com/post/cryptsetup-create-linux-encrypted-volume/'>
+  
+  
+  <link rel='icon' href='/favicon.ico'>
+<link rel='stylesheet' href='/assets/css/main.6a060eb7.css'><link rel='stylesheet' href='/css/prism.css'><style>
+:root{--color-accent:#ffcd00;}
+</style>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-106773326-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+  
+
+</head>
+<body class='page type-post has-sidebar'>
+
+  <div class='site'><div id='sidebar' class='sidebar'>
+  <a class='screen-reader-text' href='#main-menu'>Skip to Main Menu</a>
+
+  <div class='container'><section class='widget widget-about sep-after'>
+  <header>
+    
+    <div class='logo'>
+      <a href='/'>
+        <img src='/images/logo.png'>
+      </a>
+    </div>
+    
+    <h2 class='title site-title '>
+      <a href='/'>
+      Taleeb Midi
+      </a>
+    </h2>
+    <div class='desc'>
+    Just some of the interesting Dev/Ops, Linux and technology related findings. I am using these posts as a reference, a writing experience and a place to share what I find worthy. I hope you will enjoy your time here.
+    </div>
+  </header>
+
+</section>
+<section class='widget widget-taxonomy_cloud sep-after'>
+  <header>
+    <h4 class='title widget-title'>Tags</h4>
+  </header>
+
+  <div class='container list-container'>
+  <ul class='list taxonomy-cloud'><span>Not a single Tag!</span></ul>
+</div>
+
+
+</section>
+</div>
+
+  <div class='sidebar-overlay'></div>
+</div><div class='main'><nav id='main-menu' class='menu main-menu' aria-label='Main Menu'>
+  <div class='container'>
+    <a class='screen-reader-text' href='#content'>Skip to Content</a>
+
+<button id='sidebar-toggler' class='sidebar-toggler' aria-controls='sidebar'>
+  <span class='screen-reader-text'>Toggle Sidebar</span>
+  <span class='open'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="3" y1="12" x2="21" y2="12" />
+  <line x1="3" y1="6" x2="21" y2="6" />
+  <line x1="3" y1="18" x2="21" y2="18" />
+  
+</svg>
+</span>
+  <span class='close'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="18" y1="6" x2="6" y2="18" />
+  <line x1="6" y1="6" x2="18" y2="18" />
+  
+</svg>
+</span>
+</button>
+    <ul><li class='item'>
+        <a href='https://midiroot.com/'>Home</a>
+      </li></ul>
+  </div>
+</nav><div class='header-widgets'>
+        <div class='container'></div>
+      </div>
+
+      <header id='header' class='header site-header'>
+        <div class='container sep-after'>
+          <div class='header-info'><p class='site-title title'>Taleeb Midi</p><p class='desc site-desc'>Just some of the interesting Dev/Ops, Linux and technology related findings. I am using these posts as a reference, a writing experience and a place to share what I find worthy. I hope you will enjoy your time here.</p>
+          </div>
+        </div>
+      </header>
+
+      <main id='content'>
+
+
+<article lang='en' class='entry'>
+  <header class='header entry-header'>
+  <div class='container sep-after'>
+    <div class='header-info'>
+      <h1 class='title'>Cryptsetup Create Linux Encrypted Volumes</h1>
+      
+
+    </div>
+    <div class='entry-meta'>
+  <span class='posted-on'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+  <line x1="16" y1="2" x2="16" y2="6"/>
+  <line x1="8" y1="2" x2="8" y2="6"/>
+  <line x1="3" y1="10" x2="21" y2="10"/>
+  
+</svg>
+<span class='screen-reader-text'>Posted on </span>
+  <time class='entry-date' datetime='2017-09-28T23:17:17-04:00'>2017, Sep 28</time>
+</span>
+
+  
+  
+
+</div>
+
+
+  </div>
+</header>
+
+  
+  
+
+  <div class='container entry-content'>
+  <h1 id="whats-cryptsetup">What's Cryptsetup?</h1>
+<p>According to Cryptsetup's Gitlab project page; Cryptsetup is utility used to conveniently setup disk encryption based
+on DMCrypt kernel module.</p>
+<p>These include plain dm-crypt volumes, LUKS volumes, loop-AES
+and TrueCrypt (including VeraCrypt extension) format.</p>
+<p>Project also includes veritysetup utility used to conveniently setup
+DMVerity block integrity checking kernel module.</p>
+<p>To install LUKS:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Activate Dmcrypt:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Create the file to encrypt:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Technically we are converting and coping a file.
+if: input file, we are using /dev/zero to fill the file with null characters (ASCII NUL, 0x00).
+of: output file, Write to FILE instead of standard output.
+bs: Block size, for both read and write, default is 512.
+count: copy only N input blocks, in our example we will copy 1Mx1024, the output file size will be 1GB.</p>
+<p>Format the new created file:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>This will initializes a LUKS partition and sets the initial key. <strong>you need to remember the initialization key</strong>, this is the key you will use to mount or open the file</p>
+<p>Now, we need to open the LUKS partition:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>This command will opens LUKS partition <strong>device</strong> and sets up a mapping <strong>name</strong> after successful verification of the initialization key.</p>
+<p>Let's create XFS file system, you can use other file systems, adjust the command accordingly:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Close the LUKS partition:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>At this point, you have an encrypted LUKS partition, now we need a mounting point to be able to access this partition, for this we need to open again the LUKS partition:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>When prompted, enter your password.</p>
+<p>Create a mount point, I chose &ldquo;/mnt/encrypted&rdquo;:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Mount LUKS partition:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>if you issue &ldquo;df -h&rdquo; or &ldquo;mount | grep safe-encrypt&rdquo; you should be able to see newly mounted partition:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>When you are done working on the partition, unmount the file system then close the LUKS partition:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<blockquote>
+</blockquote>
+
+</div>
+
+  
+<footer class='entry-footer'>
+  <div class='container sep-before'><div class='categories'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M22,19a2,2,0,0,1-2,2H4a2,2,0,0,1-2-2V5A2,2,0,0,1,4,3H9l2,3h9a2,2,0,0,1,2,2Z"/>
+  
+</svg>
+<span class='screen-reader-text'>Categories: </span><a class='category' href='/categories/linux/'>Linux</a>, <a class='category' href='/categories/cryptsetup/'>Cryptsetup</a>, <a class='category' href='/categories/luks/'>LUKS</a></div>
+
+  </div>
+</footer>
+
+
+</article>
+
+<nav class='entry-nav'>
+  <div class='container'><div class='prev-entry sep-before'>
+      <a href='/post/journalctl-examples/'>
+        <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="20" y1="12" x2="4" y2="12"/>
+  <polyline points="10 18 4 12 10 6"/>
+  
+</svg>
+ Previous</span>
+        <span class='screen-reader-text'>Previous post: </span>Journalctl examples</a>
+    </div><div class='next-entry sep-before'>
+      <a href='/post/bash-paths-and-file-names-manipulation/'>
+        <span class='screen-reader-text'>Next post: </span>Bash - Paths and file names manipulation<span aria-hidden='true'>Next <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="4" y1="12" x2="20" y2="12"/>
+  <polyline points="14 6 20 12 14 18"/>
+  
+</svg>
+</span>
+      </a>
+    </div></div>
+</nav>
+
+
+
+
+      </main>
+
+      <footer id='footer' class='footer'>
+        <div class='container sep-before'><div class='copyright'>
+  <p>All rights reserved &copy; 2017-2019 Taleeb Midi </p>
+</div>
+
+        </div>
+      </footer>
+
+    </div>
+  </div><script>window.__assets_js_src="/assets/js/"</script>
+
+<script src='/assets/js/main.67d669ac.js'></script><script src='/js/prism.js'></script>
+
+</body>
+
+</html>
+
