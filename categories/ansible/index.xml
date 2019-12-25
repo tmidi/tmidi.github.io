@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Ansible on Taleeb Midi</title>
@@ -16,7 +16,7 @@
       <pubDate>Thu, 15 Feb 2018 23:48:26 -0500</pubDate>
       
       <guid>https://midiroot.com/post/ansible-directory-layout/</guid>
-      <description>According to Ansible&amp;rsquo;s Best Practices, There are many possible ways to organize playbook content, and that the usage of such layout should fit your needs. The only thing I highly recommend is using roles instead of tasks, this will give your flexibility and better organization of your code.
+      <description>According to Ansible&#39;s Best Practices, There are many possible ways to organize playbook content, and that the usage of such layout should fit your needs. The only thing I highly recommend is using roles instead of tasks, this will give your flexibility and better organization of your code.
 Ansible provide two examples of directory layouts. the first one is pretty simple and the one I go to when I am working on a small environement with a sample production and staging inventory files:</description>
     </item>
     

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Others on Taleeb Midi</title>
@@ -17,8 +17,9 @@
       
       <guid>https://midiroot.com/post/hugo-markdown/</guid>
       <description>CSS syntax highlight (GitHub-Flavored) Markdown Editor Basic useful feature list:
- Ctrl+S / Cmd+S to save the file Ctrl+Shift+S / Cmd+Shift+S to choose to save as Markdown or HTML Drag and drop a file into here to load it File contents are saved in the URL so you can share files  I&amp;rsquo;m no good at writing sample / filler text, so go write something yourself.
-Look, a list!</description>
+ Ctrl+S / Cmd+S to save the file Ctrl+Shift+S / Cmd+Shift+S to choose to save as Markdown or HTML Drag and drop a file into here to load it File contents are saved in the URL so you can share files  I&#39;m no good at writing sample / filler text, so go write something yourself.
+Look, a list!
+ foo bar baz  And here&#39;s some code!</description>
     </item>
     
   </channel>

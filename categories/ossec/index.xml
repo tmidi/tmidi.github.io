@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>OSSEC on Taleeb Midi</title>
@@ -17,8 +17,8 @@
       
       <guid>https://midiroot.com/post/ossec-log-rotation/</guid>
       <description>When SELinux enabled, some OSSEC packages will fail to rotate logs under /var/ossec/logs, which will result in crontab errors and in some cases failure to write to logs.
-One way to fix this is to change context type, for this let&amp;rsquo;s first check the current context:
- # Check the current SELinux context: ls -aZ /var/ossec/logs # Change SELinux context: semanage fcontext -a -t var_log_t &#34;/var/ossec/logs(/.*)?&#34; # Apply the previous context change: restorecon -R -v /var/ossec/logs # Check/confirm the context change: ls -aZ /var/ossec/logs   Command explanation:  semanage fcontext : Used to change SELinux context of files.</description>
+One way to fix this is to change context type, for this let&#39;s first check the current context:
+Command explanation:  semanage fcontext : Used to change SELinux context of files. semanage fcontext -a: Add object to record name. semanage fcontext -t: SELinux type of Object.</description>
     </item>
     
   </channel>
