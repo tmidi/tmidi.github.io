@@ -1,59 +1,81 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Taleeb Midi</title>
+    <title>Midi Root</title>
     <link>https://midiroot.com/</link>
-    <description>Recent content on Taleeb Midi</description>
+    <description>Recent content on Midi Root</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 09 May 2018 20:51:00 -0500</lastBuildDate>
+    <lastBuildDate>Wed, 25 Dec 2019 10:38:48 -0500</lastBuildDate>
     
-	<atom:link href="https://midiroot.com/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://midiroot.com/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Working With Rsyslog</title>
+      <link>https://midiroot.com/working-with-rsyslog/</link>
+      <pubDate>Wed, 25 Dec 2019 10:38:48 -0500</pubDate>
+      
+      <guid>https://midiroot.com/working-with-rsyslog/</guid>
+      <description>Introduction Couple weeks ago, I took a journey to centralize all our infrastructure logs in one location for the seek of ease to teams who needs access such logs.
+Diversity is a good thing, but it&#39;s a challenge when you have multiple devices in your infrastructure that generate logs in different formats and standards. While looking at multiple solutions and comparing them.
+We needed something that support Linux, Windows and dozens of network devices, a solution that easy to configure, automate and cost effective.</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>https://midiroot.com/about/</link>
+      <pubDate>Thu, 28 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://midiroot.com/about/</guid>
+      <description>Written in Go, Hugo is an open source static site generator available under the Apache Licence 2.0. Hugo supports TOML, YAML and JSON data file types, Markdown and HTML content files and uses shortcodes to add rich content. Other notable features are taxonomies, multilingual mode, image processing, custom output formats, HTML/CSS/JS minification and support for Sass SCSS workflows.
+Hugo makes use of a variety of open source projects including:
+ https://github.</description>
+    </item>
+    
+    <item>
       <title>Getting started with HAProxy: Install from source code</title>
-      <link>https://midiroot.com/post/haproxy-getting-started/</link>
+      <link>https://midiroot.com/getting-started-with-haproxy-install-from-source-code/</link>
       <pubDate>Wed, 09 May 2018 20:51:00 -0500</pubDate>
       
-      <guid>https://midiroot.com/post/haproxy-getting-started/</guid>
+      <guid>https://midiroot.com/getting-started-with-haproxy-install-from-source-code/</guid>
       <description>intro In this post, I will demonstrate how we can install HAProxy from source code. According to Wikipedia, HAProxy was written and still maintained by Willy Tarreau since 2000. HAProxy is free open source software (FOSS), that provides a high availability load balancer and proxy server for TCP (Transmission Control Protocol) and HTTP (Hypertext Transfer Protocol) based applications that spreads requests across multiple servers. It is written in C language and thus the reputation for being fast and efficient.</description>
     </item>
     
     <item>
       <title>Change Directory Up Faster With Back up Command</title>
-      <link>https://midiroot.com/post/cd-up-faster-with-backup-command/</link>
+      <link>https://midiroot.com/change-directory-up-faster-with-back-up-command/</link>
       <pubDate>Thu, 15 Mar 2018 00:56:24 -0400</pubDate>
       
-      <guid>https://midiroot.com/post/cd-up-faster-with-backup-command/</guid>
+      <guid>https://midiroot.com/change-directory-up-faster-with-back-up-command/</guid>
       <description>Donovan Brown wrote a good article showcasing how you can use a custom PowerShell function to navigate up directories without the need to type multiple cd .. . I find his idea interesting and could be of important time saver if you spend a lot of time working with PowerShell.
 Unfortunately (or fortunately depends how you see it) nowadays I don&#39;t use PowerShell a lot, and when I do my usage is limited to few PowerCLI commands, but I do spend a considerable time interacting with Linux Shell, so the natural thing to do is to port Donovan&#39;s idea into a Bash script.</description>
     </item>
     
     <item>
       <title>Ansible: Directory Layout</title>
-      <link>https://midiroot.com/post/ansible-directory-layout/</link>
+      <link>https://midiroot.com/ansible-directory-layout/</link>
       <pubDate>Thu, 15 Feb 2018 23:48:26 -0500</pubDate>
       
-      <guid>https://midiroot.com/post/ansible-directory-layout/</guid>
+      <guid>https://midiroot.com/ansible-directory-layout/</guid>
       <description>According to Ansible&#39;s Best Practices, There are many possible ways to organize playbook content, and that the usage of such layout should fit your needs. The only thing I highly recommend is using roles instead of tasks, this will give your flexibility and better organization of your code.
 Ansible provide two examples of directory layouts. the first one is pretty simple and the one I go to when I am working on a small environement with a sample production and staging inventory files:</description>
     </item>
     
     <item>
       <title>Bash - Paths and file names manipulation</title>
-      <link>https://midiroot.com/post/bash-paths-and-file-names-manipulation/</link>
+      <link>https://midiroot.com/bash-paths-and-file-names-manipulation/</link>
       <pubDate>Tue, 06 Feb 2018 22:10:18 -0400</pubDate>
       
-      <guid>https://midiroot.com/post/bash-paths-and-file-names-manipulation/</guid>
+      <guid>https://midiroot.com/bash-paths-and-file-names-manipulation/</guid>
       <description>In this post, we look dive into some of the interesting way we can use Bash to work with file names and paths, this usually helpful when you want to put a quick Bash script to copy or move/rename file. I recently had to deal with hundreds of log files generataed by the dozens of containers, the issue was each container writes logs inside a folder, but the logs files are basically have the same name inside each folder.</description>
     </item>
     
     <item>
       <title>Cryptsetup Create Linux Encrypted Volumes</title>
-      <link>https://midiroot.com/post/cryptsetup-create-linux-encrypted-volume/</link>
+      <link>https://midiroot.com/cryptsetup-create-linux-encrypted-volumes/</link>
       <pubDate>Thu, 28 Sep 2017 23:17:17 -0400</pubDate>
       
-      <guid>https://midiroot.com/post/cryptsetup-create-linux-encrypted-volume/</guid>
+      <guid>https://midiroot.com/cryptsetup-create-linux-encrypted-volumes/</guid>
       <description>What&#39;s Cryptsetup? According to Cryptsetup&#39;s Gitlab project page; Cryptsetup is utility used to conveniently setup disk encryption based on DMCrypt kernel module.
 These include plain dm-crypt volumes, LUKS volumes, loop-AES and TrueCrypt (including VeraCrypt extension) format.
 Project also includes veritysetup utility used to conveniently setup DMVerity block integrity checking kernel module.
@@ -65,52 +87,40 @@ Technically we are converting and coping a file. if: input file, we are using /d
     
     <item>
       <title>Journalctl examples</title>
-      <link>https://midiroot.com/post/journalctl-examples/</link>
+      <link>https://midiroot.com/journalctl-examples/</link>
       <pubDate>Sat, 16 Sep 2017 22:47:18 -0400</pubDate>
       
-      <guid>https://midiroot.com/post/journalctl-examples/</guid>
+      <guid>https://midiroot.com/journalctl-examples/</guid>
       <description>Journald address one major issue with Linux applications logging, it provides a centralized management logging for the Kernel and the userland processes regardless where the logs are coming from. you can also use journald as an alternative looging driver inside Docker containers, this feature is available since Docker version 1.7.
 To view logs written by journald you may use journalctl, it will show the full content of the journal when it&#39;s called without parameters:</description>
     </item>
     
     <item>
-      <title>Hugo Markdown language reference</title>
-      <link>https://midiroot.com/post/hugo-markdown/</link>
-      <pubDate>Wed, 13 Sep 2017 00:16:19 -0400</pubDate>
-      
-      <guid>https://midiroot.com/post/hugo-markdown/</guid>
-      <description>CSS syntax highlight (GitHub-Flavored) Markdown Editor Basic useful feature list:
- Ctrl+S / Cmd+S to save the file Ctrl+Shift+S / Cmd+Shift+S to choose to save as Markdown or HTML Drag and drop a file into here to load it File contents are saved in the URL so you can share files  I&#39;m no good at writing sample / filler text, so go write something yourself.
-Look, a list!
- foo bar baz  And here&#39;s some code!</description>
-    </item>
-    
-    <item>
       <title>Clear content of multiple files at once</title>
-      <link>https://midiroot.com/post/clear-content-of-multiple-files-at-once/</link>
+      <link>https://midiroot.com/clear-content-of-multiple-files-at-once/</link>
       <pubDate>Tue, 12 Sep 2017 22:47:18 -0400</pubDate>
       
-      <guid>https://midiroot.com/post/clear-content-of-multiple-files-at-once/</guid>
+      <guid>https://midiroot.com/clear-content-of-multiple-files-at-once/</guid>
       <description>When I am updating my Linux template, I like to delete all old logs, as a first step, I delete old rotated logs. First check how your logs are rotated and create a find command the one below to delete old rotated logs:
 The command above will delete all file that match the rule, you can limit how deep you want to find files using maxdepth. you can also use mtime +n to find files older than n days and delete them.</description>
     </item>
     
     <item>
       <title>How to clear content of multiple files at once</title>
-      <link>https://midiroot.com/post/how-to-clear-content-of-multiple-files-at-once/</link>
+      <link>https://midiroot.com/how-to-clear-content-of-multiple-files-at-once/</link>
       <pubDate>Tue, 12 Sep 2017 22:47:18 -0400</pubDate>
       
-      <guid>https://midiroot.com/post/how-to-clear-content-of-multiple-files-at-once/</guid>
+      <guid>https://midiroot.com/how-to-clear-content-of-multiple-files-at-once/</guid>
       <description>When I am updating my Linux template, I like to delete all old logs, as a first step, I delete old rotated logs. First check how your logs are rotated and create a find command the one below to delete old rotated logs:
 The command above will delete all file that match the rule, you can limit how deep you want to find files using maxdepth. you can also use mtime +n to find files older than n days and delete them.</description>
     </item>
     
     <item>
       <title>OSSEC - log rotation</title>
-      <link>https://midiroot.com/post/ossec-log-rotation/</link>
+      <link>https://midiroot.com/ossec-log-rotation/</link>
       <pubDate>Tue, 12 Sep 2017 22:47:18 -0400</pubDate>
       
-      <guid>https://midiroot.com/post/ossec-log-rotation/</guid>
+      <guid>https://midiroot.com/ossec-log-rotation/</guid>
       <description>When SELinux enabled, some OSSEC packages will fail to rotate logs under /var/ossec/logs, which will result in crontab errors and in some cases failure to write to logs.
 One way to fix this is to change context type, for this let&#39;s first check the current context:
 Command explanation:  semanage fcontext : Used to change SELinux context of files. semanage fcontext -a: Add object to record name. semanage fcontext -t: SELinux type of Object.</description>
