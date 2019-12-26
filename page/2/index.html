@@ -250,38 +250,6 @@
         <h1 itemprop="name">
   <a
     class="article-title"
-    href="/bash-paths-and-file-names-manipulation/"
-    >Bash - Paths and file names manipulation</a
-  >
-</h1>
-
-      </div>
-      <div class="article-entry text-muted" itemprop="description">In this post, we look dive into some of the interesting way we can use Bash to work with file names and paths, this usually helpful when you want to put a quick Bash script to copy or move/rename file. I recently had to deal with hundreds of log files generataed by the dozens of containers, the issue was each container writes logs inside a folder, but the logs files are basically have the same name inside each folder.</div>
-      <p class="article-meta"><span class="article-date">
-  <i class="icon icon-calendar-check"></i>
-<a href="https://midiroot.com/bash-paths-and-file-names-manipulation/" class="">
-  <time datetime="2018-02-06 22:10:18 -0400 -0400" itemprop="datePublished">2018-02-06</time>
-</a>
-</span><span class="article-category">
-  <i class="icon icon-folder"></i>
-  <a class="article-category-link" href="/categories/linux/"> Linux </a>
-  <a class="article-category-link" href="/categories/bash/"> Bash </a>
-</span>
-
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/bash-paths-and-file-names-manipulation/#comments" class="article-comment-link">Comments</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count:&nbsp;401words</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count:&nbsp;2minutes </span>
-      </p>
-    </article>
-    <article
-      class="article article-type-page"
-      itemscope
-      itemtype="http://schema.org/BlogPosting"
-    >
-      <div class="article-header">
-        <h1 itemprop="name">
-  <a
-    class="article-title"
     href="/cryptsetup-create-linux-encrypted-volumes/"
     >Cryptsetup Create Linux Encrypted Volumes</a
   >
@@ -411,6 +379,41 @@ The command above will delete all file that match the rule, you can limit how de
 		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count:&nbsp;148words</span>
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count:&nbsp;1minutes </span>
       </p>
+    </article>
+    <article
+      class="article article-type-page"
+      itemscope
+      itemtype="http://schema.org/BlogPosting"
+    >
+      <div class="article-header">
+        <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/ossec-log-rotation/"
+    >OSSEC - log rotation</a
+  >
+</h1>
+
+      </div>
+      <div class="article-entry text-muted" itemprop="description">When SELinux enabled, some OSSEC packages will fail to rotate logs under /var/ossec/logs, which will result in crontab errors and in some cases failure to write to logs.
+One way to fix this is to change context type, for this let's first check the current context:
+Command explanation:  semanage fcontext : Used to change SELinux context of files. semanage fcontext -a: Add object to record name. semanage fcontext -t: SELinux type of Object.</div>
+      <p class="article-meta"><span class="article-date">
+  <i class="icon icon-calendar-check"></i>
+<a href="https://midiroot.com/ossec-log-rotation/" class="">
+  <time datetime="2017-09-12 22:47:18 -0400 EDT" itemprop="datePublished">2017-09-12</time>
+</a>
+</span><span class="article-category">
+  <i class="icon icon-folder"></i>
+  <a class="article-category-link" href="/categories/selinux/"> SELinux </a>
+  <a class="article-category-link" href="/categories/ossec/"> OSSEC </a>
+  <a class="article-category-link" href="/categories/logrotate/"> Logrotate </a>
+</span>
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/ossec-log-rotation/#comments" class="article-comment-link">Comments</a></span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count:&nbsp;180words</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count:&nbsp;1minutes </span>
+      </p>
     </article></div>
   
 <nav class="bar bar-footer clearfix" data-stick-bottom>
@@ -420,15 +423,10 @@ The command above will delete all file that match the rule, you can limit how de
           <i class="icon icon-angle-left"></i>
           
         </a>
-      </li><li class="next">
-        <a href="/page/3/">
-          <i class="icon icon-angle-right"></i>
-          
-        </a>
       </li>
     </ul>
     <div class="total-article bar-right">
-      Page:2/3
+      Page:2/2
     </div>
   </div>
 </nav>

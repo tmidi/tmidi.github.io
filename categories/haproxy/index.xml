@@ -22,17 +22,6 @@ We needed something that support Linux, Windows and dozens of network devices, a
     </item>
     
     <item>
-      <title>About</title>
-      <link>https://midiroot.com/about/</link>
-      <pubDate>Thu, 28 Feb 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://midiroot.com/about/</guid>
-      <description>Written in Go, Hugo is an open source static site generator available under the Apache Licence 2.0. Hugo supports TOML, YAML and JSON data file types, Markdown and HTML content files and uses shortcodes to add rich content. Other notable features are taxonomies, multilingual mode, image processing, custom output formats, HTML/CSS/JS minification and support for Sass SCSS workflows.
-Hugo makes use of a variety of open source projects including:
- https://github.</description>
-    </item>
-    
-    <item>
       <title>Getting started with HAProxy: Install from source code</title>
       <link>https://midiroot.com/getting-started-with-haproxy-install-from-source-code/</link>
       <pubDate>Wed, 09 May 2018 20:51:00 -0500</pubDate>
