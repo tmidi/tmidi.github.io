@@ -2,13 +2,13 @@
 categories:
   - Ansible
   - Best Practices
-  - Basg
+  - Bash
 title: "Ansible: Directory Layout"
 date: "2018-02-15T23:48:26-05:00"
 draft: false
-comments: true
 ---
-According to Ansible's [Best Practices](http://docs.ansible.com/ansible/latest/playbooks_best_practices.html "Ansible best practices"), There are many possible ways to organize playbook content, and that the usage of such layout should fit your needs. The only thing I highly recommend is using *roles* instead of tasks, this will give your flexibility and better organization of your code.
+
+According to Ansible's [Best Practices](http://docs.ansible.com/ansible/latest/playbooks_best_practices.html "Ansible best practices"), There are many possible ways to organize playbook content, and that the usage of such layout should fit your needs. The only thing I highly recommend is using _roles_ instead of tasks, this will give your flexibility and better organization of your code.
 
 Ansible provide two examples of directory layouts. the first one is pretty simple and the one I go to when I am working on a small environement with a sample production and staging inventory files:
 

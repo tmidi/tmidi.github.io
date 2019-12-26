@@ -1,31 +1,9 @@
 ---
-categories:
-  - Linux
-  - Rsyslog
-  - Logging
-  - Debian
-  - RHEL
-title: "Logging: Working with Rsyslog server"
-date: "2019-12-25T21:30:26-05:00"
+title: "Working With Rsyslog"
+date: "2019-12-25T10:38:48-05:00"
 draft: false
+tags: [rsyslog Linux Guide]
 ---
-
-<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
-
-<!-- code_chunk_output -->
-
-- [Introduction](#introduction)
-- [Working with Rsyslog](#working-with-rsyslog)
-  - [Installation](#installation)
-    - [Debian:](#debian)
-    - [RHEL:](#rhel)
-  - [Configurations](#configurations)
-    - [Inputs](#inputs)
-    - [Templates](#templates)
-    - [Rulesets](#rulesets)
-- [Conclusion](#conclusion)
-
-<!-- /code_chunk_output -->
 
 # Introduction
 
