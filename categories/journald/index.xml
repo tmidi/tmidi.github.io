@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Journald on Taleeb Dev</title>
+    <link>https://taleeb.dev/categories/journald/</link>
+    <description>Recent content in Journald on Taleeb Dev</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 16 Sep 2017 22:47:18 -0400</lastBuildDate>
+    <atom:link href="https://taleeb.dev/categories/journald/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Journalctl examples</title>
+      <link>https://taleeb.dev/journalctl-examples/</link>
+      <pubDate>Sat, 16 Sep 2017 22:47:18 -0400</pubDate>
+      <guid>https://taleeb.dev/journalctl-examples/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Journald&lt;/strong&gt; address one major issue with Linux applications logging, it provides a centralized management logging for the Kernel and the userland processes regardless where the logs are coming from. you can also use journald as an alternative looging driver inside Docker containers, this feature is available since Docker version 1.7.&lt;/p&gt;&#xA;&lt;p&gt;To view logs written by journald you may use &lt;strong&gt;journalctl&lt;/strong&gt;, it will show the full content of the journal when it&amp;rsquo;s called without parameters:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Best Practices on Taleeb Dev</title>
+    <link>https://taleeb.dev/categories/best-practices/</link>
+    <description>Recent content in Best Practices on Taleeb Dev</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 15 Feb 2018 23:48:26 -0500</lastBuildDate>
+    <atom:link href="https://taleeb.dev/categories/best-practices/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ansible: Directory Layout</title>
+      <link>https://taleeb.dev/ansible-directory-layout/</link>
+      <pubDate>Thu, 15 Feb 2018 23:48:26 -0500</pubDate>
+      <guid>https://taleeb.dev/ansible-directory-layout/</guid>
+      <description>&lt;p&gt;According to Ansible&amp;rsquo;s &lt;a href=&#34;http://docs.ansible.com/ansible/latest/playbooks_best_practices.html&#34; title=&#34;Ansible best practices&#34;&gt;Best Practices&lt;/a&gt;, There are many possible ways to organize playbook content, and that the usage of such layout should fit your needs. The only thing I highly recommend is using &lt;em&gt;roles&lt;/em&gt; instead of tasks, this will give your flexibility and better organization of your code.&lt;/p&gt;&#xA;&lt;p&gt;Ansible provide two examples of directory layouts. the first one is pretty simple and the one I go to when I am working on a small environement with a sample production and staging inventory files:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

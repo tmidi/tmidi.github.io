@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Logrotate on Taleeb Dev</title>
+    <link>https://taleeb.dev/categories/logrotate/</link>
+    <description>Recent content in Logrotate on Taleeb Dev</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 12 Sep 2017 22:47:18 -0400</lastBuildDate>
+    <atom:link href="https://taleeb.dev/categories/logrotate/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>OSSEC - log rotation</title>
+      <link>https://taleeb.dev/ossec-log-rotation/</link>
+      <pubDate>Tue, 12 Sep 2017 22:47:18 -0400</pubDate>
+      <guid>https://taleeb.dev/ossec-log-rotation/</guid>
+      <description>&lt;p&gt;When SELinux enabled, some OSSEC packages will fail to rotate logs under &lt;strong&gt;/var/ossec/logs&lt;/strong&gt;, which will result in crontab errors and in some cases failure to write to logs.&lt;/p&gt;&#xA;&lt;p&gt;One way to fix this is to change context type, for this let&amp;rsquo;s first check the current context:&lt;/p&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;h5 id=&#34;command-explanation&#34;&gt;Command explanation:&lt;/h5&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;em&gt;semanage fcontext&lt;/em&gt; : Used to change SELinux context of files.&lt;/li&gt;&#xA;&lt;li&gt;&lt;em&gt;semanage fcontext&lt;/em&gt; -a: Add object to record name.&lt;/li&gt;&#xA;&lt;li&gt;&lt;em&gt;semanage fcontext&lt;/em&gt; -t: SELinux type of Object.&lt;/li&gt;&#xA;&lt;li&gt;&lt;em&gt;restorecon&lt;/em&gt; : -R for recursively and -v for verbose, or to show changes in file labels.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;If above failed, don&amp;rsquo;t disable SELinux, instead generate and install a SELinux targeted policy, &lt;strong&gt;audit2allow&lt;/strong&gt; is your best friend in this case. Red Hat offers a good &lt;a href=&#34;https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Security-Enhanced_Linux/sect-Security-Enhanced_Linux-Fixing_Problems-Allowing_Access_audit2allow.html&#34;&gt;step by step&lt;/a&gt; or &lt;a href=&#34;http://danwalsh.livejournal.com/24750.html&#34;&gt;Dan&amp;rsquo;s Walsh&lt;/a&gt; revisited guide to achieve this, if you are following Red Hat&amp;rsquo;s guide, pleas keep in mind that you might have multiple denials, so you might need to Grep for the &amp;ldquo;comm&amp;rdquo; value to create a specific policy.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

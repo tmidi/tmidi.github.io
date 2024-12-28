@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Shell on Taleeb Dev</title>
+    <link>https://taleeb.dev/categories/shell/</link>
+    <description>Recent content in Shell on Taleeb Dev</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 15 Mar 2018 00:56:24 -0400</lastBuildDate>
+    <atom:link href="https://taleeb.dev/categories/shell/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Change Directory Up Faster With Back up Command</title>
+      <link>https://taleeb.dev/change-directory-up-faster-with-back-up-command/</link>
+      <pubDate>Thu, 15 Mar 2018 00:56:24 -0400</pubDate>
+      <guid>https://taleeb.dev/change-directory-up-faster-with-back-up-command/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://taleeb.dev/img/beach-beachlife-salt-water-21859.jpg&#34; alt=&#34;Bash Shell photo&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;http://donovanbrown.com&#34;&gt;Donovan Brown&lt;/a&gt; wrote a good &lt;a href=&#34;http://donovanbrown.com/post/Why-cd-when-you-can-just-backup&#34;&gt;article&lt;/a&gt; showcasing how you can use a custom PowerShell function to navigate up directories without the need to type multiple &lt;code&gt;cd ..&lt;/code&gt; . I find his idea interesting and could be of important time saver if you spend a lot of time working with PowerShell.&lt;/p&gt;&#xA;&lt;p&gt;Unfortunately (or fortunately depends how you see it) nowadays I don&amp;rsquo;t use PowerShell a lot, and when I do my usage is limited to few PowerCLI commands, but I do spend a considerable time interacting with Linux Shell, so the natural thing to do is to port Donovan&amp;rsquo;s idea into a Bash script. The Bash script is going to be different from the PowerShell one, but the concept remains the same.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

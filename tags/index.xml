@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Taleeb Dev</title>
+    <link>https://taleeb.dev/tags/</link>
+    <description>Recent content in Tags on Taleeb Dev</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 25 Dec 2019 10:38:48 -0500</lastBuildDate>
+    <atom:link href="https://taleeb.dev/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Rsyslog Linux Guide</title>
+      <link>https://taleeb.dev/tags/rsyslog-linux-guide/</link>
+      <pubDate>Wed, 25 Dec 2019 10:38:48 -0500</pubDate>
+      <guid>https://taleeb.dev/tags/rsyslog-linux-guide/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>LUKS on Taleeb Dev</title>
+    <link>https://taleeb.dev/categories/luks/</link>
+    <description>Recent content in LUKS on Taleeb Dev</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 28 Sep 2017 23:17:17 -0400</lastBuildDate>
+    <atom:link href="https://taleeb.dev/categories/luks/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cryptsetup Create Linux Encrypted Volumes</title>
+      <link>https://taleeb.dev/cryptsetup-create-linux-encrypted-volumes/</link>
+      <pubDate>Thu, 28 Sep 2017 23:17:17 -0400</pubDate>
+      <guid>https://taleeb.dev/cryptsetup-create-linux-encrypted-volumes/</guid>
+      <description>&lt;h1 id=&#34;whats-cryptsetup&#34;&gt;What&amp;rsquo;s Cryptsetup?&lt;/h1&gt;&#xA;&lt;p&gt;According to Cryptsetup&amp;rsquo;s Gitlab project page; Cryptsetup is utility used to conveniently setup disk encryption based&#xA;on DMCrypt kernel module.&lt;/p&gt;&#xA;&lt;p&gt;These include plain dm-crypt volumes, LUKS volumes, loop-AES&#xA;and TrueCrypt (including VeraCrypt extension) format.&lt;/p&gt;&#xA;&lt;p&gt;Project also includes veritysetup utility used to conveniently setup&#xA;DMVerity block integrity checking kernel module.&lt;/p&gt;&#xA;&lt;p&gt;To install LUKS:&lt;/p&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;Activate Dmcrypt:&lt;/p&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;Create the file to encrypt:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rsyslog Linux Guide on Taleeb Dev</title>
+    <link>https://taleeb.dev/tags/rsyslog-linux-guide/</link>
+    <description>Recent content in Rsyslog Linux Guide on Taleeb Dev</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 25 Dec 2019 10:38:48 -0500</lastBuildDate>
+    <atom:link href="https://taleeb.dev/tags/rsyslog-linux-guide/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Working With Rsyslog</title>
+      <link>https://taleeb.dev/working-with-rsyslog/</link>
+      <pubDate>Wed, 25 Dec 2019 10:38:48 -0500</pubDate>
+      <guid>https://taleeb.dev/working-with-rsyslog/</guid>
+      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;&#xA;&lt;p&gt;Couple weeks ago, I took a journey to centralize all our infrastructure logs in one location for the seek of ease to teams who needs access such logs.&lt;/p&gt;&#xA;&lt;p&gt;Diversity is a good thing, but it&amp;rsquo;s a challenge when you have multiple devices in your infrastructure that generate logs in different formats and standards. While looking at multiple solutions and comparing them.&lt;/p&gt;&#xA;&lt;p&gt;We needed something that support Linux, Windows and dozens of network devices, a solution that easy to configure, automate and cost effective. With thousands of endpoints it must be of high performance and possible to scale when it is needed to. The quest lead us to the old &lt;strong&gt;rsyslog&lt;/strong&gt;, it was the only solution that checked all the boxes with capability to deliver one million messages per second to local destinations and it is completely free.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

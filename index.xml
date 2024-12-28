@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Taleeb Dev</title>
+    <link>https://taleeb.dev/</link>
+    <description>Recent content on Taleeb Dev</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 25 Dec 2019 10:38:48 -0500</lastBuildDate>
+    <atom:link href="https://taleeb.dev/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Working With Rsyslog</title>
+      <link>https://taleeb.dev/working-with-rsyslog/</link>
+      <pubDate>Wed, 25 Dec 2019 10:38:48 -0500</pubDate>
+      <guid>https://taleeb.dev/working-with-rsyslog/</guid>
+      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;&#xA;&lt;p&gt;Couple weeks ago, I took a journey to centralize all our infrastructure logs in one location for the seek of ease to teams who needs access such logs.&lt;/p&gt;&#xA;&lt;p&gt;Diversity is a good thing, but it&amp;rsquo;s a challenge when you have multiple devices in your infrastructure that generate logs in different formats and standards. While looking at multiple solutions and comparing them.&lt;/p&gt;&#xA;&lt;p&gt;We needed something that support Linux, Windows and dozens of network devices, a solution that easy to configure, automate and cost effective. With thousands of endpoints it must be of high performance and possible to scale when it is needed to. The quest lead us to the old &lt;strong&gt;rsyslog&lt;/strong&gt;, it was the only solution that checked all the boxes with capability to deliver one million messages per second to local destinations and it is completely free.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Getting started with HAProxy: Install from source code</title>
+      <link>https://taleeb.dev/getting-started-with-haproxy-install-from-source-code/</link>
+      <pubDate>Wed, 09 May 2018 20:51:00 -0500</pubDate>
+      <guid>https://taleeb.dev/getting-started-with-haproxy-install-from-source-code/</guid>
+      <description>&lt;h2 id=&#34;intro&#34;&gt;intro&lt;/h2&gt;&#xA;&lt;p&gt;In this post, I will demonstrate how we can install HAProxy from source code. According to &lt;a href=&#34;https://en.wikipedia.org/wiki/HAProxy&#34;&gt;Wikipedia&lt;/a&gt;, HAProxy was written and still maintained by &lt;a href=&#34;http://1wt.eu/#wami&#34;&gt;Willy Tarreau&lt;/a&gt; since 2000. HAProxy is free open source software (FOSS), that provides a high availability load balancer and proxy server for TCP (Transmission Control Protocol) and HTTP (Hypertext Transfer Protocol) based applications that spreads requests across multiple servers. It is written in &lt;strong&gt;C&lt;/strong&gt; language and thus the reputation for being fast and efficient.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Change Directory Up Faster With Back up Command</title>
+      <link>https://taleeb.dev/change-directory-up-faster-with-back-up-command/</link>
+      <pubDate>Thu, 15 Mar 2018 00:56:24 -0400</pubDate>
+      <guid>https://taleeb.dev/change-directory-up-faster-with-back-up-command/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://taleeb.dev/img/beach-beachlife-salt-water-21859.jpg&#34; alt=&#34;Bash Shell photo&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;http://donovanbrown.com&#34;&gt;Donovan Brown&lt;/a&gt; wrote a good &lt;a href=&#34;http://donovanbrown.com/post/Why-cd-when-you-can-just-backup&#34;&gt;article&lt;/a&gt; showcasing how you can use a custom PowerShell function to navigate up directories without the need to type multiple &lt;code&gt;cd ..&lt;/code&gt; . I find his idea interesting and could be of important time saver if you spend a lot of time working with PowerShell.&lt;/p&gt;&#xA;&lt;p&gt;Unfortunately (or fortunately depends how you see it) nowadays I don&amp;rsquo;t use PowerShell a lot, and when I do my usage is limited to few PowerCLI commands, but I do spend a considerable time interacting with Linux Shell, so the natural thing to do is to port Donovan&amp;rsquo;s idea into a Bash script. The Bash script is going to be different from the PowerShell one, but the concept remains the same.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Ansible: Directory Layout</title>
+      <link>https://taleeb.dev/ansible-directory-layout/</link>
+      <pubDate>Thu, 15 Feb 2018 23:48:26 -0500</pubDate>
+      <guid>https://taleeb.dev/ansible-directory-layout/</guid>
+      <description>&lt;p&gt;According to Ansible&amp;rsquo;s &lt;a href=&#34;http://docs.ansible.com/ansible/latest/playbooks_best_practices.html&#34; title=&#34;Ansible best practices&#34;&gt;Best Practices&lt;/a&gt;, There are many possible ways to organize playbook content, and that the usage of such layout should fit your needs. The only thing I highly recommend is using &lt;em&gt;roles&lt;/em&gt; instead of tasks, this will give your flexibility and better organization of your code.&lt;/p&gt;&#xA;&lt;p&gt;Ansible provide two examples of directory layouts. the first one is pretty simple and the one I go to when I am working on a small environement with a sample production and staging inventory files:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Bash - Paths and file names manipulation</title>
+      <link>https://taleeb.dev/bash-paths-and-file-names-manipulation/</link>
+      <pubDate>Tue, 06 Feb 2018 22:10:18 -0400</pubDate>
+      <guid>https://taleeb.dev/bash-paths-and-file-names-manipulation/</guid>
+      <description>&lt;p&gt;In this post, we look dive into some of the interesting way we can use Bash to work with file names and paths, this usually helpful when you want to put a quick Bash script to copy or move/rename file. I recently had to deal with hundreds of log files generataed by the dozens of containers, the issue was each container writes logs inside a folder, but the logs files are basically have the same name inside each folder.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Cryptsetup Create Linux Encrypted Volumes</title>
+      <link>https://taleeb.dev/cryptsetup-create-linux-encrypted-volumes/</link>
+      <pubDate>Thu, 28 Sep 2017 23:17:17 -0400</pubDate>
+      <guid>https://taleeb.dev/cryptsetup-create-linux-encrypted-volumes/</guid>
+      <description>&lt;h1 id=&#34;whats-cryptsetup&#34;&gt;What&amp;rsquo;s Cryptsetup?&lt;/h1&gt;&#xA;&lt;p&gt;According to Cryptsetup&amp;rsquo;s Gitlab project page; Cryptsetup is utility used to conveniently setup disk encryption based&#xA;on DMCrypt kernel module.&lt;/p&gt;&#xA;&lt;p&gt;These include plain dm-crypt volumes, LUKS volumes, loop-AES&#xA;and TrueCrypt (including VeraCrypt extension) format.&lt;/p&gt;&#xA;&lt;p&gt;Project also includes veritysetup utility used to conveniently setup&#xA;DMVerity block integrity checking kernel module.&lt;/p&gt;&#xA;&lt;p&gt;To install LUKS:&lt;/p&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;Activate Dmcrypt:&lt;/p&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;Create the file to encrypt:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Journalctl examples</title>
+      <link>https://taleeb.dev/journalctl-examples/</link>
+      <pubDate>Sat, 16 Sep 2017 22:47:18 -0400</pubDate>
+      <guid>https://taleeb.dev/journalctl-examples/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Journald&lt;/strong&gt; address one major issue with Linux applications logging, it provides a centralized management logging for the Kernel and the userland processes regardless where the logs are coming from. you can also use journald as an alternative looging driver inside Docker containers, this feature is available since Docker version 1.7.&lt;/p&gt;&#xA;&lt;p&gt;To view logs written by journald you may use &lt;strong&gt;journalctl&lt;/strong&gt;, it will show the full content of the journal when it&amp;rsquo;s called without parameters:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Clear content of multiple files at once</title>
+      <link>https://taleeb.dev/clear-content-of-multiple-files-at-once/</link>
+      <pubDate>Tue, 12 Sep 2017 22:47:18 -0400</pubDate>
+      <guid>https://taleeb.dev/clear-content-of-multiple-files-at-once/</guid>
+      <description>&lt;p&gt;When I am updating my Linux template, I like to delete all old logs, as a first step, I delete old rotated logs. First check how your logs are rotated and create a find command the one below to delete old rotated logs:&lt;/p&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;The command above will delete all file that match the rule, you can limit how deep you want to find files using &lt;strong&gt;maxdepth&lt;/strong&gt;. you can also use &lt;strong&gt;mtime +n&lt;/strong&gt; to find files older than n days and delete them.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>How to clear content of multiple files at once</title>
+      <link>https://taleeb.dev/how-to-clear-content-of-multiple-files-at-once/</link>
+      <pubDate>Tue, 12 Sep 2017 22:47:18 -0400</pubDate>
+      <guid>https://taleeb.dev/how-to-clear-content-of-multiple-files-at-once/</guid>
+      <description>&lt;p&gt;When I am updating my Linux template, I like to delete all old logs, as a first step, I delete old rotated logs. First check how your logs are rotated and create a find command the one below to delete old rotated logs:&lt;/p&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;The command above will delete all file that match the rule, you can limit how deep you want to find files using &lt;strong&gt;maxdepth&lt;/strong&gt;. you can also use &lt;strong&gt;mtime +n&lt;/strong&gt; to find files older than n days and delete them.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>OSSEC - log rotation</title>
+      <link>https://taleeb.dev/ossec-log-rotation/</link>
+      <pubDate>Tue, 12 Sep 2017 22:47:18 -0400</pubDate>
+      <guid>https://taleeb.dev/ossec-log-rotation/</guid>
+      <description>&lt;p&gt;When SELinux enabled, some OSSEC packages will fail to rotate logs under &lt;strong&gt;/var/ossec/logs&lt;/strong&gt;, which will result in crontab errors and in some cases failure to write to logs.&lt;/p&gt;&#xA;&lt;p&gt;One way to fix this is to change context type, for this let&amp;rsquo;s first check the current context:&lt;/p&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;h5 id=&#34;command-explanation&#34;&gt;Command explanation:&lt;/h5&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;em&gt;semanage fcontext&lt;/em&gt; : Used to change SELinux context of files.&lt;/li&gt;&#xA;&lt;li&gt;&lt;em&gt;semanage fcontext&lt;/em&gt; -a: Add object to record name.&lt;/li&gt;&#xA;&lt;li&gt;&lt;em&gt;semanage fcontext&lt;/em&gt; -t: SELinux type of Object.&lt;/li&gt;&#xA;&lt;li&gt;&lt;em&gt;restorecon&lt;/em&gt; : -R for recursively and -v for verbose, or to show changes in file labels.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;If above failed, don&amp;rsquo;t disable SELinux, instead generate and install a SELinux targeted policy, &lt;strong&gt;audit2allow&lt;/strong&gt; is your best friend in this case. Red Hat offers a good &lt;a href=&#34;https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Security-Enhanced_Linux/sect-Security-Enhanced_Linux-Fixing_Problems-Allowing_Access_audit2allow.html&#34;&gt;step by step&lt;/a&gt; or &lt;a href=&#34;http://danwalsh.livejournal.com/24750.html&#34;&gt;Dan&amp;rsquo;s Walsh&lt;/a&gt; revisited guide to achieve this, if you are following Red Hat&amp;rsquo;s guide, pleas keep in mind that you might have multiple denials, so you might need to Grep for the &amp;ldquo;comm&amp;rdquo; value to create a specific policy.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
