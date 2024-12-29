@@ -1,14 +1,18 @@
 baseURL: https://taleeb.dev/
-theme: pure
+theme: "hugo-theme-m10c"
 title: Taleeb Dev
 defaultContentLanguage: en
 footnoteReturnLinkContents: ↩
 hasCJKLanguage: true
-paginate: 5
+paginate: 10
 enableEmoji: true
 googleAnalytics: "UA-106773326-1"
+description: "Linux sysadmin, DevOps engineer."
 permalinks:
   posts: /:slug/
+
+markup:
+  defaultMarkdownHandler: goldmark
 
 taxonomies:
   category: categories
@@ -52,17 +56,18 @@ menu:
     - identifier: tags
       name: Tags
       title: Tags
-      url: /tags
-      weight: 4
+      url: "/tags/"
+      weight: 1
 
-    # - identifier: about
-    #   name: About
-    #   title: About
-    #   url: /about
-    #   weight: 5
+    - identifier: about
+      name: About
+      title: About
+      url: /about
+      weight: 5
 
 params:
   since: 2017
+  description: Exploring DevOps, Linux, and tech trends. A space to share insights, write about what I learn, and connect with fellow enthusiasts.
   dateFormatToUse: "2006-01-02"
   enablePostCopyright: true
   # the directory under content folder that you want to render
@@ -93,7 +98,7 @@ params:
     author_title: DevOps Engineer
     author_description: Linux sysadmin, DevOps engineer.
     location: Massachusetts, US
-    follow: https://midiroot.com
+    follow: https:/taleeb.dev
     # Social Links
     social:
       links:
@@ -110,7 +115,7 @@ params:
       url: favicon.ico
     title: Hugo
     favicon: favicon.ico
-    board: <p>Just some of the interesting Dev/Ops, Linux and technology related findings. I am using these posts as a reference, a writing experience and a place to share what I find worthy. I hope you will enjoy your time here.</p>
+    board: Just some of the interesting Dev/Ops, Linux and technology related findings. I am using these posts as a reference, a writing experience and a place to share what I find worthy. I hope you will enjoy your time here.
 
   # Share
   # weibo,qq,qzone,wechat,tencent,douban,diandian,facebook,twitter,google,linkedin

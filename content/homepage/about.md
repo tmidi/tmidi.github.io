@@ -4,4 +4,4 @@ button: 'About us'
 weight: 2
 ---
 
-Lorem ipsum dolor sit amet, et essent mediocritatem quo, choro volumus oporteat an mei. ipsum dolor sit amet, et essent mediocritatem quo,
+Just some of the interesting Dev/Ops, Linux and technology related findings. I am using these posts as a reference, a writing experience and a place to share what I find worthy. I hope you will enjoy your time here.
