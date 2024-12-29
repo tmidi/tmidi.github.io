@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Cryptsetup Create Linux Encrypted Volumes // Taleeb Dev</title>
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.140.1">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="John Doe" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="/css/main.min.86e088ff6e91496bbe3ddc9a6b1ae049973d9744af914fc0cca59990c799b516.css" />
+    
+
+    
+    
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Cryptsetup Create Linux Encrypted Volumes">
+  <meta name="twitter:description" content="What’s Cryptsetup? According to Cryptsetup’s Gitlab project page; Cryptsetup is utility used to conveniently setup disk encryption based on DMCrypt kernel module.
+These include plain dm-crypt volumes, LUKS volumes, loop-AES and TrueCrypt (including VeraCrypt extension) format.
+Project also includes veritysetup utility used to conveniently setup DMVerity block integrity checking kernel module.
+To install LUKS:
+Activate Dmcrypt:
+Create the file to encrypt:">
+
+    <meta property="og:url" content="https://taleeb.dev/cryptsetup-create-linux-encrypted-volumes/">
+  <meta property="og:site_name" content="Taleeb Dev">
+  <meta property="og:title" content="Cryptsetup Create Linux Encrypted Volumes">
+  <meta property="og:description" content="What’s Cryptsetup? According to Cryptsetup’s Gitlab project page; Cryptsetup is utility used to conveniently setup disk encryption based on DMCrypt kernel module.
+These include plain dm-crypt volumes, LUKS volumes, loop-AES and TrueCrypt (including VeraCrypt extension) format.
+Project also includes veritysetup utility used to conveniently setup DMVerity block integrity checking kernel module.
+To install LUKS:
+Activate Dmcrypt:
+Create the file to encrypt:">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2017-09-28T23:17:17-04:00">
+    <meta property="article:modified_time" content="2017-09-28T23:17:17-04:00">
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://taleeb.dev/"><img class="app-header-avatar" src="/avatar.jpg" alt="John Doe" /></a>
+      <span class="app-header-title">Taleeb Dev</span>
+      <nav class="app-header-menu">
+          <a class="app-header-menu-item" href="/">Home</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/tags/">Tags</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/posts">Archives</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/categories">Categories</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/about">About</a>
+      </nav>
+      <p>Exploring DevOps, Linux, and tech trends. A space to share insights, write about what I learn, and connect with fellow enthusiasts.</p>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">Cryptsetup Create Linux Encrypted Volumes</h1>
+      <div class="post-meta">
+        <div>
+          <svg class="icon icon-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>calendar</title><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+          Sep 28, 2017
+        </div>
+        <div>
+          <svg class="icon icon-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>clock</title><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          2 min read
+        </div>
+      </div>
+    </header>
+    <div class="post-content">
+      <h1 id="whats-cryptsetup">What&rsquo;s Cryptsetup?</h1>
+<p>According to Cryptsetup&rsquo;s Gitlab project page; Cryptsetup is utility used to conveniently setup disk encryption based
+on DMCrypt kernel module.</p>
+<p>These include plain dm-crypt volumes, LUKS volumes, loop-AES
+and TrueCrypt (including VeraCrypt extension) format.</p>
+<p>Project also includes veritysetup utility used to conveniently setup
+DMVerity block integrity checking kernel module.</p>
+<p>To install LUKS:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Activate Dmcrypt:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Create the file to encrypt:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Technically we are converting and coping a file.
+if: input file, we are using /dev/zero to fill the file with null characters (ASCII NUL, 0x00).
+of: output file, Write to FILE instead of standard output.
+bs: Block size, for both read and write, default is 512.
+count: copy only N input blocks, in our example we will copy 1Mx1024, the output file size will be 1GB.</p>
+<p>Format the new created file:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>This will initializes a LUKS partition and sets the initial key. <strong>you need to remember the initialization key</strong>, this is the key you will use to mount or open the file</p>
+<p>Now, we need to open the LUKS partition:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>This command will opens LUKS partition <strong>device</strong> and sets up a mapping <strong>name</strong> after successful verification of the initialization key.</p>
+<p>Let&rsquo;s create XFS file system, you can use other file systems, adjust the command accordingly:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Close the LUKS partition:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>At this point, you have an encrypted LUKS partition, now we need a mounting point to be able to access this partition, for this we need to open again the LUKS partition:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>When prompted, enter your password.</p>
+<p>Create a mount point, I chose &ldquo;/mnt/encrypted&rdquo;:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Mount LUKS partition:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>if you issue &ldquo;df -h&rdquo; or &ldquo;mount | grep safe-encrypt&rdquo; you should be able to see newly mounted partition:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>When you are done working on the partition, unmount the file system then close the LUKS partition:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>

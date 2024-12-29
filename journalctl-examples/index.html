@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Journalctl examples // Taleeb Dev</title>
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.140.1">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="John Doe" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="/css/main.min.86e088ff6e91496bbe3ddc9a6b1ae049973d9744af914fc0cca59990c799b516.css" />
+    
+
+    
+    
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Journalctl examples">
+  <meta name="twitter:description" content="Journald address one major issue with Linux applications logging, it provides a centralized management logging for the Kernel and the userland processes regardless where the logs are coming from. you can also use journald as an alternative looging driver inside Docker containers, this feature is available since Docker version 1.7.
+To view logs written by journald you may use journalctl, it will show the full content of the journal when it’s called without parameters:">
+
+    <meta property="og:url" content="https://taleeb.dev/journalctl-examples/">
+  <meta property="og:site_name" content="Taleeb Dev">
+  <meta property="og:title" content="Journalctl examples">
+  <meta property="og:description" content="Journald address one major issue with Linux applications logging, it provides a centralized management logging for the Kernel and the userland processes regardless where the logs are coming from. you can also use journald as an alternative looging driver inside Docker containers, this feature is available since Docker version 1.7.
+To view logs written by journald you may use journalctl, it will show the full content of the journal when it’s called without parameters:">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2017-09-16T22:47:18-04:00">
+    <meta property="article:modified_time" content="2017-09-16T22:47:18-04:00">
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://taleeb.dev/"><img class="app-header-avatar" src="/avatar.jpg" alt="John Doe" /></a>
+      <span class="app-header-title">Taleeb Dev</span>
+      <nav class="app-header-menu">
+          <a class="app-header-menu-item" href="/">Home</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/tags/">Tags</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/posts">Archives</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/categories">Categories</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/about">About</a>
+      </nav>
+      <p>Exploring DevOps, Linux, and tech trends. A space to share insights, write about what I learn, and connect with fellow enthusiasts.</p>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">Journalctl examples</h1>
+      <div class="post-meta">
+        <div>
+          <svg class="icon icon-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>calendar</title><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+          Sep 16, 2017
+        </div>
+        <div>
+          <svg class="icon icon-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>clock</title><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          2 min read
+        </div>
+      </div>
+    </header>
+    <div class="post-content">
+      <p><strong>Journald</strong> address one major issue with Linux applications logging, it provides a centralized management logging for the Kernel and the userland processes regardless where the logs are coming from. you can also use journald as an alternative looging driver inside Docker containers, this feature is available since Docker version 1.7.</p>
+<p>To view logs written by journald you may use <strong>journalctl</strong>, it will show the full content of the journal when it&rsquo;s called without parameters:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>To show all fields in full when the lines are very longs:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Use -r or &ndash;reverse to show newest entries first:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>You can also use -n N or &ndash;lines=N to show the last N numbers, -e or &ndash;pager-end to view the end of the logs and -f or &ndash;follow to stream continuously journal entries.
+One of may favorite options to run journalctl is -u or &ndash;unit, this will show messages for the specific systemd unit entered or a matching pattern</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>You can use -p, &ndash;priority to filter messages by priority, Takes either a single numeric or textual log level (i.e. between 0/&ldquo;emerg&rdquo; and 7/&ldquo;debug&rdquo;). Accepted priorities are : &ldquo;emerg&rdquo; (0), &ldquo;alert&rdquo; (1), &ldquo;crit&rdquo; (2), &ldquo;err&rdquo; (3), &ldquo;warning&rdquo; (4), &ldquo;notice&rdquo; (5), &ldquo;info&rdquo; (6), &ldquo;debug&rdquo; (7).</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>When it is supported, you can use -x, &ndash;catalog to show explanation texts from the message catalog, this will supply you with explanation of the message and a possible solution or point you to external resources to resolve an issue:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>journalctl in my opinion is a significant tool to use for debugging system and application issue, take the time to read the man page and practice using the above examples or from the man page.</p>
+<h3 id="references">References:</h3>
+<ul>
+<li><a href="https://www.freeDesktop-VM.org/software/systemd/man/journalctl.html">journalctl</a> man page.</li>
+</ul>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>

@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>How to clear content of multiple files at once // Taleeb Dev</title>
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.140.1">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="John Doe" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="/css/main.min.86e088ff6e91496bbe3ddc9a6b1ae049973d9744af914fc0cca59990c799b516.css" />
+    
+
+    
+    
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="How to clear content of multiple files at once">
+  <meta name="twitter:description" content="When I am updating my Linux template, I like to delete all old logs, as a first step, I delete old rotated logs. First check how your logs are rotated and create a find command the one below to delete old rotated logs:
+The command above will delete all file that match the rule, you can limit how deep you want to find files using maxdepth. you can also use mtime &#43;n to find files older than n days and delete them.">
+
+    <meta property="og:url" content="https://taleeb.dev/how-to-clear-content-of-multiple-files-at-once/">
+  <meta property="og:site_name" content="Taleeb Dev">
+  <meta property="og:title" content="How to clear content of multiple files at once">
+  <meta property="og:description" content="When I am updating my Linux template, I like to delete all old logs, as a first step, I delete old rotated logs. First check how your logs are rotated and create a find command the one below to delete old rotated logs:
+The command above will delete all file that match the rule, you can limit how deep you want to find files using maxdepth. you can also use mtime &#43;n to find files older than n days and delete them.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2017-09-12T22:47:18-04:00">
+    <meta property="article:modified_time" content="2017-09-12T22:47:18-04:00">
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://taleeb.dev/"><img class="app-header-avatar" src="/avatar.jpg" alt="John Doe" /></a>
+      <span class="app-header-title">Taleeb Dev</span>
+      <nav class="app-header-menu">
+          <a class="app-header-menu-item" href="/">Home</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/tags/">Tags</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/posts">Archives</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/categories">Categories</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/about">About</a>
+      </nav>
+      <p>Exploring DevOps, Linux, and tech trends. A space to share insights, write about what I learn, and connect with fellow enthusiasts.</p>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">How to clear content of multiple files at once</h1>
+      <div class="post-meta">
+        <div>
+          <svg class="icon icon-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>calendar</title><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+          Sep 12, 2017
+        </div>
+        <div>
+          <svg class="icon icon-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>clock</title><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          1 min read
+        </div>
+      </div>
+    </header>
+    <div class="post-content">
+      <p>When I am updating my Linux template, I like to delete all old logs, as a first step, I delete old rotated logs. First check how your logs are rotated and create a find command the one below to delete old rotated logs:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>The command above will delete all file that match the rule, you can limit how deep you want to find files using <strong>maxdepth</strong>. you can also use <strong>mtime +n</strong> to find files older than n days and delete them.</p>
+<p>Now it&rsquo;s the time to empty the content of file, this helpful if your find rules did not catch some files, or you don&rsquo;t want to delete active log file.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h5 id="explanation">Explanation:</h5>
+<p>This will empty the content of all files in /var/log/, concatenate /dev/null (/dev/null is a special file system object that hides the output) to each item.</p>
+<h3 id="references">References:</h3>
+<ul>
+<li><a href="https://linux.die.net/man/1/find">find</a> man page.</li>
+<li>This answer in <a href="https://serverfault.com/a/381369">Server Fault</a></li>
+</ul>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>

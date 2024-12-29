@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Bash - Paths and file names manipulation // Taleeb Dev</title>
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.140.1">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="John Doe" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="/css/main.min.86e088ff6e91496bbe3ddc9a6b1ae049973d9744af914fc0cca59990c799b516.css" />
+    
+
+    
+    
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Bash - Paths and file names manipulation">
+  <meta name="twitter:description" content="In this post, we look dive into some of the interesting way we can use Bash to work with file names and paths, this usually helpful when you want to put a quick Bash script to copy or move/rename file. I recently had to deal with hundreds of log files generataed by the dozens of containers, the issue was each container writes logs inside a folder, but the logs files are basically have the same name inside each folder.">
+
+    <meta property="og:url" content="https://taleeb.dev/bash-paths-and-file-names-manipulation/">
+  <meta property="og:site_name" content="Taleeb Dev">
+  <meta property="og:title" content="Bash - Paths and file names manipulation">
+  <meta property="og:description" content="In this post, we look dive into some of the interesting way we can use Bash to work with file names and paths, this usually helpful when you want to put a quick Bash script to copy or move/rename file. I recently had to deal with hundreds of log files generataed by the dozens of containers, the issue was each container writes logs inside a folder, but the logs files are basically have the same name inside each folder.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2018-02-06T22:10:18-04:00">
+    <meta property="article:modified_time" content="2018-02-06T22:10:18-04:00">
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://taleeb.dev/"><img class="app-header-avatar" src="/avatar.jpg" alt="John Doe" /></a>
+      <span class="app-header-title">Taleeb Dev</span>
+      <nav class="app-header-menu">
+          <a class="app-header-menu-item" href="/">Home</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/tags/">Tags</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/posts">Archives</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/categories">Categories</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/about">About</a>
+      </nav>
+      <p>Exploring DevOps, Linux, and tech trends. A space to share insights, write about what I learn, and connect with fellow enthusiasts.</p>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">Bash - Paths and file names manipulation</h1>
+      <div class="post-meta">
+        <div>
+          <svg class="icon icon-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>calendar</title><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+          Feb 6, 2018
+        </div>
+        <div>
+          <svg class="icon icon-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>clock</title><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          2 min read
+        </div>
+      </div>
+    </header>
+    <div class="post-content">
+      <p>In this post, we look dive into some of the interesting way we can use Bash to work with file names and paths, this usually helpful when you want to put a quick Bash script to copy or move/rename file. I recently had to deal with hundreds of log files generataed by the dozens of containers, the issue was each container writes logs inside a folder, but the logs files are basically have the same name inside each folder.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>As you can see from the example above, if I want to backup the log files, and move them all to a remote server, I have two options:</p>
+<ul>
+<li>For each directory, I will create a mirror Directory and then move the log files there.</li>
+<li>Rename each file, in a way to show which directory it belongs to; ex <em>Container_01-java.log</em> or <em>java-Container_01.log</em></li>
+</ul>
+<p>For me, the second option works the best, this was I don&rsquo;t have to worry about multiple directory in the remote backup host, and have all the logs file under the same location. to achieve this, I had to do some path manipulation.</p>
+<ol>
+<li>I need to get the directory name, assuming our path is &ldquo;/var/log/:</li>
+</ol>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>This will get the name of each directory inside the path we provided, and then save the value using variable BASE, which we can use at later point. the echo statement is not necessary, and it&rsquo;s there just for debugging. Note that the result of the loop is a full path, using <code>##*/</code> will give us the last</p>
+<ol start="2">
+<li>Now for each directory we gathered from the previous run, we need to get the list of file inside each one, to achieve this:</li>
+</ol>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Again with this we will get the full path, to manipulate this, we need to slice the full path, in one part we need the full path minus the filename (and the extension) and assign that to a variable, in the second part we need the short file name (nd the extension) and assign that a different variables.
+To get the Path - file name =&gt; <code>%/*</code>
+To get the the file name =&gt; <code>##*/</code>  # This is similar to what we used to get BASE:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<ol start="3">
+<li>Rename/move files:
+All we have to do at this point is to combine the variables to move the files:</li>
+</ol>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>if we put all together, we will have the following snippet of code:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Some other methods to manipulate files:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>

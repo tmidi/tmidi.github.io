@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Change Directory Up Faster With Back up Command // Taleeb Dev</title>
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.140.1">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="John Doe" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="/css/main.min.86e088ff6e91496bbe3ddc9a6b1ae049973d9744af914fc0cca59990c799b516.css" />
+    
+
+    
+    
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://taleeb.dev/img/beach-beachlife-salt-water-21859.jpg">
+  <meta name="twitter:title" content="Change Directory Up Faster With Back up Command">
+  <meta name="twitter:description" content="Donovan Brown wrote a good article showcasing how you can use a custom PowerShell function to navigate up directories without the need to type multiple cd .. . I find his idea interesting and could be of important time saver if you spend a lot of time working with PowerShell.
+Unfortunately (or fortunately depends how you see it) nowadays I don’t use PowerShell a lot, and when I do my usage is limited to few PowerCLI commands, but I do spend a considerable time interacting with Linux Shell, so the natural thing to do is to port Donovan’s idea into a Bash script. The Bash script is going to be different from the PowerShell one, but the concept remains the same.">
+
+    <meta property="og:url" content="https://taleeb.dev/change-directory-up-faster-with-back-up-command/">
+  <meta property="og:site_name" content="Taleeb Dev">
+  <meta property="og:title" content="Change Directory Up Faster With Back up Command">
+  <meta property="og:description" content="Donovan Brown wrote a good article showcasing how you can use a custom PowerShell function to navigate up directories without the need to type multiple cd .. . I find his idea interesting and could be of important time saver if you spend a lot of time working with PowerShell.
+Unfortunately (or fortunately depends how you see it) nowadays I don’t use PowerShell a lot, and when I do my usage is limited to few PowerCLI commands, but I do spend a considerable time interacting with Linux Shell, so the natural thing to do is to port Donovan’s idea into a Bash script. The Bash script is going to be different from the PowerShell one, but the concept remains the same.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2018-03-15T00:56:24-04:00">
+    <meta property="article:modified_time" content="2018-03-15T00:56:24-04:00">
+    <meta property="og:image" content="https://taleeb.dev/img/beach-beachlife-salt-water-21859.jpg">
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://taleeb.dev/"><img class="app-header-avatar" src="/avatar.jpg" alt="John Doe" /></a>
+      <span class="app-header-title">Taleeb Dev</span>
+      <nav class="app-header-menu">
+          <a class="app-header-menu-item" href="/">Home</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/tags/">Tags</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/posts">Archives</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/categories">Categories</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/about">About</a>
+      </nav>
+      <p>Exploring DevOps, Linux, and tech trends. A space to share insights, write about what I learn, and connect with fellow enthusiasts.</p>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">Change Directory Up Faster With Back up Command</h1>
+      <div class="post-meta">
+        <div>
+          <svg class="icon icon-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>calendar</title><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+          Mar 15, 2018
+        </div>
+        <div>
+          <svg class="icon icon-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>clock</title><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          3 min read
+        </div>
+      </div>
+    </header>
+    <div class="post-content">
+      <p><img src="/img/beach-beachlife-salt-water-21859.jpg" alt="Bash Shell photo"></p>
+<p><a href="http://donovanbrown.com">Donovan Brown</a> wrote a good <a href="http://donovanbrown.com/post/Why-cd-when-you-can-just-backup">article</a> showcasing how you can use a custom PowerShell function to navigate up directories without the need to type multiple <code>cd ..</code> . I find his idea interesting and could be of important time saver if you spend a lot of time working with PowerShell.</p>
+<p>Unfortunately (or fortunately depends how you see it) nowadays I don&rsquo;t use PowerShell a lot, and when I do my usage is limited to few PowerCLI commands, but I do spend a considerable time interacting with Linux Shell, so the natural thing to do is to port Donovan&rsquo;s idea into a Bash script. The Bash script is going to be different from the PowerShell one, but the concept remains the same.</p>
+<p>What we need?</p>
+<ul>
+<li>A function that take an integer as an argument.</li>
+<li>A help function to display a basic help menu when wrong argument entered.</li>
+</ul>
+<h2 id="the-help-function">The help function:</h2>
+<p>I like to keep this as simple as possible, since our function will take only one line for the argument and the second line to indicate that this a help menu:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>I used <code>-EOF</code> to allow indentation, this work better with tabs than with spaces.</p>
+<h2 id="the-back-up-function">The back up function</h2>
+<p>Now that our help function is out of the way we can start building the backup function. we know the function will take one argument, and this argument must be an integer:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><strong>How this works?</strong> the functions starts first by making sure the argument is a valid integer, if not it will call the help function we created earlier. Then using a sequence of numbers from 1 to the argument, we will append <code>../</code> string to <code>STRARGMNT</code> with each iteration. When the for loop is complete we run <code>cd</code> command with all the final appended up directories. This will give us:</p>
+<table>
+  <thead>
+      <tr>
+          <th>argument</th>
+          <th>command</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>1</td>
+          <td>cd ..</td>
+      </tr>
+      <tr>
+          <td>2</td>
+          <td>cd ../..</td>
+      </tr>
+      <tr>
+          <td>3</td>
+          <td>cd ../../..</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="how-to-use-this">How to use this?</h2>
+<p>I usually add functions like these to a <code>.functions</code> file under my home directory, the function file get sources by <code>.bash_profile</code>.
+To source <code>.functions</code> or other dotfiles add this for loop to your <code>.bash_profile</code>, files must be comma separated:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Create <code>.functions</code> and add this content to it:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>This is slightly different from the previous functions we created. The help menu is a nested function inside the main <code>bu</code> function. we also created empty <code>STRARGMNT</code> to unset the variable each time the function runs.</p>
+<p>When you are done <code>source .bash_profile</code> or close and reopen your terminal for the change to take effect</p>
+<p><strong>how to run?</strong>
+<code>bu help</code> or <code>bu -h</code> for help menu.
+<code>bu 2</code> to go two folders up, this is the equivalent of running <code>cd ..\..\</code>
+you can see <code>bu</code> in action here(external link):</p>
+<p><a href="https://asciinema.org/a/Serx0ac08heiRW4QI61FW2QKv"><img src="https://asciinema.org/a/Serx0ac08heiRW4QI61FW2QKv.png" alt="asciicast"></a></p>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>
