@@ -1,0 +1,80 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+const { title = 'Taleeb Midi', description = 'Director of DevOps. Writing about DevOps, Linux, and the practices that make teams ship reliably.' } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="alternate" type="application/rss+xml" title="Taleeb Midi" href="/rss.xml" />
+    <meta name="generator" content={Astro.generator} />
+    <script is:inline>
+      (function () {
+        var saved = localStorage.getItem('theme');
+        if (saved === 'dark' || saved === 'light') {
+          document.documentElement.dataset.theme = saved;
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <header>
+      <div class="wrap">
+        <a class="site-name" href="/">taleeb.dev</a>
+        <nav>
+          <a href="/blog/">Blog</a>
+          <a href="/tags/">Tags</a>
+          <a href="/about/">About</a>
+          <button
+            class="theme-toggle"
+            id="theme-toggle"
+            type="button"
+            aria-label="Toggle light and dark mode"
+            title="Toggle light / dark"
+          >
+            <span class="icon-sun" aria-hidden="true">☀</span>
+            <span class="icon-moon" aria-hidden="true">☾</span>
+          </button>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer>
+      <div class="wrap">
+        <p>
+          © {new Date().getFullYear()} Taleeb Midi ·
+          <a href="/rss.xml">RSS</a> ·
+          <a href="https://github.com/tmidi">GitHub</a>
+        </p>
+      </div>
+    </footer>
+    <script>
+      const root = document.documentElement;
+      const toggle = document.getElementById('theme-toggle');
+      const apply = () => {
+        const dark = root.dataset.theme === 'dark';
+        toggle.querySelector('.icon-sun').style.display = dark ? 'inline' : 'none';
+        toggle.querySelector('.icon-moon').style.display = dark ? 'none' : 'inline';
+      };
+      toggle.addEventListener('click', () => {
+        const dark = root.dataset.theme === 'dark';
+        const next = dark ? 'light' : 'dark';
+        root.dataset.theme = next;
+        localStorage.setItem('theme', next);
+        apply();
+      });
+      apply();
+    </script>
+  </body>
+</html>

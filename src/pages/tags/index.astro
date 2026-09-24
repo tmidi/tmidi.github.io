@@ -1,0 +1,25 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+
+const posts = await getCollection('blog', ({ data }) => !data.draft);
+const counts = new Map<string, string>();
+for (const post of posts) {
+  for (const tag of post.data.tags) {
+    counts.set(tag, tag);
+  }
+}
+const tags = [...counts.values()].sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
+---
+<Base title="Tags | Taleeb Midi">
+  <div class="wrap">
+    <h1 class="page-title">Tags</h1>
+    <div class="tag-cloud">
+      {tags.map((tag) => (
+        <a href={`/tags/${tag.toLowerCase().replace(/[^a-z0-9]+/g, '-')}/`}>
+          #{tag}
+        </a>
+      ))}
+    </div>
+  </div>
+</Base>
