@@ -40,8 +40,6 @@ This week featured a genuinely wild story: the full postmortem of how 700 OpenAI
 
 - **[When Kubernetes restarts your pod, and when it does not](https://www.cncf.io/blog/2026/03/17/when-kubernetes-restarts-your-pod-and-when-it-doesnt/)** (CNCF blog). A production internals guide verified against Kubernetes 1.35 GA. The title is deceptively simple: engineers say "the pod restarted" and mean four different things, and getting them wrong leads to bad runbooks. Companion repo included. Bookmark this for your next on-call.
 
-- **[CNCF Security Slam 2026, fall edition](https://www.cncf.io/blog/2026/09/25/security-slam-2026-fall-edition/)** (CNCF). A 30-day virtual event from October 5 to November 6, run by OpenSSF and CNCF. Focused on improving security posture across cloud-native projects. Good for both maintainers looking to harden their projects and operators who want to understand the supply chain.
-
 ## Open source and community
 
 - **[Breaking up with Google Play: why Conversations is now free](https://gultsch.de/posts/breaking-up-with-google-play/)** (Daniel Gultsch). The developer of Conversations, a federated XMPP client, details a decade of fighting Google's app review process: updates rejected for incomprehensible reasons, the app removed twice from the Play Store, 14-day review times for a simple update. The post includes actual revenue data from 2014 to 2026. He is making the app free and moving distribution off the Play Store entirely. A case study in why independent developers are fleeing app stores.
