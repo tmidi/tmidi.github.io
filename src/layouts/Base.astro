@@ -1,11 +1,12 @@
 ---
 import '../styles/global.css';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 
 interface Props {
-  title?: string;
-  description?: string;
+  title?: string | undefined;
+  description?: string | undefined;
 }
-const { title = 'Taleeb Midi', description = 'Director of DevOps. Writing about DevOps, Linux, and the practices that make teams ship reliably.' } = Astro.props;
+const { title = SITE_TITLE, description = SITE_DESCRIPTION } = Astro.props;
 ---
 <!doctype html>
 <html lang="en">
@@ -14,8 +15,7 @@ const { title = 'Taleeb Midi', description = 'Director of DevOps. Writing about 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="alternate" type="application/rss+xml" title="Taleeb Midi" href="/rss.xml" />
+    <link rel="alternate" type="application/rss+xml" title={SITE_TITLE} href="/rss.xml" />
     <meta name="generator" content={Astro.generator} />
     <script is:inline>
       (function () {
@@ -62,18 +62,23 @@ const { title = 'Taleeb Midi', description = 'Director of DevOps. Writing about 
     <script>
       const root = document.documentElement;
       const toggle = document.getElementById('theme-toggle');
+      const sun = toggle?.querySelector<HTMLElement>('.icon-sun');
+      const moon = toggle?.querySelector<HTMLElement>('.icon-moon');
+      const systemDark = window.matchMedia('(prefers-color-scheme: dark)');
+      // With no saved preference, the CSS follows the OS setting.
+      const isDark = () => (root.dataset['theme'] ?? (systemDark.matches ? 'dark' : 'light')) === 'dark';
       const apply = () => {
-        const dark = root.dataset.theme === 'dark';
-        toggle.querySelector('.icon-sun').style.display = dark ? 'inline' : 'none';
-        toggle.querySelector('.icon-moon').style.display = dark ? 'none' : 'inline';
+        const dark = isDark();
+        if (sun) sun.style.display = dark ? 'inline' : 'none';
+        if (moon) moon.style.display = dark ? 'none' : 'inline';
       };
-      toggle.addEventListener('click', () => {
-        const dark = root.dataset.theme === 'dark';
-        const next = dark ? 'light' : 'dark';
-        root.dataset.theme = next;
+      toggle?.addEventListener('click', () => {
+        const next = isDark() ? 'light' : 'dark';
+        root.dataset['theme'] = next;
         localStorage.setItem('theme', next);
         apply();
       });
+      systemDark.addEventListener('change', apply);
       apply();
     </script>
   </body>

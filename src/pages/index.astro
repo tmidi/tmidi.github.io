@@ -1,10 +1,8 @@
 ---
-import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
+import { getPublishedPosts, isoDate, postUrl } from '../lib/posts';
 
-const posts = (await getCollection('blog', ({ data }) => !data.draft))
-  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-  .slice(0, 5);
+const posts = (await getPublishedPosts()).slice(0, 5);
 ---
 <Base>
   <section class="hero wrap">
@@ -21,10 +19,8 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
     <ul class="posts">
       {posts.map((post) => (
         <li>
-          <time datetime={post.data.pubDate.toISOString().slice(0, 10)}>
-            {post.data.pubDate.toISOString().slice(0, 10)}
-          </time>
-          <a href={`/blog/${post.data.slug || post.id.replace(/\.md$/, '')}/`}>{post.data.title}</a>
+          <time datetime={isoDate(post.data.pubDate)}>{isoDate(post.data.pubDate)}</time>
+          <a href={postUrl(post)}>{post.data.title}</a>
         </li>
       ))}
     </ul>

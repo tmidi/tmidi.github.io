@@ -1,22 +1,22 @@
 ---
-import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
+import { SITE_TITLE } from '../../consts';
+import { getPublishedPosts, tagSlug, tagUrl } from '../../lib/posts';
 
-const posts = await getCollection('blog', ({ data }) => !data.draft);
-const counts = new Map<string, string>();
-for (const post of posts) {
+const bySlug = new Map<string, string>();
+for (const post of await getPublishedPosts()) {
   for (const tag of post.data.tags) {
-    counts.set(tag, tag);
+    if (!bySlug.has(tagSlug(tag))) bySlug.set(tagSlug(tag), tag);
   }
 }
-const tags = [...counts.values()].sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
+const tags = [...bySlug.values()].sort((a, b) => a.localeCompare(b, undefined, { sensitivity: 'base' }));
 ---
-<Base title="Tags | Taleeb Midi">
+<Base title={`Tags | ${SITE_TITLE}`}>
   <div class="wrap">
     <h1 class="page-title">Tags</h1>
     <div class="tag-cloud">
       {tags.map((tag) => (
-        <a href={`/tags/${tag.toLowerCase().replace(/[^a-z0-9]+/g, '-')}/`}>
+        <a href={tagUrl(tag)}>
           #{tag}
         </a>
       ))}

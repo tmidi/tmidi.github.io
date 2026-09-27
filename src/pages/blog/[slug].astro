@@ -1,27 +1,29 @@
 ---
-import { getCollection, render } from 'astro:content';
+import type { GetStaticPaths, InferGetStaticPropsType } from 'astro';
+import { render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
+import { SITE_TITLE } from '../../consts';
+import { getPublishedPosts, isoDate, postUrl, tagUrl } from '../../lib/posts';
 
-export async function getStaticPaths() {
-  const posts = await getCollection('blog', ({ data }) => !data.draft);
-  return posts.map((post) => ({ params: { slug: post.data.slug || post.id.replace(/\.md$/, '') }, props: { post } }));
-}
+export const getStaticPaths = (async () => {
+  const posts = await getPublishedPosts();
+  // Newest first: the older post is at i + 1, the newer one at i - 1.
+  return posts.map((post, i) => ({
+    params: { slug: post.id },
+    props: { post, prev: posts[i + 1], next: posts[i - 1] },
+  }));
+}) satisfies GetStaticPaths;
 
-const { post } = Astro.props;
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const { post, prev, next } = Astro.props;
 const { Content } = await render(post);
-
-const all = (await getCollection('blog', ({ data }) => !data.draft))
-  .sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf());
-const idx = all.findIndex((p) => p.id === post.id);
-const prev = idx > 0 ? all[idx - 1] : null;
-const next = idx < all.length - 1 ? all[idx + 1] : null;
-const slugOf = (p) => p.data.slug || p.id.replace(/\.md$/, '');
 ---
-<Base title={`${post.data.title} | Taleeb Midi`} description={post.data.description || post.data.title}>
+<Base title={`${post.data.title} | ${SITE_TITLE}`} description={post.data.description ?? post.data.title}>
   <article class="wrap">
     <h1>{post.data.title}</h1>
     <p class="meta-line">
-      {post.data.pubDate.toISOString().slice(0, 10)}
+      {isoDate(post.data.pubDate)}
       {post.data.tags.length > 0 && ' · '}{post.data.tags.join(', ')}
     </p>
     <Content />
@@ -29,14 +31,14 @@ const slugOf = (p) => p.data.slug || p.id.replace(/\.md$/, '');
     {post.data.tags.length > 0 && (
       <div class="tags">
         {post.data.tags.map((tag) => (
-          <a href={`/tags/${tag.toLowerCase().replace(/[^a-z0-9]+/g, '-')}/`}>#{tag}</a>
+          <a href={tagUrl(tag)}>#{tag}</a>
         ))}
       </div>
     )}
 
     <nav class="post-nav">
-      {prev ? <a href={`/blog/${slugOf(prev)}/`}>← {prev.data.title}</a> : <span />}
-      {next ? <a href={`/blog/${slugOf(next)}/`}>{next.data.title} →</a> : <span />}
+      {prev ? <a href={postUrl(prev)}>← {prev.data.title}</a> : <span />}
+      {next ? <a href={postUrl(next)}>{next.data.title} →</a> : <span />}
     </nav>
   </article>
 </Base>

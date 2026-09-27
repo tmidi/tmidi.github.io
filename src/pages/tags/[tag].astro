@@ -1,32 +1,35 @@
 ---
-import { getCollection } from 'astro:content';
+import type { GetStaticPaths, InferGetStaticPropsType } from 'astro';
 import Base from '../../layouts/Base.astro';
+import { SITE_TITLE } from '../../consts';
+import { getPublishedPosts, isoDate, postUrl, tagSlug, type Post } from '../../lib/posts';
 
-export async function getStaticPaths() {
-  const posts = await getCollection('blog', ({ data }) => !data.draft);
-  const tags = new Set<string>();
-  for (const post of posts) for (const t of post.data.tags) tags.add(t);
-  return [...tags].map((tag) => ({
-    params: { tag: tag.toLowerCase().replace(/[^a-z0-9]+/g, '-') },
-    props: { tag },
-  }));
-}
+export const getStaticPaths = (async () => {
+  // Keyed by slug so tags differing only in case/punctuation share one page.
+  const byTag = new Map<string, { tag: string; posts: Post[] }>();
+  for (const post of await getPublishedPosts()) {
+    for (const tag of post.data.tags) {
+      const slug = tagSlug(tag);
+      const entry = byTag.get(slug) ?? { tag, posts: [] };
+      entry.posts.push(post);
+      byTag.set(slug, entry);
+    }
+  }
+  return [...byTag].map(([slug, props]) => ({ params: { tag: slug }, props }));
+}) satisfies GetStaticPaths;
 
-const { tag } = Astro.props;
-const posts = (await getCollection('blog', ({ data }) => !data.draft))
-  .filter((post) => post.data.tags.some((t) => t.toLowerCase().replace(/[^a-z0-9]+/g, '-') === Astro.params.tag))
-  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const { tag, posts } = Astro.props;
 ---
-<Base title={`#${tag} | Taleeb Midi`}>
+<Base title={`#${tag} | ${SITE_TITLE}`}>
   <div class="wrap">
     <h1 class="page-title">#{tag}</h1>
     <ul class="posts">
       {posts.map((post) => (
         <li>
-          <time datetime={post.data.pubDate.toISOString().slice(0, 10)}>
-            {post.data.pubDate.toISOString().slice(0, 10)}
-          </time>
-          <a href={`/blog/${post.data.slug || post.id.replace(/\.md$/, '')}/`}>{post.data.title}</a>
+          <time datetime={isoDate(post.data.pubDate)}>{isoDate(post.data.pubDate)}</time>
+          <a href={postUrl(post)}>{post.data.title}</a>
         </li>
       ))}
     </ul>
